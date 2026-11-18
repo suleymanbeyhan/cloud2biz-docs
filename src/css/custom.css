@@ -238,8 +238,27 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
 }
 
 /* ===== Doküman sol menüsünün üstündeki arama ===== */
+/* Masaüstü kenar çubuğu: arama en üstte (menünün altında kalmasın), kategoriler hemen altında */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container > div:has(> .sidebar-search) {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .sidebar-search {
+    flex-shrink: 0;
+    padding-top: calc(var(--ifm-navbar-height) + 1.2rem) !important;
+  }
+  .sidebar-search + div {
+    flex: 1;
+    min-height: 0;
+    height: auto !important;
+    max-height: none !important;
+    padding-top: 0 !important;
+  }
+}
 .sidebar-search {
-  padding: 1rem 1rem 0.5rem;
+  padding: 1.2rem 1.3rem 0.8rem;
   background: #ffffff;
 }
 .sidebar-search .navbar__search { width: 100%; padding: 0; }
@@ -485,3 +504,12 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
 .hero-searchbox .navbar__search-input::placeholder { color: #999999; }
 .hero-searchbox .navbar__search-input:focus { box-shadow: inset 0 0 0 2px var(--c2b-orange); outline: none; }
 .hero-searchbox svg[class*='searchIcon'] { left: 1.1rem; width: 1.1rem; height: 1.1rem; color: #888888; }
+
+/* Kenar çubuğu aramasında öneri listesi sola yaslı açılsın (ekran dışına taşmasın) */
+.sidebar-search .navbar__search [class*='searchBar'] [class*='dropdownMenu'] {
+  left: 0 !important;
+  right: auto !important;
+}
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container { clip-path: none !important; overflow: visible !important; position: relative; z-index: 3; }
+}
