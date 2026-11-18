@@ -49,6 +49,14 @@ const config = {
         indexDocs: true,
         highlightSearchTermsOnTargetPage: true,
         searchBarShortcutHint: false,
+        // Platform bazlı arama: doküman sayfalarında yalnızca o platformda arar,
+        // ana sayfada ve arama sayfasında kategori seçilebilir.
+        searchContextByPaths: [
+          {label: {tr: 'Genel', en: 'General'}, path: 'docs/intro'},
+          {label: 'FlexoStack Cloud', path: 'docs/flexostack-cloud'},
+          {label: 'Object Storage', path: 'docs/object-storage'},
+        ],
+        useAllContextsWithNoSearchContext: true,
       },
     ],
   ],

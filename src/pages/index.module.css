@@ -62,33 +62,6 @@
   width: 130px;
 }
 
-/* ===== Arama ===== */
-.searchRow {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  box-shadow: 0 6px 20px rgba(13, 21, 41, 0.12);
-  border-radius: 4px;
-}
-.searchBox {
-  flex: 1;
-  min-width: 0;
-}
-.searchBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0 1.4rem;
-  border: 0;
-  border-radius: 0 4px 4px 0;
-  background: var(--c2b-orange);
-  color: #fff;
-  font: 600 1.1rem/1 var(--ifm-font-family-base);
-  cursor: pointer;
-  white-space: nowrap;
-}
-.searchBtn:hover { background: var(--c2b-orange-dark); }
-
 /* ===== Platform kartları ===== */
 .page {
   position: relative;
@@ -168,5 +141,4 @@
   .hero { padding: 3rem 1rem 4rem; }
   .heroBg { clip-path: none; }
   .heroInner h1 { font-size: 2rem; }
-  .searchBtn { padding: 0 1rem; font-size: 1rem; }
 }
