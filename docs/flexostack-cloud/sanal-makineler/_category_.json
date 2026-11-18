@@ -1,1 +1,9 @@
-{ "label": "Sanal Makineler", "position": 4 }
+{
+  "label": "Sanal Makineler",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/flexostack-cloud/sanal-makineler",
+    "description": "Sanal makine oluşturma, bağlanma, yönetim, imajlar ve SSH anahtarları."
+  }
+}

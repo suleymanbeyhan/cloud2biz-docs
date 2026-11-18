@@ -1,1 +1,10 @@
-{ "label": "İlk Adımlar", "position": 3, "collapsed": false }
+{
+  "label": "İlk Adımlar",
+  "position": 3,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "slug": "/flexostack-cloud/ilk-adimlar",
+    "description": "FlexoStack paneline giriş ve API erişimi."
+  }
+}

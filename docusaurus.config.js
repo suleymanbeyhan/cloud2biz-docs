@@ -81,8 +81,8 @@ const config = {
             position: 'left',
             items: [
               {label: 'Genel', to: '/docs/intro'},
-              {label: 'FlexoStack Cloud', to: '/docs/flexostack-cloud/genel-bakis'},
-              {label: 'Object Storage', to: '/docs/object-storage/genel-bakis'},
+              {label: 'FlexoStack Cloud', to: '/docs/flexostack-cloud'},
+              {label: 'Object Storage', to: '/docs/object-storage'},
             ],
           },
           {href: 'https://cloud2biz.com', label: 'cloud2biz.com', position: 'right'},

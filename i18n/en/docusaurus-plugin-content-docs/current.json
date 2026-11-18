@@ -30,5 +30,61 @@
   "sidebar.flexostackSidebar.category.Faturalandırma": {
     "message": "Billing",
     "description": "The label for category 'Faturalandırma' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Faturalandırma.link.generated-index.description": {
+    "message": "Fixed resource and PAYG billing, unit prices and calculators.",
+    "description": "The generated-index page description for category 'Faturalandırma' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Faturalandırma.link.generated-index.title": {
+    "message": "Billing",
+    "description": "The generated-index page title for category 'Faturalandırma' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.İlk Adımlar.link.generated-index.description": {
+    "message": "Logging in to the FlexoStack panel and API access.",
+    "description": "The generated-index page description for category 'İlk Adımlar' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.İlk Adımlar.link.generated-index.title": {
+    "message": "First Steps",
+    "description": "The generated-index page title for category 'İlk Adımlar' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Sanal Makineler.link.generated-index.description": {
+    "message": "Creating, connecting to and managing virtual machines, images and SSH keys.",
+    "description": "The generated-index page description for category 'Sanal Makineler' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Sanal Makineler.link.generated-index.title": {
+    "message": "Virtual Machines",
+    "description": "The generated-index page title for category 'Sanal Makineler' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Depolama ve Yedekleme.link.generated-index.description": {
+    "message": "Volumes, snapshots and backups.",
+    "description": "The generated-index page description for category 'Depolama ve Yedekleme' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Depolama ve Yedekleme.link.generated-index.title": {
+    "message": "Storage and Backup",
+    "description": "The generated-index page title for category 'Depolama ve Yedekleme' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Ağ.link.generated-index.description": {
+    "message": "Virtual networks, routers, floating IPs, security groups, load balancers and VPN.",
+    "description": "The generated-index page description for category 'Ağ' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Ağ.link.generated-index.title": {
+    "message": "Networking",
+    "description": "The generated-index page title for category 'Ağ' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Kubernetes.link.generated-index.description": {
+    "message": "Managed Kubernetes clusters.",
+    "description": "The generated-index page description for category 'Kubernetes' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.flexostackSidebar.category.Kubernetes.link.generated-index.title": {
+    "message": "Kubernetes",
+    "description": "The generated-index page title for category 'Kubernetes' in sidebar 'flexostackSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.SSS.link.generated-index.description": {
+    "message": "Frequently asked questions about Object Storage.",
+    "description": "The generated-index page description for category 'SSS' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.SSS.link.generated-index.title": {
+    "message": "FAQ",
+    "description": "The generated-index page title for category 'SSS' in sidebar 'objectStorageSidebar'"
   }
 }

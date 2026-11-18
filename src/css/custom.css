@@ -513,3 +513,8 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
 @media (min-width: 997px) {
   .theme-doc-sidebar-container { clip-path: none !important; overflow: visible !important; position: relative; z-index: 3; }
 }
+
+/* Platform ana sayfaları kenar çubuğunda gösterilmez */
+.menu__list-item.sidebar-hidden { display: none; }
+/* Kategori içindeki "Tümünü göster" bağlantısı */
+.sidebar-show-all > .menu__link { font-weight: 600; }

@@ -1,1 +1,9 @@
-{ "label": "Faturalandırma", "position": 2 }
+{
+  "label": "Faturalandırma",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "/flexostack-cloud/faturalandirma",
+    "description": "Sabit kaynak ve PAYG faturalandırması, birim fiyatlar ve hesaplayıcılar."
+  }
+}

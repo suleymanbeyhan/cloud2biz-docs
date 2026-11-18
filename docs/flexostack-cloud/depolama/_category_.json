@@ -1,1 +1,9 @@
-{ "label": "Depolama ve Yedekleme", "position": 5 }
+{
+  "label": "Depolama ve Yedekleme",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "slug": "/flexostack-cloud/depolama",
+    "description": "Diskler, snapshot'lar ve yedekleme."
+  }
+}

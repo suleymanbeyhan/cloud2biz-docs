@@ -12,8 +12,8 @@ const TEXT = {
     section: 'Platform seçin ve cevabınızı bulun',
     cards: [
       {title: 'Genel', desc: 'Cloud2Biz hesabı, müşteri paneli ve genel konular hakkında bilgiler', to: '/docs/intro'},
-      {title: 'FlexoStack Cloud', desc: 'Esnek bulut: sanal sunucular, ağ, depolama, Kubernetes, faturalandırma ve API', to: '/docs/flexostack-cloud/genel-bakis'},
-      {title: 'Object Storage', desc: 'S3 uyumlu nesne depolama: kullanım, SSS ve en iyi uygulamalar', to: '/docs/object-storage/genel-bakis'},
+      {title: 'FlexoStack Cloud', desc: 'Esnek bulut: sanal sunucular, ağ, depolama, Kubernetes, faturalandırma ve API', to: '/docs/flexostack-cloud'},
+      {title: 'Object Storage', desc: 'S3 uyumlu nesne depolama: kullanım, SSS ve en iyi uygulamalar', to: '/docs/object-storage'},
     ],
   },
   en: {
@@ -22,8 +22,8 @@ const TEXT = {
     section: 'Select a Platform and Find Your Answer',
     cards: [
       {title: 'General', desc: 'Information on your Cloud2Biz account, client area and general topics', to: '/docs/intro'},
-      {title: 'FlexoStack Cloud', desc: 'Flexible cloud: virtual servers, networking, storage, Kubernetes, billing and API', to: '/docs/flexostack-cloud/genel-bakis'},
-      {title: 'Object Storage', desc: 'S3-compatible object storage: usage, FAQ and best practices', to: '/docs/object-storage/genel-bakis'},
+      {title: 'FlexoStack Cloud', desc: 'Flexible cloud: virtual servers, networking, storage, Kubernetes, billing and API', to: '/docs/flexostack-cloud'},
+      {title: 'Object Storage', desc: 'S3-compatible object storage: usage, FAQ and best practices', to: '/docs/object-storage'},
     ],
   },
 };

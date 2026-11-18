@@ -14,7 +14,9 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "overrides": {
-    "webpack": "5.101.3"
+    "webpack": "5.101.3",
+    "@docusaurus/plugin-content-docs": "3.9.2",
+    "@docusaurus/theme-common": "3.9.2"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
@@ -31,8 +33,16 @@
     "@docusaurus/types": "3.9.2"
   },
   "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
-    "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
   },
   "engines": {
     "node": ">=20.0"
