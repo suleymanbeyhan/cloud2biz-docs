@@ -2,17 +2,5 @@
   "version.label": {
     "message": "Next",
     "description": "The label for version current"
-  },
-  "sidebar.tutorialSidebar.category.FlexoStack Cloud": {
-    "message": "FlexoStack Cloud",
-    "description": "The label for category 'FlexoStack Cloud' in sidebar 'tutorialSidebar'"
-  },
-  "sidebar.tutorialSidebar.category.Object Storage": {
-    "message": "Object Storage",
-    "description": "The label for category 'Object Storage' in sidebar 'tutorialSidebar'"
-  },
-  "sidebar.tutorialSidebar.category.SSS": {
-    "message": "SSS",
-    "description": "The label for category 'SSS' in sidebar 'tutorialSidebar'"
   }
 }
