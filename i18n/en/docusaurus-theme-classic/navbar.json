@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Docs",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Cloud2Biz",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Dokümantasyon": {
+    "message": "Documentation",
+    "description": "Navbar item with label Dokümantasyon"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.cloud2biz.com": {
+    "message": "cloud2biz.com",
+    "description": "Navbar item with label cloud2biz.com"
+  },
+  "item.label.Müşteri Paneli": {
+    "message": "Client Area",
+    "description": "Navbar item with label Müşteri Paneli"
+  }
+}

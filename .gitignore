@@ -1,0 +1,9 @@
+node_modules/
+build/
+build.new/
+build.old/
+.docusaurus/
+.cache-loader/
+*.log
+.env
+.env.*

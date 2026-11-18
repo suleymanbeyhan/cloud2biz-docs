@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Cloud2Biz Blog",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Bulut, sunucu ve depolama üzerine yazılar",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "Son yazılar",
+    "description": "The label for the left sidebar"
+  }
+}

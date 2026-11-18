@@ -1,0 +1,28 @@
+---
+sidebar_position: 3
+title: Fixed Resources Calculator
+sidebar_label: Fixed Resources Calculator
+description: Calculate your monthly and period cost for FlexoStack fixed resources based on your vCPU, RAM, disk, IP and license needs.
+---
+
+import FixedPriceCalculator from '@site/src/components/FixedPriceCalculator';
+
+Choose the resources you need and a billing period to calculate your FlexoStack [fixed resources](./sabit-kaynak.md) cost. Totals update instantly.
+
+<FixedPriceCalculator />
+
+## How the calculation works
+
+- **Unit price:** The monthly unit price for the selected billing period is used. Unit prices are lower for 6- and 12-month prepayment.
+- **Quantity discount:** For vCPU, RAM, disk and backup storage, once the quantity reaches a tier, the discount applies to the whole line:
+
+| Resource | 10% discount | 15% discount |
+| --- | --- | --- |
+| vCPU | 9–32 | 33 and above |
+| RAM | 33–64 GB | 65 GB and above |
+| Disk and backup storage | 4–20 TB | 20 TB and above |
+
+- **Period total:** Monthly total × period length (1, 6 or 12 months).
+- **Windows Server license:** Enter the number of virtual machines that will run Windows Server; the license is 25 USD per virtual machine per month regardless of vCPU count.
+
+Network traffic, Object Storage, SSL and taxes are not included. For all unit prices and billing rules, see [Fixed Resources Billing](./sabit-kaynak.md).

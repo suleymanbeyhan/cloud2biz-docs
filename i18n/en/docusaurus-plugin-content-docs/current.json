@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Object Storage": {
+    "message": "Object Storage",
+    "description": "The label for category 'Object Storage' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.SSS": {
+    "message": "FAQ",
+    "description": "The label for category 'SSS' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.FlexoStack Cloud": {
+    "message": "FlexoStack Cloud",
+    "description": "The label for category 'FlexoStack Cloud' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.İlk Adımlar": {
+    "message": "First Steps",
+    "description": "The label for category 'İlk Adımlar' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Sanal Makineler": {
+    "message": "Virtual Machines",
+    "description": "The label for category 'Sanal Makineler' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Depolama ve Yedekleme": {
+    "message": "Storage and Backup",
+    "description": "The label for category 'Depolama ve Yedekleme' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Ağ": {
+    "message": "Networking",
+    "description": "The label for category 'Ağ' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Kubernetes": {
+    "message": "Kubernetes",
+    "description": "The label for category 'Kubernetes' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Faturalandırma": {
+    "message": "Billing",
+    "description": "The label for category 'Faturalandırma' in sidebar 'tutorialSidebar'"
+  }
+}

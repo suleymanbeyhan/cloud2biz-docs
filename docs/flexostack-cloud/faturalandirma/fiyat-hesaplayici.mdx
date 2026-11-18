@@ -1,0 +1,28 @@
+---
+sidebar_position: 3
+title: Sabit Kaynak Hesaplayıcı
+sidebar_label: Sabit Kaynak Hesaplayıcı
+description: FlexoStack sabit kaynak modelinde vCPU, RAM, disk, IP ve lisans ihtiyacınıza göre aylık ve dönemlik maliyetinizi hesaplayın.
+---
+
+import FixedPriceCalculator from '@site/src/components/FixedPriceCalculator';
+
+İhtiyacınız olan kaynakları ve ödeme dönemini seçerek FlexoStack [sabit kaynak](./sabit-kaynak.md) maliyetinizi hesaplayın. Tutarlar anında güncellenir.
+
+<FixedPriceCalculator />
+
+## Hesaplama nasıl yapılır?
+
+- **Birim fiyat:** Seçtiğiniz ödeme dönemine göre aylık birim fiyat kullanılır. 6 ve 12 aylık peşin ödemelerde birim fiyatlar daha düşüktür.
+- **Miktar indirimi:** vCPU, RAM, disk ve yedekleme alanında, miktar ilgili kademeye ulaştığında indirim oranı o kalemin tamamına uygulanır:
+
+| Kaynak | %10 indirim | %15 indirim |
+| --- | --- | --- |
+| vCPU | 9–32 adet | 33 adet ve üzeri |
+| RAM | 33–64 GB | 65 GB ve üzeri |
+| Disk ve yedekleme alanı | 4–20 TB | 20 TB ve üzeri |
+
+- **Dönem toplamı:** Aylık toplam × dönem süresi (1, 6 veya 12 ay).
+- **Windows Server lisansı:** Windows Server çalıştıracağınız sanal makine sayısını girin; lisans bedeli vCPU sayısından bağımsız olarak sanal makine başına aylık 25 USD'dir.
+
+Hesaplamaya ağ trafiği, Object Storage, SSL ve vergiler dahil değildir. Tüm birim fiyatlar ve faturalandırma kuralları için [Sabit Kaynak Faturalandırması](./sabit-kaynak.md) sayfasına bakın.

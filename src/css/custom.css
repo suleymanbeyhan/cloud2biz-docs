@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+
+:root {
+  --c2b-orange: #f26b3a;
+  --c2b-orange-dark: #e0551f;
+  --c2b-text: #333333;
+  --c2b-muted: #8a8a8a;
+  --c2b-border: #e3e3e3;
+  --c2b-page: #f4f4f4;
+
+  --ifm-color-primary: #f26b3a;
+  --ifm-color-primary-dark: #f1561e;
+  --ifm-color-primary-darker: #f04b0f;
+  --ifm-color-primary-darkest: #b6390c;
+  --ifm-color-primary-light: #f47d52;
+  --ifm-color-primary-lighter: #f58861;
+  --ifm-color-primary-lightest: #f8b096;
+
+  --ifm-font-family-base: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-heading-color: var(--c2b-text);
+  --ifm-font-color-base: var(--c2b-text);
+  --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.75;
+
+  --ifm-background-color: var(--c2b-page);
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-height: 4rem;
+  --ifm-navbar-link-color: var(--c2b-text);
+  --ifm-footer-background-color: #ffffff;
+  --ifm-link-color: var(--c2b-orange);
+  --ifm-code-background: #e9e9e9;
+  --ifm-code-font-size: 90%;
+  --ifm-toc-border-color: transparent;
+  --doc-sidebar-width: 300px !important;
+  --docusaurus-highlighted-code-line-bg: rgba(242, 107, 58, 0.12);
+}
+
+/* ---------- Header ---------- */
+.navbar {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 0 1.5rem;
+}
+.navbar__logo { height: 2.2rem; margin-right: 0.6rem; }
+.navbar__logo img { height: 100%; }
+.navbar__title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: #555;
+  margin-right: 1.5rem;
+}
+.navbar__link { font-weight: 500; font-size: 0.98rem; }
+.navbar__link:hover, .navbar__link--active { color: var(--c2b-orange); }
+
+.navbar-cta {
+  background: var(--c2b-orange);
+  color: #fff !important;
+  border-radius: 999px;
+  padding: 0.3rem 1rem !important;
+  margin-left: 0.5rem;
+  font-weight: 700;
+  font-size: 0.85rem !important;
+}
+.navbar-cta:hover { background: var(--c2b-orange-dark); }
+.navbar-cta svg { display: none; }
+
+/* ---------- Sol menü (beyaz panel) ---------- */
+.theme-doc-sidebar-container {
+  background: #ffffff;
+  border-right: none !important;
+}
+.theme-doc-sidebar-menu { padding: 0.5rem 0 !important; }
+.menu { padding: 0 !important; }
+.menu__link { border-radius: 0; color: var(--c2b-text); }
+.menu__link:hover { background: #f6f6f6; color: var(--c2b-text); }
+
+/* Ana kategoriler: büyük yazı, aralarında çizgi */
+.theme-doc-sidebar-item-category-level-1,
+.theme-doc-sidebar-item-link-level-1 {
+  border-bottom: 1px solid var(--c2b-border);
+}
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-item-link-level-1 > .menu__link {
+  font-size: 1.08rem;
+  font-weight: 400;
+  padding: 0.7rem 1.3rem;
+}
+.menu__list-item-collapsible { border-radius: 0; }
+.menu__list-item-collapsible:hover { background: #f6f6f6; }
+
+/* Alt sayfalar: küçük yazı */
+.menu__list .menu__list .menu__link {
+  font-size: 0.84rem;
+  padding: 0.3rem 1.3rem 0.3rem 1.5rem;
+}
+.menu__list .menu__list { margin: 0 0 0.6rem; padding-left: 0; }
+
+/* Aktif sayfa: Hetzner'deki kırmızı şeridin turuncu hali */
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--c2b-orange) !important;
+  color: #ffffff !important;
+  font-weight: 500;
+}
+.menu__link--sublist.menu__link--active { color: var(--c2b-text); }
+.menu__caret::before, .menu__link--sublist-caret::after { opacity: 0.6; }
+
+/* ---------- İçerik ---------- */
+.theme-doc-markdown h1 { font-size: 2.6rem; margin-bottom: 2rem; }
+.markdown h2 { font-size: 2rem; margin-top: 3rem; }
+.markdown h3 { font-size: 1.5rem; margin-top: 2.2rem; }
+.markdown p, .markdown li { color: #444; }
+
+/* Breadcrumb: gri kutucuklar */
+.breadcrumbs__item .breadcrumbs__link {
+  background: #e6e6e6;
+  border-radius: 3px;
+  color: var(--c2b-text);
+  font-size: 0.95rem;
+}
+.breadcrumbs__item--active .breadcrumbs__link { background: transparent; }
+.breadcrumbs__item:not(:last-child)::after { opacity: 0.7; }
+
+/* ---------- Sağdaki İçindekiler ---------- */
+.table-of-contents { font-size: 0.82rem; padding-left: 0 !important; }
+.table-of-contents::before {
+  content: 'İÇİNDEKİLER';
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #777;
+  margin-bottom: 0.6rem;
+}
+html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
+.table-of-contents__link { color: var(--c2b-muted); }
+.table-of-contents__link:hover,
+.table-of-contents__link--active { color: var(--c2b-orange); }
+
+/* ---------- Not / uyarı kutuları (Hetzner tarzı sade) ---------- */
+.theme-admonition {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-left: 4px solid #cfcfcf;
+  border-radius: 0;
+  color: #777;
+}
+.theme-admonition-warning, .theme-admonition-danger { border-left-color: var(--c2b-orange); }
+.theme-admonition-tip { border-left-color: #3aa76d; }
+
+/* ---------- Kod blokları ---------- */
+.theme-code-block { box-shadow: none; border: 1px solid var(--c2b-border); }
+
+/* ---------- Footer ---------- */
+.footer { border-top: 1px solid var(--c2b-border); }
+.footer__link-item:hover { color: var(--c2b-orange); }
+
+/* ---------- Blog ---------- */
+.blog-wrapper article {
+  background: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== Header ve footer: cloud2biz.com siyahı ===== */
+:root {
+  --ifm-navbar-background-color: #000000;
+  --ifm-footer-background-color: #000000;
+}
+.navbar {
+  box-shadow: none;
+  height: 4.6rem;
+}
+.navbar__logo { height: 2.7rem; }
+.navbar__title { color: #bdbdbd; }
+
+.navbar--dark .navbar__link {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+.navbar--dark .navbar__link:hover,
+.navbar--dark .navbar__link--active { color: var(--c2b-orange); }
+
+.navbar-cta { border-radius: 4px; }
+
+/* Arama kutusu koyu zeminde */
+.navbar .navbar__search-input {
+  background: #1c1c1c;
+  color: #ffffff;
+}
+.navbar .navbar__search-input::placeholder { color: #9a9a9a; }
+
+/* Footer */
+.footer { border-top: none; }
+.footer--dark {
+  --ifm-footer-link-color: #cfcfcf;
+  --ifm-footer-title-color: #ffffff;
+}
+.footer__logo { opacity: 1; }
+.footer--dark .footer__copyright { color: #9a9a9a; }
+
+.navbar--dark { --ifm-navbar-background-color: #000000; background-color: #000000; }
+.footer--dark { --ifm-footer-background-color: #000000; background-color: #000000; }
+
+/* ===== Header: cloud2biz.com ile aynı hizalama ===== */
+.navbar { height: 4.75rem; padding: 0 15px; }
+.navbar__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.navbar__logo { height: 3.3rem; margin-right: 0.5rem; }
+.navbar__brand { margin-right: 2rem; }
+
+/* Header'daki aramayı gizle */
+.navbar .navbar__search { display: none !important; }
+
+/* ===== Ana sayfa: büyük arama kutusu ===== */
+.hero-search { margin-top: 2rem; max-width: 640px; }
+.hero-search .navbar__search { width: 100%; padding: 0; }
+.hero-search .navbar__search-input {
+  width: 100% !important;
+  height: 3.2rem;
+  font-size: 1.05rem;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  color: #333;
+  padding-left: 2.8rem;
+  background-position: 1rem center;
+}
+.hero-search .navbar__search-input:focus {
+  border-color: var(--c2b-orange);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(242, 107, 58, 0.15);
+}
+
+/* ===== Doküman sol menüsünün üstündeki arama ===== */
+.sidebar-search {
+  padding: 1rem 1rem 0.5rem;
+  background: #ffffff;
+}
+.sidebar-search .navbar__search { width: 100%; padding: 0; }
+.sidebar-search .navbar__search-input {
+  width: 100% !important;
+  height: 2.6rem;
+  background-color: #ffffff;
+  border: 2px solid #dcdcdc;
+  border-radius: 3px;
+  color: #333;
+}
+.sidebar-search .navbar__search-input:focus { border-color: var(--c2b-orange); outline: none; }
+
+/* ===== Arama kutusu tam genişlik ===== */
+.hero-search .algolia-autocomplete,
+.sidebar-search .algolia-autocomplete {
+  display: block !important;
+  width: 100%;
+}
+
+/* ===== Kompakt footer ===== */
+.footer { padding: 1.6rem 15px 1rem; }
+.footer > .container { max-width: 1140px; }
+.footer__links { margin-bottom: 0.8rem; }
+.footer__col { margin-bottom: 0.6rem; }
+.footer__title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+/* Linkleri alt alta değil yan yana diz */
+.footer__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.4rem;
+}
+.footer__item { line-height: 1.6; }
+.footer__link-item { font-size: 0.88rem; }
+
+/* Logo ve telif yazısı tek satırda */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-top: 1px solid #222;
+  padding-top: 0.9rem;
+  text-align: left;
+}
+.footer__bottom > div { margin: 0 !important; }
+.footer__logo { height: 28px !important; width: auto; margin: 0; }
+.footer__copyright { font-size: 0.8rem; }
+
+.footer__title {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.95rem;
+}
+
+/* ===== Tek satır footer: logo | linkler | telif ===== */
+.footer { padding: 1.2rem 15px; }
+.footer > .container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem 2rem;
+}
+.footer__bottom { display: contents; }
+.footer__bottom > div:first-child { order: 1; }
+.footer__links {
+  order: 2;
+  flex: 1;
+  margin: 0 !important;
+}
+.footer__copyright { order: 3; }
+
+.footer__links .footer__col { margin: 0; padding: 0; }
+.footer__title { display: none; }
+.footer__items {
+  justify-content: center;
+  margin: 0;
+}
+
+/* Mobilde alt alta, ortalı */
+@media (max-width: 996px) {
+  .footer > .container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* SSS (details) kutuları */
+.markdown details {
+  background: #ffffff;
+  border: 1px solid var(--c2b-border);
+  border-left: 3px solid var(--c2b-orange);
+  border-radius: 0;
+  box-shadow: none;
+  --docusaurus-details-decoration-color: var(--c2b-orange);
+}
+.markdown details summary { font-weight: 500; color: var(--c2b-text); }
+
+/* Tablolar */
+.markdown table { display: table; width: 100%; font-size: 0.92rem; }
+.markdown table thead tr { background: #e9e9e9; }
+.markdown table tr { background: #ffffff; }
