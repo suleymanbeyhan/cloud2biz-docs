@@ -35,6 +35,53 @@ This screen shows:
 If you opened the panel from the general address instead of your URL, the login screen may also ask for a domain name. Your domain name is the part of the URL after `/login/` (e.g. `Default`) and is case-sensitive.
 :::
 
+## Getting to Know the Panel
+
+### Dashboard
+
+After you log in, the **dashboard** opens first. It shows the resource usage of your account and the status of your virtual machines at a glance.
+
+![FlexoStack dashboard: CPU, RAM, floating IPs, storage space, VM status and top VMs](/img/flexostack/panel-dashboard.png)
+
+| Widget | What it shows |
+| --- | --- |
+| **CPU** | Your total vCPU quota, used (**Used**) and available (**Free**) vCPUs |
+| **RAM** | Total memory quota, used and available memory |
+| **Floating IPs** | Total floating IP quota and available floating IPs |
+| **Storage space** | Used and total storage by disk type (**iops**: Disk High IOPS, **economy**: Disk Economy) |
+| **VMs status** | Total number of VMs; running (**Running**), in progress (**In progress**), stopped (**Stopped**) and failed (**Error**) VMs |
+| **Top VMs** | VMs using the most resources by vCPU, RAM or storage |
+
+Use **Manage widgets** at the top right to choose which widgets appear on the dashboard. The top-right corner also has the project selector, notifications and your profile menu (including 2FA settings).
+
+:::tip
+Totals show your account quota. When you get close to the limit, you need to increase your quota to create new resources. For PAYG accounts, see [Quota Levels](../faturalandirma/payg.md#quota-levels).
+:::
+
+### Compute Menu
+
+Click the cube icon on the left to open the **Compute** menu. You manage all your FlexoStack resources from this menu.
+
+![FlexoStack Compute menu and Virtual machines screen](/img/flexostack/panel-compute.png)
+
+| Menu | Contents |
+| --- | --- |
+| **Virtual machines** | Create and manage virtual machines. See [Creating a Virtual Machine](../sanal-makineler/sanal-makine-olusturma.md) |
+| **Kubernetes** | Managed Kubernetes clusters. See [Kubernetes Clusters](../kubernetes/kubernetes-kumeleri.md) |
+| **Images** | Operating system images. See [Images](../sanal-makineler/imajlar.md) |
+| **Volumes** | Volumes and snapshots. See [Volumes and Snapshots](../depolama/diskler.md) |
+| **Networks** | Virtual networks. See [Virtual Networks](../ag/sanal-aglar.md) |
+| **VPN** | Site-to-site VPN connections. See [VPN](../ag/vpn.md) |
+| **Routers** | Virtual routers. See [Virtual Routers](../ag/sanal-routerlar.md) |
+| **Floating IPs** | Floating IP addresses. See [Floating IPs](../ag/floating-ip.md) |
+| **Security groups** | Security groups (firewall rules). See [Security Groups](../ag/security-groups.md) |
+| **Load balancers** | Load balancers. See [Load Balancers](../ag/load-balancer.md) |
+| **Backup plans** / **Recovery points** | Backup plans and the backups taken. See [Backups](../depolama/yedekleme.md) |
+| **SSH keys** | SSH keys. See [SSH Keys](../sanal-makineler/ssh-anahtarlari.md) |
+| **Migration** | Moving virtual machines from other platforms to FlexoStack (**Clouds**, **Migrations**) |
+
+On the **Virtual machines** screen you can see the name, status, IP address, vCPUs, RAM and storage of your virtual machines, and create a new one with **Create virtual machine**.
+
 ## Projects
 
 In FlexoStack, your resources are grouped into **projects**. A project is an isolated workspace with its own virtual machines, networks, volumes and quota. For example, you can keep production and testing in separate projects.

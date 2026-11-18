@@ -8,7 +8,7 @@ export default function CategoryWrapper(props) {
   if (!item.href) return <Category {...props} />;
   const showAll = {
     type: 'link',
-    label: i18n.currentLocale === 'en' ? 'Show all' : 'Tümünü göster',
+    label: i18n.currentLocale === 'en' ? 'Show All' : 'Tümünü Göster',
     href: item.href,
     className: 'sidebar-show-all',
     unlisted: false,

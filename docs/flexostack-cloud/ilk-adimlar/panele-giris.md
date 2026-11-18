@@ -35,6 +35,53 @@ Bu ekranda şu bilgiler yer alır:
 Panele URL'deki bağlantı yerine genel adresten girdiyseniz giriş ekranı domain adı da isteyebilir. Domain adınız, URL'de `/login/` ifadesinden sonra gelen kısımdır (ör. `Default`) ve büyük/küçük harfe duyarlıdır.
 :::
 
+## Paneli Tanıyın
+
+### Gösterge Paneli
+
+Giriş yaptığınızda ilk olarak **gösterge paneli** açılır. Burada hesabınızın kaynak kullanımını ve sanal makinelerinizin durumunu tek bakışta görebilirsiniz.
+
+![FlexoStack gösterge paneli: CPU, RAM, Floating IP, depolama alanı, sanal makine durumu ve en çok kaynak kullanan sanal makineler](/img/flexostack/panel-dashboard.png)
+
+| Kutucuk | Ne gösterir? |
+| --- | --- |
+| **CPU** | Hesabınızın toplam vCPU kotası, kullanılan (**Used**) ve boşta (**Free**) vCPU sayısı |
+| **RAM** | Toplam bellek kotası, kullanılan ve boşta bellek miktarı |
+| **Floating IPs** | Toplam floating IP kotası ve kullanılabilir floating IP sayısı |
+| **Storage space** | Disk tipine göre (**iops**: Disk High IOPS, **economy**: Disk Economy) kullanılan ve toplam depolama alanı |
+| **VMs status** | Toplam sanal makine sayısı; çalışan (**Running**), işlemdeki (**In progress**), durdurulmuş (**Stopped**) ve hata durumundaki (**Error**) sanal makineler |
+| **Top VMs** | vCPU, RAM veya depolama kullanımına göre en çok kaynak kullanan sanal makineler |
+
+Sağ üstteki **Manage widgets** butonuyla gösterge panelinde hangi kutucukların görüneceğini seçebilirsiniz. Sağ üst köşede ayrıca proje seçici, bildirimler ve profil menünüz (2FA ayarları dahil) bulunur.
+
+:::tip
+Toplam değerler hesabınızın kotasını gösterir. Kota sınırına yaklaştığınızda yeni kaynak oluşturabilmek için kotanızı artırmanız gerekir. PAYG hesaplarında kota artırma için [Kota Seviyeleri](../faturalandirma/payg.md#kota-seviyeleri) bölümüne bakın.
+:::
+
+### Compute Menüsü
+
+Sol taraftaki küp simgesine tıkladığınızda **Compute** menüsü açılır. Tüm FlexoStack kaynaklarınızı bu menüden yönetirsiniz.
+
+![FlexoStack Compute menüsü ve Virtual machines ekranı](/img/flexostack/panel-compute.png)
+
+| Menü | İçerik |
+| --- | --- |
+| **Virtual machines** | Sanal makinelerinizi oluşturma ve yönetme. Bkz. [Sanal Makine Oluşturma](../sanal-makineler/sanal-makine-olusturma.md) |
+| **Kubernetes** | Yönetilen Kubernetes kümeleri. Bkz. [Kubernetes Kümeleri](../kubernetes/kubernetes-kumeleri.md) |
+| **Images** | İşletim sistemi imajları. Bkz. [İmajlar](../sanal-makineler/imajlar.md) |
+| **Volumes** | Diskler ve snapshot'lar. Bkz. [Diskler ve Snapshot'lar](../depolama/diskler.md) |
+| **Networks** | Sanal ağlar. Bkz. [Sanal Ağlar](../ag/sanal-aglar.md) |
+| **VPN** | Site-to-Site VPN bağlantıları. Bkz. [VPN](../ag/vpn.md) |
+| **Routers** | Sanal router'lar. Bkz. [Sanal Router'lar](../ag/sanal-routerlar.md) |
+| **Floating IPs** | Floating IP adresleri. Bkz. [Floating IP](../ag/floating-ip.md) |
+| **Security groups** | Güvenlik grupları (güvenlik duvarı kuralları). Bkz. [Security Groups](../ag/security-groups.md) |
+| **Load balancers** | Load balancer'lar. Bkz. [Load Balancer](../ag/load-balancer.md) |
+| **Backup plans** / **Recovery points** | Yedekleme planları ve alınan yedekler. Bkz. [Yedekleme](../depolama/yedekleme.md) |
+| **SSH keys** | SSH anahtarları. Bkz. [SSH Anahtarları](../sanal-makineler/ssh-anahtarlari.md) |
+| **Migration** | Başka platformlardaki sanal makinelerinizi FlexoStack'e taşıma (**Clouds**, **Migrations**) |
+
+**Virtual machines** ekranında sanal makinelerinizin adını, durumunu, IP adresini, vCPU, RAM ve depolama bilgilerini görebilir; **Create virtual machine** butonuyla yeni bir sanal makine oluşturabilirsiniz.
+
 ## Projeler
 
 FlexoStack'te kaynaklarınız **projeler** altında gruplanır. Bir proje; kendi sanal makinelerine, ağlarına, disklerine ve kotasına sahip yalıtılmış bir çalışma alanıdır. Örneğin canlı ortamınızı ve test ortamınızı ayrı projelerde tutabilirsiniz.

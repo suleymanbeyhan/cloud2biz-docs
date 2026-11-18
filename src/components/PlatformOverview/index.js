@@ -9,8 +9,8 @@ import styles from './styles.module.css';
  * İçerik kenar çubuğundan otomatik üretilir; yeni sayfa eklendiğinde kendiliğinden güncellenir.
  */
 const T = {
-  tr: {general: 'Genel', more: 'Tümünü gör'},
-  en: {general: 'General', more: 'View more'},
+  tr: {general: 'Genel', more: 'Tümünü Gör'},
+  en: {general: 'General', more: 'View More'},
 };
 const LIMIT = 5;
 
