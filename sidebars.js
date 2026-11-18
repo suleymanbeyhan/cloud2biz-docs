@@ -4,7 +4,7 @@
  * Her platformun kendi kenar çubuğu vardır (Hetzner Docs gibi):
  * bir platformun sayfasına girildiğinde solda yalnızca o platformun konuları görünür.
  * Yeni platform eklerken: docs/ altına klasör açın, buraya bir kenar çubuğu ekleyin,
- * docusaurus.config.js'deki "Platform seçin" menüsüne, arama bağlamlarına ve
+ * docusaurus.config.js'deki "Platform Seçin" menüsüne, arama bağlamlarına ve
  * src/theme/DocBreadcrumbs/Items/Home/index.js içindeki PLATFORMS listesine ekleyin.
  *
  * @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}

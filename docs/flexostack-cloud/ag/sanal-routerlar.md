@@ -6,13 +6,13 @@ description: FlexoStack'te sanal ağları internete ve birbirine bağlayan sanal
 
 Sanal router, sanal ağlarınızı birbirine ve internete bağlayan yazılım tanımlı bir yönlendiricidir. Sanal ağlar varsayılan olarak dış dünyaya kapalıdır; bir router bağlanana kadar bu ağlardaki sunucular internete çıkamaz.
 
-## Router ne işe yarar?
+## Router Ne İşe Yarar? {#router-ne-işe-yarar}
 
 - **İnternet çıkışı (SNAT):** Floating IP'si olmayan sunucuların da internete çıkmasını (ör. güncelleme indirmesini) sağlar. Bu sunucular dışarıya router'ın genel IP adresiyle görünür.
 - **Floating IP:** Bir sanal ağdaki sunucuya [floating IP](./floating-ip.md) atayabilmek için o ağın, dış ağ geçidi tanımlı bir router'a bağlı olması gerekir.
 - **Ağlar arası yönlendirme:** Aynı router'a bağlı farklı sanal ağlar birbirleriyle haberleşebilir.
 
-## Router oluşturma
+## Router Oluşturma
 
 1. Panelde **Routers** ekranını açın ve **Add router** butonuna tıklayın.
 2. Router'a bir ad verin, örneğin `ana-router`.
@@ -21,7 +21,7 @@ Sanal router, sanal ağlarınızı birbirine ve internete bağlayan yazılım ta
 5. **Add interface** ile router'ı bağlamak istediğiniz sanal ağları ekleyin. Router, her ağın gateway adresini kullanır.
 6. **Create** butonuna tıklayın.
 
-## Arayüz ekleme ve çıkarma
+## Arayüz Ekleme ve Çıkarma
 
 Router oluşturulduktan sonra yeni sanal ağları bağlamak için:
 
@@ -30,7 +30,7 @@ Router oluşturulduktan sonra yeni sanal ağları bağlamak için:
 
 Bir ağı router'dan ayırmak için ilgili arayüzü **Delete** ile kaldırın. Ayırma işleminden sonra o ağdaki sunucular internete çıkamaz ve floating IP'leri çalışmaz.
 
-## Statik rotalar
+## Statik Rotalar
 
 Router'a statik rota ekleyerek belirli bir hedef ağa giden trafiği ağınızdaki bir sunucuya (ör. kendi kurduğunuz bir VPN veya güvenlik duvarı sunucusuna) yönlendirebilirsiniz:
 
@@ -38,11 +38,11 @@ Router'a statik rota ekleyerek belirli bir hedef ağa giden trafiği ağınızda
 2. **Add** butonuna tıklayın.
 3. **Destination** alanına hedef ağı (ör. `10.50.0.0/16`), **Next hop** alanına trafiğin gönderileceği sunucunun iç IP adresini girin.
 
-## Dış ağ geçidini kaldırma
+## Dış Ağ Geçidini Kaldırma
 
 Bir router'ın dış ağ geçidini kaldırırsanız router yalnızca bağlı sanal ağlar arasında yönlendirme yapar; internete çıkış ve floating IP erişimi durur. Bu yapı, internetle hiç bağlantısı olmaması gereken izole ortamlar için kullanılabilir.
 
-## Router'ı silme
+## Router'ı Silme
 
 Router'ı silmeden önce:
 

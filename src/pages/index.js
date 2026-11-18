@@ -9,7 +9,7 @@ const TEXT = {
   tr: {
     title: 'Cloud2Biz Docs',
     subtitle: 'İhtiyacınız olan yardımı rehberlerimiz ve dokümantasyonumuzda bulun.',
-    section: 'Platform seçin ve cevabınızı bulun',
+    section: 'Platform Seçin ve Cevabınızı Bulun',
     cards: [
       {title: 'Genel', desc: 'Cloud2Biz hesabı, müşteri paneli ve genel konular hakkında bilgiler', to: '/docs/intro'},
       {title: 'FlexoStack Cloud', desc: 'Esnek bulut: sanal sunucular, ağ, depolama, Kubernetes, faturalandırma ve API', to: '/docs/flexostack-cloud'},

@@ -13,18 +13,18 @@ Sabit kaynak modeli; web siteleri, veritabanları ve kurumsal uygulamalar gibi *
 İhtiyacınız olan kaynakları girerek aylık ve dönemlik tutarı görmek için [Sabit Kaynak Hesaplayıcı](./fiyat-hesaplayici.mdx) sayfasını kullanın.
 :::
 
-## Nasıl çalışır?
+## Nasıl Çalışır?
 
 1. [cloud2biz.com](https://cloud2biz.com) üzerinden ihtiyacınız olan lokasyon için FlexoStack sabit kaynak hizmetini satın alın (ör. **Flexostack - Sabit Kaynak - İstanbul**).
 2. Sipariş sırasında vCPU, RAM ve disk miktarlarını ve ödeme dönemini (aylık, 6 aylık veya 12 aylık) seçin.
 3. Ödeme tamamlandığında hizmetiniz aktif olur. FlexoStack paneline giriş bilgilerinize **Hizmetler** altındaki hizmetinizin **Giriş Detayları** sekmesinden ulaşabilirsiniz. Bkz. [Panele giriş](../ilk-adimlar/panele-giris.md).
 4. Satın aldığınız kaynak havuzunu panelde istediğiniz sayıda sanal makineye dağıtın. Örneğin 8 vCPU ve 16 GB RAM'lik bir havuzla 4 vCPU / 8 GB'lık bir, 2 vCPU / 4 GB'lık iki sanal makine oluşturabilirsiniz.
 
-## Birim fiyatlar
+## Birim Fiyatlar
 
 Tüm fiyatlar **USD** cinsindendir ve **aylık birim fiyattır**. 6 ve 12 aylık sütunlar, ilgili dönemi peşin ödediğinizde uygulanan aylık fiyatı gösterir.
 
-### İşlemci ve bellek
+### İşlemci ve Bellek
 
 | Kaynak | Birim | Aylık | 6 ay peşin | 12 ay peşin |
 | --- | --- | --- | --- | --- |
@@ -40,13 +40,13 @@ Tüm fiyatlar **USD** cinsindendir ve **aylık birim fiyattır**. 6 ve 12 aylık
 
 Disk, oluşturduğunuz boyut (ayrılan alan) üzerinden ücretlendirilir.
 
-### IP adresleri
+### IP Adresleri
 
 | Kaynak | Birim | Aylık | 6 ay peşin | 12 ay peşin |
 | --- | --- | --- | --- | --- |
 | Public IP | 1 adet | 2,00 | 1,90 | 1,80 |
 
-### Ağ trafiği
+### Ağ Trafiği
 
 Sabit kaynak modelinde ağ trafiği sabit ücrete dahil değildir. **Gelen (inbound)** ve **giden (outbound)** trafiğiniz ay boyunca ayrı ayrı ölçülür ve **ay sonunda** faturalandırılır. Trafik fiyatları PAYG ile aynıdır:
 
@@ -61,11 +61,11 @@ Sabit kaynak modelinde ağ trafiği sabit ücrete dahil değildir. **Gelen (inbo
 
 Örneğin bir ayda 1.500 GB giden trafik oluştuysa, ilk 1.024 GB ücretsizdir ve kalan 476 GB için ay sonunda 476 × 0,0070 = 3,33 USD faturalandırılır.
 
-### Windows Server lisansı
+### Windows Server Lisansı
 
 FlexoStack'teki Windows Server imajları **hazır olarak lisanslanmıştır**. Lisanslama **Windows Server Datacenter** lisansı ile yapılır ve bedeli **çekirdek (core) başına değil**, sanal makine başına **aylık 25 USD**'dir. Sanal makinenize kaç vCPU verirseniz verin lisans bedeli değişmez.
 
-### Load balancer
+### Load Balancer
 
 FlexoStack'te tek tip load balancer vardır. Load balancer başına sabit aylık ücret uygulanır; 6 ve 12 aylık peşin ödemelerde aylık fiyat değişmez.
 
@@ -73,21 +73,21 @@ FlexoStack'te tek tip load balancer vardır. Load balancer başına sabit aylık
 | --- | --- | --- | --- | --- |
 | Load balancer | 1 adet | 15,00 | 15,00 | 15,00 |
 
-### Snapshot ve yedekleme
+### Snapshot ve Yedekleme
 
-- **Snapshot:** 2 adet snapshot ücretsizdir. Daha fazlası için kullanılan alan, disk depolama ücreti üzerinden ücretlendirilir.
+- **Snapshot:** Snapshot ücretsizdir. Snapshot'lar disk kotanızdan kullanıldığı için ayrıca ücret alınmaz.
 - **Yedekleme:** [Yedekleme planları](../depolama/yedekleme.md) ve elle alınan yedekler için kullanılan yedekleme alanı GB bazında ücretlendirilir. **En az 100 GB** satın alınır; yedekleme kullanmayacaksanız satın almanız gerekmez.
 
 | Hizmet | Birim | Aylık | 6 ay peşin | 12 ay peşin |
 | --- | --- | --- | --- | --- |
 | Yedekleme alanı (en az 100 GB) | 1 GB | 0,0140 | 0,0133 | 0,0126 |
 
-### Ücretsiz hizmetler
+### Ücretsiz Hizmetler
 
 - vLAN, switch ve port bazlı güvenlik duvarı ([Security Groups](../ag/security-groups.md))
-- 2 adet snapshot
+- Snapshot
 
-## Miktar indirimleri
+## Miktar İndirimleri {#miktar-indirimleri}
 
 Satın aldığınız kaynak miktarı arttıkça birim fiyata indirim uygulanır:
 
@@ -100,7 +100,7 @@ Satın aldığınız kaynak miktarı arttıkça birim fiyata indirim uygulanır:
 
 Miktar indirimleri, 6 ve 12 aylık peşin ödeme fiyatlarına ek olarak uygulanır.
 
-## Ödeme dönemleri ve faturalar
+## Ödeme Dönemleri ve Faturalar
 
 | Dönem | Fatura | Avantaj |
 | --- | --- | --- |
@@ -113,7 +113,7 @@ Miktar indirimleri, 6 ve 12 aylık peşin ödeme fiyatlarına ek olarak uygulan�
 - Ay boyunca ölçülen **ağ trafiği** ay sonunda faturalandırılır.
 - Ödemelerinizi [cloud2biz.com müşteri panelinizden](https://cloud2biz.com/clientarea) kredi kartı veya banka kartıyla yapabilirsiniz.
 
-## Örnek hesaplama
+## Örnek Hesaplama
 
 **8 vCPU, 16 GB RAM, 200 GB Disk High IOPS ve 1 IP** içeren bir yapılandırma:
 
@@ -128,9 +128,9 @@ Miktar indirimleri, 6 ve 12 aylık peşin ödeme fiyatlarına ek olarak uygulan�
 
 Bu yapılandırmada 12 aylık peşin ödeme, aylık ödemeye göre yıllık yaklaşık 65,76 USD tasarruf sağlar. Kendi yapılandırmanızı hesaplamak için [Sabit Kaynak Hesaplayıcı](./fiyat-hesaplayici.mdx) sayfasını kullanın.
 
-## Kaynak değişiklikleri
+## Kaynak Değişiklikleri
 
-### Kaynak artırma (paket yükseltme)
+### Kaynak Artırma (Paket Yükseltme)
 
 Sabit kaynak satın aldıysanız FlexoStack hesabınızın kaynaklarını dönem sonunu beklemeden, **anında** artırabilirsiniz:
 
@@ -142,7 +142,7 @@ Sabit kaynak satın aldıysanız FlexoStack hesabınızın kaynaklarını dönem
 
 Ödeme tamamlandığında yeni kaynaklar FlexoStack hesabınıza anında tanımlanır ve kullanmaya başlayabilirsiniz.
 
-### Kaynak azaltma
+### Kaynak Azaltma
 
 FlexoStack hesabınızın kaynaklarını aynı **Paket yükseltme** ekranından azaltabilirsiniz. Bu durumda:
 
@@ -158,7 +158,7 @@ Disk alanı yalnızca artırılabilir; mevcut bir disk küçültülemez. Bu nede
 | **Kaynak artırma** | Ödeme sonrasında anında | Paket yükseltme sırasında ek ücret ödenir. |
 | **Kaynak azaltma** | Hemen | Ücret iadesi yapılmaz; bir sonraki ayın faturası azalır. |
 
-## Sabit kaynak mı, PAYG mi?
+## Sabit Kaynak mı, PAYG mi?
 
 | | Sabit kaynak | PAYG |
 | --- | --- | --- |

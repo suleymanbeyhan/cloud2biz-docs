@@ -175,8 +175,7 @@ You can also combine your physical servers with FlexoStack resources to build hy
 
 A snapshot captures your server at a specific point in time. Taking a snapshot before a configuration change or update lets you roll back instantly if something goes wrong.
 
-- **2 snapshots are free.**
-- Beyond that, only the storage you use is charged.
+- **Snapshots are free.** Snapshots use your disk quota, so no separate fee is charged.
 
 ### Backups
 
@@ -241,9 +240,9 @@ Yes. Since the infrastructure is fully virtualized, any image can run. Open a su
 </details>
 
 <details>
-<summary>How many snapshots can I take?</summary>
+<summary>Are snapshots charged?</summary>
 
-2 snapshots are free. Beyond that, the storage you use is charged.
+Snapshots are free. Snapshots use your disk quota, so no separate fee is charged.
 
 </details>
 

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: API Erişimi ve OpenStack CLI
-sidebar_label: API erişimi
+sidebar_label: API Erişimi
 description: FlexoStack OpenStack uyumlu API'sine erişim için ağ izni alma, API erişim bilgisi oluşturma ve OpenStack CLI ile kullanma.
 ---
 
@@ -12,7 +12,7 @@ API'ye bağlanmak için iki şeye ihtiyacınız vardır:
 1. Bağlanacağınız IP adresleri için **ağ izni**
 2. Panelden oluşturacağınız bir **API erişim bilgisi** (API credential)
 
-## 1. Ağ izni alın
+## 1. Ağ İzni Alın {#1-ağ-izni-alın}
 
 :::warning API erişimi için ağ izni gerekir
 API bağlantılarına ağ erişimi sınırlı olarak tanımlanmıştır. OpenStack API'si ile bağlanabilmek için [müşteri panelinden](https://cloud2biz.com/clientarea) bir destek talebi oluşturarak bağlanacağınız IP adresleri için ağ izni almanız gerekir.
@@ -25,14 +25,14 @@ Destek talebinizde şunları belirtin:
 
 Ağ izni tanımlandığında destek ekibi size bilgi verir.
 
-## 2. API erişim bilgisi oluşturun
+## 2. API Erişim Bilgisi Oluşturun
 
 API erişim bilgisi, uygulamaların ve betiklerin kullanıcı adı ve parola kullanmadan API'ye kimlik doğrulaması yapmasını sağlar. Her erişim bilgisi bir kullanıcıya ve bir projeye bağlıdır; bir **Credential ID** ve bir **API secret key** içerir.
 
 - Erişim bilgisi, sahibi olan kullanıcının o projedeki yetkilerinden fazlasını veremez.
 - Birden fazla projeye erişmek için her proje için ayrı bir erişim bilgisi oluşturmanız gerekir.
 
-### Oluşturma adımları
+### Oluşturma Adımları
 
 1. Panelde ilgili projeyi açın ve **Settings** > **API credentials** ekranına gidin.
 2. **Create** butonuna tıklayın.
@@ -53,9 +53,9 @@ API secret key oluşturma anında yalnızca bir kez görüntülenir ve daha sonr
 | **Expired** | Süresi dolmuş, artık kullanılamaz. |
 | **Revoked** | İptal edilmiş, artık kullanılamaz. |
 
-## 3. OpenStack CLI ile kullanın
+## 3. OpenStack CLI ile Kullanın
 
-### CLI kurulumu
+### CLI Kurulumu
 
 ```bash
 # Debian / Ubuntu
@@ -71,7 +71,7 @@ Load balancer ve Kubernetes komutları için ek istemcileri de kurabilirsiniz:
 pip install python-octaviaclient python-magnumclient
 ```
 
-### Ortam değişkenleri
+### Ortam Değişkenleri
 
 `openrc-flexostack.sh` adında bir dosya oluşturun ve kendi değerlerinizi girin:
 
@@ -90,7 +90,7 @@ source openrc-flexostack.sh
 openstack server list
 ```
 
-### Sık kullanılan komutlar
+### Sık Kullanılan Komutlar
 
 ```bash
 openstack server list                  # Sanal makineler
@@ -108,7 +108,7 @@ openstack server start web-01          # Sanal makineyi başlat
 İstemciniz API sertifikasına güvenmiyorsa komutlara `--insecure` ekleyebilirsiniz. Bu seçeneği yalnızca test amaçlı kullanın; kalıcı çözüm için güvenilir CA sertifikalarınızı güncel tutun.
 :::
 
-## Terraform ile kullanım
+## Terraform ile Kullanım
 
 FlexoStack, OpenStack Terraform sağlayıcısı (`terraform-provider-openstack`) ile çalışır. Aynı ortam değişkenleri Terraform tarafından da okunur:
 
@@ -135,7 +135,7 @@ resource "openstack_compute_instance_v2" "web" {
 }
 ```
 
-## Erişim bilgisini iptal etme veya silme
+## Erişim Bilgisini İptal Etme veya Silme {#erişim-bilgisini-iptal-etme-veya-silme}
 
 1. İlgili projede **Settings** > **API credentials** ekranını açın.
 2. Erişim bilgisini seçin ve sağ panelde **Delete** veya **Revoke** butonuna tıklayın.
@@ -143,7 +143,7 @@ resource "openstack_compute_instance_v2" "web" {
 
 İptal edilen, silinen veya süresi dolan bir erişim bilgisini kullanan uygulamalar artık kimlik doğrulaması yapamaz.
 
-## Güvenlik önerileri
+## Güvenlik Önerileri
 
 - API secret key'i kaynak kodunuza veya Git deposuna eklemeyin; ortam değişkeni veya gizli anahtar yöneticisi kullanın.
 - Her uygulama veya otomasyon için ayrı erişim bilgisi oluşturun; böylece birini iptal ettiğinizde diğerleri etkilenmez.

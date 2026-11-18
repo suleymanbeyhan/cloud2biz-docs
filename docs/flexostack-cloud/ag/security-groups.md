@@ -7,7 +7,7 @@ description: FlexoStack'te güvenlik grupları ile sanal makinelere gelen ve gid
 
 **Security group (güvenlik grubu)**, bu gruba atanmış sanal makinelere gelen ve giden trafiği kontrol eden ağ erişim kuralları kümesidir. Güvenlik grubu kurallarıyla, bir sanal ağ arayüzüne hangi tür ve yöndeki trafiğin erişebileceğini belirlersiniz. Güvenlik grupları sanal makinenin dışında, ağ katmanında uygulanır; sanal makine içinde ek bir yazılım gerektirmez.
 
-## Kurallar nasıl değerlendirilir?
+## Kurallar Nasıl Değerlendirilir?
 
 - Bir sanal makineye **birden fazla** güvenlik grubu atanabilir. Tüm gruplardaki kurallar birlikte değerlendirilir.
 - **Kuralların sırası önemli değildir**; ne tek bir grup içinde ne de gruplar arasında sıralama değerlendirmeyi etkiler.
@@ -16,7 +16,7 @@ description: FlexoStack'te güvenlik grupları ile sanal makinelere gelen ve gid
 - Kurallar birbirini tamamlar (kümülatiftir); çakışan veya tekrar eden kurallar sorun oluşturmaz.
 - Güvenlik grupları **durum bilgilidir (stateful)**: izin verilen bir bağlantının dönüş trafiği için ayrıca kural yazmanız gerekmez.
 
-## Default güvenlik grubu
+## Default Güvenlik Grubu
 
 Her proje için **default** adında bir güvenlik grubu otomatik olarak oluşturulur.
 
@@ -28,7 +28,7 @@ Her proje için **default** adında bir güvenlik grubu otomatik olarak oluştur
 Default grup tüm portlara erişime izin verdiği için, internete açık sunucularda yalnızca ihtiyaç duyduğunuz portları açan özel bir güvenlik grubu kullanın.
 :::
 
-## Güvenlik grubu oluşturma
+## Güvenlik Grubu Oluşturma
 
 1. Panelde **Security groups** ekranını açın ve **Create security group** butonuna tıklayın.
 2. Gruba açıklayıcı bir ad verin, örneğin `web-sunucu` veya `veritabani`.
@@ -36,7 +36,7 @@ Default grup tüm portlara erişime izin verdiği için, internete açık sunucu
 
 Yeni oluşturulan bir grupta, tüm **giden (egress)** trafiğe izin veren kurallar hazır gelir; **gelen (ingress)** trafik ise siz kural ekleyene kadar kapalıdır.
 
-## Kural alanları
+## Kural Alanları
 
 | Alan | Açıklama |
 | --- | --- |
@@ -46,13 +46,13 @@ Yeni oluşturulan bir grupta, tüm **giden (egress)** trafiğe izin veren kurall
 | **Remote** | Trafiğin kaynağı (ingress) veya hedefi (egress): bir **CIDR** (ör. `203.0.113.10/32`) veya başka bir **güvenlik grubu** |
 | **Ethertype** | IPv4 veya IPv6 |
 
-### Kaynak olarak güvenlik grubu kullanma
+### Kaynak Olarak Güvenlik Grubu Kullanma
 
 Kaynak olarak CIDR yerine başka bir güvenlik grubu seçtiğinizde, kural o gruba üye tüm sanal makinelerden gelen trafiğe izin verir. Örneğin veritabanı grubuna "yalnızca `web-sunucu` grubundan TCP 3306" kuralı eklerseniz, yeni web sunucuları eklendiğinde kuralı güncellemeniz gerekmez.
 
-## Örnek kural setleri
+## Örnek Kural Setleri
 
-### Web sunucusu
+### Web Sunucusu
 
 | Yön | Protokol | Port | Kaynak |
 | --- | --- | --- | --- |
@@ -60,21 +60,21 @@ Kaynak olarak CIDR yerine başka bir güvenlik grubu seçtiğinizde, kural o gru
 | Ingress | TCP | 443 | `0.0.0.0/0` |
 | Ingress | TCP | 22 | Ofis IP'niz, ör. `203.0.113.10/32` |
 
-### Veritabanı sunucusu
+### Veritabanı Sunucusu
 
 | Yön | Protokol | Port | Kaynak |
 | --- | --- | --- | --- |
 | Ingress | TCP | 3306 (MySQL) veya 5432 (PostgreSQL) | `web-sunucu` güvenlik grubu |
 | Ingress | TCP | 22 | Ofis IP'niz |
 
-### Windows sunucu
+### Windows Sunucu
 
 | Yön | Protokol | Port | Kaynak |
 | --- | --- | --- | --- |
 | Ingress | TCP | 3389 | Ofis IP'niz |
 | Ingress | ICMP | – | Ofis IP'niz (isteğe bağlı) |
 
-## Sanal makineye güvenlik grubu atama
+## Sanal Makineye Güvenlik Grubu Atama
 
 Güvenlik gruplarını hem yeni hem de mevcut sanal makinelere atayabilirsiniz:
 
@@ -83,11 +83,11 @@ Güvenlik gruplarını hem yeni hem de mevcut sanal makinelere atayabilirsiniz:
 
 Güvenlik gruplarına kural eklediğinizde veya kural kaldırdığınızda değişiklikler **anında**, sanal makineyi yeniden başlatmaya gerek kalmadan uygulanır.
 
-## Gelişmiş güvenlik duvarı ihtiyaçları
+## Gelişmiş Güvenlik Duvarı İhtiyaçları {#gelişmiş-güvenlik-duvarı-ihtiyaçları}
 
 Güvenlik grupları çoğu kullanım için yeterlidir. Daha gelişmiş ihtiyaçlar için (ör. derin paket inceleme, IPS) pfSense gibi açık kaynak yazılım güvenlik duvarları veya FortiGate (sanal ya da fiziksel) çözümleri de kullanılabilir. Bu seçenekler için destek ekibimizle iletişime geçebilirsiniz.
 
-## Sorun giderme
+## Sorun Giderme
 
 - **Bağlantı zaman aşımına uğruyor:** İlgili port için ingress kuralı olduğunu ve kaynak CIDR'ın kendi IP adresinizi kapsadığını kontrol edin. Kendi genel IP adresinizi öğrenmek için `curl ifconfig.me` komutunu kullanabilirsiniz.
 - **Kural doğru ama yine erişilemiyor:** Sanal makine içindeki güvenlik duvarını (ufw, firewalld, Windows Firewall) ve servisin ilgili portu dinlediğini kontrol edin (`ss -tlnp`).

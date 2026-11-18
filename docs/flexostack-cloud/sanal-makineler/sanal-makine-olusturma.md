@@ -6,7 +6,7 @@ description: FlexoStack'te sanal makine oluştururken kullanılan seçenekler, k
 
 FlexoStack'teki her sanal makine (VM), kendi sanal donanımına sahip bağımsız bir sunucudur. Fiziksel bir bilgisayar gibi çalışır; uygulamalarınız herhangi bir değişiklik gerektirmeden çalışır. Sanal makineler aynı fiziksel donanımı paylaşsa da dosya sistemi, süreçler ve ağ açısından birbirinden tamamen yalıtılmıştır.
 
-## Kaynak limitleri
+## Kaynak Limitleri
 
 Tek bir sanal makine için üst limitler şunlardır:
 
@@ -19,7 +19,7 @@ Tek bir sanal makine için üst limitler şunlardır:
 
 Projenizin toplam kaynakları ayrıca hesabınıza tanımlı kotalarla sınırlıdır. Kota artışı için destek talebi oluşturabilirsiniz.
 
-## Başlamadan önce
+## Başlamadan Önce
 
 Sanal makineyi oluşturmadan önce şunların hazır olması işinizi kolaylaştırır:
 
@@ -27,7 +27,7 @@ Sanal makineyi oluşturmadan önce şunların hazır olması işinizi kolaylaşt
 - Bir [SSH anahtarı](./ssh-anahtarlari.md) (Linux sunucular için)
 - Gerekli portları açan bir [güvenlik grubu](../ag/security-groups.md)
 
-## Oluşturma adımları
+## Oluşturma Adımları
 
 1. Panelde **Virtual machines** ekranını açın ve **Create virtual machine** butonuna tıklayın.
 2. Aşağıdaki bölümleri doldurun ve **Deploy** butonuna tıklayın.
@@ -36,7 +36,7 @@ Sanal makineyi oluşturmadan önce şunların hazır olması işinizi kolaylaşt
 
 Sanal makineye anlamlı bir ad verin, örneğin `web-01` veya `db-prod`. Linux imajlarında bu ad genellikle sunucunun hostname'i olarak da kullanılır.
 
-### Kaynak (source)
+### Kaynak (Source)
 
 Sanal makinenin neyden başlatılacağını seçin:
 
@@ -44,7 +44,7 @@ Sanal makinenin neyden başlatılacağını seçin:
 - **Disk (volume):** Daha önce hazırladığınız önyüklenebilir bir diskten başlatın.
 - **ISO:** İşletim sistemini kendiniz kurmak için bir ISO imajı seçin. Bu durumda kurulumu panel konsolu üzerinden yaparsınız.
 
-### Diskler (volumes)
+### Diskler (Volumes)
 
 - **Sistem diski:** Boyutunu ve disk tipini seçin. Boyut, seçtiğiniz imajın gerektirdiği minimum boyuttan küçük olamaz.
 - **Ek diskler:** İsterseniz veri için ek diskler ekleyebilirsiniz.
@@ -70,11 +70,11 @@ Flavor, sanal makinenin vCPU ve RAM miktarını belirleyen şablondur. İhtiyac�
 - Her ağ arayüzü için bir veya daha fazla **güvenlik grubu** seçin. Seçmezseniz **default** grubu atanır.
 - İsterseniz arayüze sabit bir IP adresi belirleyebilirsiniz; belirtmezseniz DHCP ile otomatik atanır.
 
-### SSH anahtarı (key pair)
+### SSH Anahtarı (Key Pair)
 
 Linux imajlarında, giriş için kullanılacak SSH anahtarını seçin. Anahtar yalnızca **oluşturma sırasında** sunucuya eklenir; sonradan panelden değiştirilemez.
 
-### Kullanıcı verisi (cloud-init)
+### Kullanıcı Verisi (cloud-init)
 
 **User data** alanına bir cloud-init betiği yazarak sunucuyu ilk açılışta otomatik yapılandırabilirsiniz. Örnek:
 
@@ -91,11 +91,11 @@ runcmd:
 
 Windows imajlarında cloudbase-init kullanılır ve PowerShell betikleri `#ps1_sysnative` satırıyla başlar.
 
-### Etiketler ve açıklama
+### Etiketler ve Açıklama
 
 Sanal makinelerinizi ayırt etmek için açıklama ve etiketler ekleyebilirsiniz. Açıklama alanına parola veya kişisel veri yazmayın.
 
-## Oluşturma sonrası
+## Oluşturma Sonrası
 
 Sanal makine birkaç dakika içinde **Active** durumuna geçer. Ardından:
 
@@ -103,7 +103,7 @@ Sanal makine birkaç dakika içinde **Active** durumuna geçer. Ardından:
 2. [Sanal makineye bağlanın](./sanal-makineye-baglanma.md).
 3. Önemli veriler için bir [yedekleme planı](../depolama/yedekleme.md) oluşturun.
 
-## Sanal makine durumları
+## Sanal Makine Durumları
 
 | Durum | Anlamı |
 | --- | --- |

@@ -79,7 +79,7 @@ Volume size can only be increased. To move to a smaller volume, create a new one
 
 A snapshot is an image of a volume at a specific point in time. Taking a snapshot before risky operations such as updates, configuration changes or software installations lets you quickly revert the volume if something goes wrong.
 
-- **2 snapshots are free.** Beyond that, the storage used is charged.
+- **Snapshots are free.** Snapshots use your disk quota, so no separate fee is charged.
 - Snapshots are kept on the same storage infrastructure as the volume. For protection against disasters, use [backups](./yedekleme.md) in addition to snapshots.
 
 ### Taking a Snapshot

@@ -11,7 +11,7 @@ Bir anahtar çifti iki parçadan oluşur:
 - **Özel anahtar (private key):** Bilgisayarınızda kalır, kimseyle paylaşılmaz.
 - **Genel anahtar (public key):** FlexoStack paneline eklenir ve sunuculara yerleştirilir.
 
-## Anahtar çifti oluşturma
+## Anahtar Çifti Oluşturma
 
 ### Linux ve macOS
 
@@ -40,7 +40,7 @@ PuTTY kullanıyorsanız anahtarı **PuTTYgen** ile oluşturup "Public key for pa
 Ed25519 daha kısa, hızlı ve güvenlidir; yeni anahtarlar için önerilir. Çok eski sistemlerle uyumluluk gerekiyorsa `ssh-keygen -t rsa -b 4096` ile RSA anahtarı oluşturabilirsiniz.
 :::
 
-## Panele anahtar ekleme
+## Panele Anahtar Ekleme
 
 1. Panelde **SSH keys** ekranını açın ve **Add key** butonuna tıklayın.
 2. Anahtara bir ad verin, örneğin `ahmet-laptop`.
@@ -49,7 +49,7 @@ Ed25519 daha kısa, hızlı ve güvenlidir; yeni anahtarlar için önerilir. Ço
 
 Panele yalnızca **genel anahtarı** (`.pub` uzantılı dosyanın içeriği) ekleyin. Özel anahtarınızı hiçbir zaman panele, e-postaya veya destek talebine yapıştırmayın.
 
-## Sanal makinede kullanma
+## Sanal Makinede Kullanma
 
 Sanal makine oluştururken **Key pair** alanında anahtarınızı seçin. Anahtar, ilk açılışta cloud-init tarafından varsayılan kullanıcının `~/.ssh/authorized_keys` dosyasına eklenir.
 
@@ -57,7 +57,7 @@ Sanal makine oluştururken **Key pair** alanında anahtarınızı seçin. Anahta
 Panelden seçilen SSH anahtarı sanal makineye yalnızca ilk oluşturma sırasında eklenir. Çalışan bir sunucuya yeni anahtar eklemek veya anahtar değiştirmek için aşağıdaki yöntemi kullanın.
 :::
 
-## Çalışan sunucuya anahtar ekleme
+## Çalışan Sunucuya Anahtar Ekleme
 
 Sunucuya bağlanabiliyorsanız yeni genel anahtarı `authorized_keys` dosyasına ekleyin:
 
@@ -72,13 +72,13 @@ Veya kendi bilgisayarınızdan:
 ssh-copy-id -i ~/.ssh/yeni_anahtar.pub KULLANICI@FLOATING_IP_ADRESI
 ```
 
-## Özel anahtarı kaybettiyseniz
+## Özel Anahtarı Kaybettiyseniz
 
 Özel anahtar kaybolduysa o anahtarla giriş yapılamaz. Erişimi geri kazanmak için:
 
 1. Panel [konsolu](./sanal-makineye-baglanma.md#panel-konsolu) üzerinden parola ile giriş yapabiliyorsanız yeni genel anahtarı `authorized_keys` dosyasına ekleyin.
 2. Konsolda parola tanımlı değilse [kurtarma modunu](./sanal-makine-yonetimi.md#kurtarma-modu-rescue) kullanarak sistem diskini bağlayın ve yeni anahtarı ilgili kullanıcının `.ssh/authorized_keys` dosyasına ekleyin.
 
-## Anahtarı silme
+## Anahtarı Silme
 
 **SSH keys** ekranında anahtarı seçip **Delete** butonuna tıklayın. Paneldeki anahtarı silmek, o anahtarın daha önce eklendiği sunuculardan kaldırılması anlamına gelmez; sunuculardaki `authorized_keys` dosyalarından ayrıca silmeniz gerekir.

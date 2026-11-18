@@ -6,7 +6,7 @@ description: FlexoStack sanal makinelerini başlatma, durdurma, yeniden boyutlan
 
 Bu sayfada sanal makinelerinizin günlük yönetimiyle ilgili tüm işlemleri bulabilirsiniz. İşlemlerin çoğu **Virtual machines** ekranında sanal makineyi seçtikten sonra sağ üstteki işlem menüsünden yapılır.
 
-## Güç işlemleri
+## Güç İşlemleri {#güç-işlemleri}
 
 | İşlem | Ne yapar? |
 | --- | --- |
@@ -22,7 +22,7 @@ Bu sayfada sanal makinelerinizin günlük yönetimiyle ilgili tüm işlemleri bu
 Bu işlemler işletim sistemine kapanma fırsatı vermez; yazılmakta olan veriler kaybolabilir veya dosya sistemi bozulabilir. Önce **Shut down** veya **Reboot** deneyin.
 :::
 
-## CPU ve RAM değiştirme
+## CPU ve RAM Değiştirme
 
 Sanal makinenin CPU ve RAM miktarını farklı bir flavor seçerek değiştirebilirsiniz:
 
@@ -38,7 +38,7 @@ Faturalandırma etkisi:
 
 Disk boyutunu büyütmek için [Diskler](../depolama/diskler.md#disk-boyutunu-büyütme) sayfasına bakın.
 
-## Ağ arayüzü ekleme ve çıkarma
+## Ağ Arayüzü Ekleme ve Çıkarma
 
 Bir sanal makineye en fazla 15 ağ arayüzü ekleyebilirsiniz:
 
@@ -48,7 +48,7 @@ Bir sanal makineye en fazla 15 ağ arayüzü ekleyebilirsiniz:
 
 Mevcut bir arayüzün güvenlik gruplarını da aynı sekmeden değiştirebilirsiniz; değişiklikler anında uygulanır.
 
-## Rafa kaldırma (Shelve)
+## Rafa Kaldırma (Shelve)
 
 Bir sanal makineyi uzun süre kullanmayacaksanız **rafa kaldırabilirsiniz**. Rafa kaldırılan sanal makine kapatılır ve ayrılmış **CPU ve RAM kaynakları serbest bırakılır**; diskleri, ağ yapılandırması ve IP adresleri korunur.
 
@@ -61,7 +61,7 @@ Rafa kaldırılmış bir sanal makinenin diskleri depolama alanı kullanmaya dev
 Yalnızca kapatılan (**Shut off**) bir sanal makine CPU ve RAM kaynaklarını ayırmaya devam eder. Kaynakları serbest bırakmak istiyorsanız rafa kaldırın.
 :::
 
-## ISO imajı bağlama
+## ISO İmajı Bağlama {#iso-imajı-bağlama}
 
 Bir sanal makineye ISO imajını sanal CD/DVD olarak bağlayabilirsiniz. Bu özellik işletim sistemi kurulumu, sürücü yükleme veya ISO'dan araç çalıştırma için kullanılır.
 
@@ -71,7 +71,7 @@ Bir sanal makineye ISO imajını sanal CD/DVD olarak bağlayabilirsiniz. Bu öze
 4. Gerekirse sanal makineyi yeniden başlatarak ISO'dan önyükleme yapın.
 5. İşiniz bittiğinde **Detach ISO** ile ISO'yu çıkarın.
 
-## Kurtarma modu (Rescue)
+## Kurtarma Modu (Rescue)
 
 Sanal makineniz açılmıyor, parolanızı unuttunuz veya dosya sistemi bozulduysa **kurtarma modunu** kullanabilirsiniz. Kurtarma modunda sanal makine geçici bir kurtarma imajıyla başlatılır ve kendi sistem diski ek disk olarak bağlanır.
 
@@ -89,11 +89,11 @@ sudo umount /mnt
 
 5. İşiniz bittiğinde **Unrescue** ile sanal makineyi normal haline döndürün.
 
-## Misafir araçları (guest tools)
+## Misafir Araçları (Guest Tools)
 
 Misafir araçları, sanal makine içinde çalışan küçük bir yardımcı yazılımdır. Yüklü olduğunda panel; parola belirleme, tutarlı disk snapshot'ları alma ve sanal makine hakkında ek bilgi gösterme gibi işlemleri yapabilir. Hazır imajlarımızın çoğunda misafir araçları yüklü gelir. Kendi imajınızda yüklemek için destek ekibimizden yardım alabilirsiniz.
 
-## Sanal makineyi silme
+## Sanal Makineyi Silme
 
 1. Sanal makineyi seçin ve **Delete** seçeneğine tıklayın.
 2. Sanal makineyle birlikte disklerinin de silinip silinmeyeceğini seçin.
@@ -103,26 +103,26 @@ Misafir araçları, sanal makine içinde çalışan küçük bir yardımcı yaz�
 Silinen sanal makine ve birlikte silinen diskler geri getirilemez. Silmeden önce gerekli verilerin [yedeğini](../depolama/yedekleme.md) aldığınızdan emin olun. Floating IP'ler sanal makineyle birlikte silinmez; kullanmıyorsanız **Floating IPs** ekranından ayrıca serbest bırakın.
 :::
 
-## Sorun giderme
+## Sorun Giderme
 
-### Sanal makine "Error" durumunda
+### Sanal Makine "Error" Durumunda
 
 - Sanal makine detayındaki hata mesajını kontrol edin. En sık neden yetersiz kotadır (CPU, RAM, disk veya IP).
 - Kotanızı kontrol edin; gerekirse kullanılmayan kaynakları silin veya kota artışı talep edin.
 - Hata mesajını ve sanal makine adını belirterek destek talebi oluşturun.
 
-### Sanal makine açılmıyor
+### Sanal Makine Açılmıyor
 
 - [Konsolu](./sanal-makineye-baglanma.md#panel-konsolu) açarak önyükleme sırasında ekrandaki mesajı kontrol edin.
 - Dosya sistemi veya önyükleyici sorunlarında [kurtarma modunu](#kurtarma-modu-rescue) kullanın.
 
-### Ağ bağlantısı yok
+### Ağ Bağlantısı Yok
 
 - Sanal makinenin ağ arayüzünün bağlı olduğunu ve IP adresi aldığını konsoldan kontrol edin (`ip a`).
 - Ağın bir router'a bağlı olduğunu ve router'ın dış ağ geçidinin tanımlı olduğunu kontrol edin.
 - Güvenlik grubu kurallarını ve sunucu içi güvenlik duvarını kontrol edin.
 
-### Performans sorunu
+### Performans Sorunu
 
 - Panelde sanal makinenin **Monitoring** sekmesinden CPU, RAM, disk ve ağ kullanımını inceleyin.
 - Disk yoğun uygulamalar için **Disk High IOPS** tipini kullandığınızdan emin olun.

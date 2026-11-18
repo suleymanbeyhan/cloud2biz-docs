@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Diskler (Volumes) ve Snapshot'lar
-sidebar_label: Diskler ve snapshot'lar
+sidebar_label: Diskler ve Snapshot'lar
 description: FlexoStack'te disk oluşturma, sanal makineye bağlama, boyut büyütme, snapshot alma ve snapshot'tan geri dönme.
 ---
 
@@ -9,7 +9,7 @@ FlexoStack'te sanal makinelerin tüm verileri **disklerde (volumes)** tutulur. D
 
 Diskleriniz, yüksek erişilebilirlikli ve yedekli bir depolama altyapısında saklanır; tek bir fiziksel diskin veya sunucunun arızalanması verilerinizin kaybolmasına neden olmaz.
 
-## Disk tipleri
+## Disk Tipleri
 
 | Disk tipi | Teknoloji | Performans | Önerilen kullanım |
 | --- | --- | --- | --- |
@@ -18,7 +18,7 @@ Diskleriniz, yüksek erişilebilirlikli ve yedekli bir depolama altyapısında s
 
 Disk tipi oluşturma sırasında seçilir.
 
-## Disk oluşturma
+## Disk Oluşturma
 
 1. Panelde **Volumes** ekranını açın ve **Create volume** butonuna tıklayın.
 2. Diske bir ad verin ve boyutunu (GB) girin.
@@ -26,7 +26,7 @@ Disk tipi oluşturma sırasında seçilir.
 4. İsterseniz kaynak seçin: boş disk, bir imajdan veya bir snapshot'tan.
 5. **Create** butonuna tıklayın.
 
-## Diski sanal makineye bağlama
+## Diski Sanal Makineye Bağlama
 
 1. **Volumes** ekranında diski seçin ve **Attach** seçeneğine tıklayın.
 2. Sanal makineyi seçin ve onaylayın.
@@ -48,14 +48,14 @@ echo "UUID=$(sudo blkid -s UUID -o value /dev/vdb) /veri ext4 defaults,nofail 0 
 
 Windows'ta yeni diski **Disk Yönetimi** (`diskmgmt.msc`) üzerinden çevrimiçi yapıp biçimlendirebilirsiniz.
 
-## Diski sanal makineden ayırma
+## Diski Sanal Makineden Ayırma
 
 1. Disk sanal makine içinde kullanılıyorsa önce işletim sisteminden ayırın (Linux'ta `sudo umount /veri`).
 2. **Volumes** ekranında diski seçin ve **Detach** seçeneğine tıklayın.
 
 Sistem diski (önyükleme diski) çalışan bir sanal makineden ayrılamaz.
 
-## Disk boyutunu büyütme
+## Disk Boyutunu Büyütme
 
 Disk boyutunu dilediğiniz zaman büyütebilirsiniz:
 
@@ -80,10 +80,10 @@ Disk boyutu yalnızca artırılabilir. Daha küçük bir diske geçmek için yen
 
 Snapshot, bir diskin belirli bir andaki görüntüsüdür. Güncelleme, yapılandırma değişikliği veya yazılım kurulumu gibi riskli işlemlerden önce snapshot almanız, bir sorun çıktığında diski hızla eski haline döndürmenizi sağlar.
 
-- **2 adet snapshot ücretsizdir.** Daha fazla snapshot için kullanılan depolama alanı ücretlendirilir.
+- **Snapshot ücretsizdir.** Snapshot'lar disk kotanızdan kullanıldığı için ayrıca ücret alınmaz.
 - Snapshot'lar diskle aynı depolama altyapısında tutulur. Felaket senaryolarına karşı koruma için snapshot'lara ek olarak [yedekleme](./yedekleme.md) kullanın.
 
-### Snapshot alma
+### Snapshot Alma
 
 1. **Volumes** ekranında diski seçin.
 2. **Snapshots** sekmesinde **Create snapshot** butonuna tıklayın.
@@ -93,7 +93,7 @@ Snapshot, bir diskin belirli bir andaki görüntüsüdür. Güncelleme, yapılan
 Veritabanı çalışan sunucularda snapshot öncesinde uygulamayı durdurmak veya misafir araçlarının yüklü olması, tutarlı bir snapshot elde etmenizi sağlar.
 :::
 
-### Snapshot'tan geri dönme
+### Snapshot'tan Geri Dönme
 
 Bir diski snapshot alındığı ana döndürmek için:
 
@@ -105,10 +105,10 @@ Bir diski snapshot alındığı ana döndürmek için:
 Snapshot'a geri dönüldüğünde, snapshot alındıktan sonra diske yazılan tüm veriler kaybolur.
 :::
 
-### Snapshot'tan yeni disk oluşturma
+### Snapshot'tan Yeni Disk Oluşturma
 
 Mevcut diske dokunmadan eski verilere erişmek için snapshot'tan yeni bir disk oluşturabilir ve bu diski bir sanal makineye bağlayabilirsiniz. Bu yöntem, tek bir dosyayı geri almak için en güvenli yoldur.
 
-## Diski silme
+## Diski Silme
 
 **Volumes** ekranında diski seçin ve **Delete** butonuna tıklayın. Silinen disk ve ona ait snapshot'lar geri getirilemez. Sanal makineye bağlı bir disk silinemez; önce ayırın.

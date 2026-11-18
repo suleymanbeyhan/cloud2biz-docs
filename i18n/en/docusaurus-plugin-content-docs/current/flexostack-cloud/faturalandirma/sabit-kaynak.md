@@ -75,7 +75,7 @@ FlexoStack offers a single load balancer type. A fixed monthly fee applies per l
 
 ### Snapshots and Backups
 
-- **Snapshots:** 2 snapshots are free. Beyond that, the space used is billed at the disk storage rate.
+- **Snapshots:** Snapshots are free. Snapshots use your disk quota, so no separate fee is charged.
 - **Backups:** Backup storage used by [backup plans](../depolama/yedekleme.md) and manual backups is billed per GB. The **minimum purchase is 100 GB**; if you do not use backups, you do not need to buy any.
 
 | Service | Unit | Monthly | 6 months prepaid | 12 months prepaid |
@@ -85,7 +85,7 @@ FlexoStack offers a single load balancer type. A fixed monthly fee applies per l
 ### Free Services
 
 - vLAN, switch and port-based firewall ([Security Groups](../ag/security-groups.md))
-- 2 snapshots
+- Snapshots
 
 ## Quantity Discounts
 

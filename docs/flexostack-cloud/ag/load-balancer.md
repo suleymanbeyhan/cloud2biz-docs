@@ -6,7 +6,7 @@ description: FlexoStack'te load balancer oluşturma, dinleyiciler, dengeleme hav
 
 **Load balancer (yük dengeleyici)**, gelen trafiği birden fazla sanal makine arasında dağıtır. Böylece uygulamanız daha fazla kullanıcıya hizmet verebilir ve sunuculardan biri arızalandığında trafik otomatik olarak sağlıklı sunuculara yönlendirilir.
 
-## Temel kavramlar
+## Temel Kavramlar
 
 ```text
                  İnternet
@@ -41,7 +41,7 @@ FlexoStack'te tek tip load balancer vardır; boyut seçimi yapmanız gerekmez:
 
 Ayrıntılar için [Faturalandırma](../faturalandirma/sabit-kaynak.md#load-balancer) sayfasına bakın.
 
-## Load balancer oluşturma
+## Load Balancer Oluşturma
 
 1. Panelde **Load balancers** ekranını açın ve **Create load balancer** butonuna tıklayın.
 2. Bir ad girin ve load balancer'ın çalışacağı **sanal ağı** seçin. Bu ağ, arka uç sunucularınızın bulunduğu ağ olmalıdır.
@@ -50,9 +50,9 @@ Ayrıntılar için [Faturalandırma](../faturalandirma/sabit-kaynak.md#load-bala
 5. Bir veya daha fazla **dengeleme havuzu** ekleyin (aşağıya bakın).
 6. **Create** butonuna tıklayın.
 
-## Dengeleme havuzu ayarları
+## Dengeleme Havuzu Ayarları
 
-### Protokol ve port
+### Protokol ve Port
 
 Dinleyici protokolünü ve portunu (ön uç) ve üyelerin uygulama portunu (arka uç) belirlersiniz:
 
@@ -65,7 +65,7 @@ Dinleyici protokolünü ve portunu (ön uç) ve üyelerin uygulama portunu (arka
 
 **TLS sonlandırma** kullanıyorsanız SSL sertifikanızı ve özel anahtarınızı load balancer'a yüklersiniz. Bu sayede sertifikayı tek bir yerden yönetirsiniz ve şifreleme yükü sunuculardan alınır.
 
-### Dengeleme algoritması
+### Dengeleme Algoritması
 
 | Algoritma | Davranış | Ne zaman kullanılır? |
 | --- | --- | --- |
@@ -73,19 +73,19 @@ Dinleyici protokolünü ve portunu (ön uç) ve üyelerin uygulama portunu (arka
 | **Least connections** | İsteği en az aktif bağlantısı olan üyeye gönderir. | Uzun süren bağlantılar veya değişken işlem süreleri |
 | **Source IP** | Aynı istemci IP'sini her zaman aynı üyeye gönderir. | Oturum bilgisini sunucuda tutan uygulamalar |
 
-### Oturum kalıcılığı (sticky sessions)
+### Oturum Kalıcılığı (Sticky Sessions)
 
 Uygulamanız oturum bilgisini sunucu belleğinde tutuyorsa, bir kullanıcının tüm isteklerinin aynı sunucuya gitmesi için oturum kalıcılığını etkinleştirebilirsiniz (ör. kaynak IP veya HTTP çerezi bazlı).
 
-### HTTP başlıkları
+### HTTP Başlıkları
 
 HTTP dinleyicilerinde load balancer, istemcinin gerçek IP adresini sunuculara iletmek için `X-Forwarded-For` gibi başlıklar ekleyebilir. Web sunucunuzun günlüklerinde gerçek ziyaretçi IP'lerini görmek için bu başlığı kullanın.
 
-### İzin verilen CIDR'lar
+### İzin Verilen CIDR'lar
 
 Havuza yalnızca belirli IP aralıklarından erişilmesini istiyorsanız **Allowed CIDRs** alanına bu aralıkları CIDR formatında ekleyin (ör. `203.0.113.0/24`). Boş bırakılırsa tüm adreslerden erişime izin verilir.
 
-### Sağlık kontrolü
+### Sağlık Kontrolü
 
 Sağlık kontrolü, üyelere düzenli aralıklarla istek göndererek çalışıp çalışmadıklarını denetler:
 
@@ -97,7 +97,7 @@ Sağlık kontrolü, üyelere düzenli aralıklarla istek göndererek çalışıp
 Uygulamanızda veritabanı bağlantısı gibi temel bağımlılıkları da kontrol eden basit bir `/health` adresi oluşturup HTTP sağlık kontrolünde bu adresi kullanmak, sorunlu sunucuların trafikten daha doğru şekilde çıkarılmasını sağlar.
 :::
 
-## Havuz üyelerini yönetme
+## Havuz Üyelerini Yönetme
 
 1. Load balancer'ı seçin ve ilgili dengeleme havuzunu açın.
 2. **Members** bölümünde **Add** ile sanal makine ekleyin veya mevcut üyeleri kaldırın.
@@ -105,11 +105,11 @@ Uygulamanızda veritabanı bağlantısı gibi temel bağımlılıkları da kontr
 
 Bakım yapacağınız bir sunucuyu havuzdan geçici olarak çıkararak trafiği kesintisiz şekilde diğer üyelere yönlendirebilirsiniz.
 
-## Güvenlik grupları
+## Güvenlik Grupları
 
 Havuz üyesi sanal makinelerin güvenlik gruplarında, uygulama portuna load balancer'ın bulunduğu ağdan gelen trafiğe ve sağlık kontrollerine izin verildiğinden emin olun. Aksi halde üyeler sağlıksız görünür ve trafik almaz.
 
-## Havuzu düzenleme ve silme
+## Havuzu Düzenleme ve Silme
 
 - **Edit:** Dengeleme ayarlarını (başlıklar, TLS, algoritma, oturum kalıcılığı) değiştirir.
 - **Edit allowed CIDRs:** İzin verilen IP aralıklarını düzenler.

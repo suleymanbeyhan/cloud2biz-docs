@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
 title: Sanal Ağlar (Private Network)
-sidebar_label: Sanal ağlar
+sidebar_label: Sanal Ağlar
 description: FlexoStack'te dış erişime kapalı, izole sanal ağlar oluşturma; alt ağ, DHCP ve DNS ayarları.
 ---
 
 FlexoStack'te sunucularınızı **sanal ağlar (Private Network)** üzerinde birbirine bağlarsınız. Sanal ağlar yazılım tanımlı ağ (SDN) teknolojisiyle oluşturulur; her proje kendi ağlarına sahiptir ve bu ağlar diğer müşterilerin ağlarından tamamen yalıtılmıştır.
 
-## Ağ türleri
+## Ağ Türleri
 
 | Tür | Açıklama |
 | --- | --- |
@@ -16,7 +16,7 @@ FlexoStack'te sunucularınızı **sanal ağlar (Private Network)** üzerinde bir
 
 Önerilen yapı; sunucularınızı sanal ağlara bağlamak, internet çıkışını bir [router](./sanal-routerlar.md) üzerinden sağlamak ve dışarıdan erişilmesi gereken sunuculara [floating IP](./floating-ip.md) atamaktır.
 
-## Sanal ağ oluşturma
+## Sanal Ağ Oluşturma
 
 1. Panelde **Networks** ekranını açın ve **Create virtual network** butonuna tıklayın.
 2. Ağa bir ad verin, örneğin `uygulama-agi`.
@@ -36,7 +36,7 @@ FlexoStack'te sunucularınızı **sanal ağlar (Private Network)** üzerinde bir
 Farklı sanal ağlar için çakışmayan aralıklar kullanın (ör. `192.168.10.0/24`, `192.168.20.0/24`). Ofis ağınızla [Site-to-Site VPN](./vpn.md) kurmayı planlıyorsanız ofisinizdeki aralıklarla da çakışmamasına dikkat edin.
 :::
 
-## Örnek ağ mimarisi
+## Örnek Ağ Mimarisi
 
 Çok katmanlı bir uygulama için örnek yapı:
 
@@ -56,19 +56,19 @@ Farklı sanal ağlar için çakışmayan aralıklar kullanın (ör. `192.168.10.
 
 Bu yapıda veritabanı sunucularının floating IP'si yoktur; internetten doğrudan erişilemezler. [Security Groups](./security-groups.md) ile veritabanı portuna yalnızca web ağından erişim izni verilir.
 
-## Ağ ayarlarını düzenleme
+## Ağ Ayarlarını Düzenleme
 
 **Networks** ekranında ağı seçip **Edit** ile adını, DNS sunucularını ve DHCP ayarlarını değiştirebilirsiniz. Alt ağ CIDR'ı oluşturulduktan sonra değiştirilemez; farklı bir aralığa ihtiyacınız varsa yeni bir ağ oluşturun.
 
-## Sanal makineyi ağa bağlama
+## Sanal Makineyi Ağa Bağlama
 
 - Yeni bir sanal makineyi oluştururken **Networks** bölümünde ağı seçin.
 - Çalışan bir sanal makineye yeni bir ağ arayüzü eklemek için sanal makinenin **Networks** sekmesini kullanın. Bkz. [Sanal makine yönetimi](../sanal-makineler/sanal-makine-yonetimi.md#ağ-arayüzü-ekleme-ve-çıkarma).
 
-## Sanal ağı silme
+## Sanal Ağı Silme
 
 Bir ağı silmeden önce o ağa bağlı tüm sanal makine arayüzlerini, router arayüzlerini ve load balancer'ları kaldırmanız gerekir. Ardından **Networks** ekranında ağı seçip **Delete** butonuna tıklayın.
 
-## MTU hakkında
+## MTU Hakkında
 
 Sanal ağlar VXLAN kapsüllemesi kullandığı için, sanal makine içindeki MTU değeri standart 1500'den biraz düşük olabilir. Hazır imajlarda MTU, DHCP üzerinden otomatik ayarlanır. Kendi imajlarınızda veya VPN/tünel kurulumlarında büyük paketlerle ilgili sorun yaşarsanız MTU değerini kontrol edin.

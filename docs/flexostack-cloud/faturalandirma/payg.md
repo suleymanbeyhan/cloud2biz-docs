@@ -9,7 +9,7 @@ description: FlexoStack PAYG modelinde hesap açma, ölçülen kaynaklar, saatli
 
 PAYG; test ve geliştirme ortamları, kısa süreli projeler, kampanya dönemleri ve yükü gün içinde değişen uygulamalar için idealdir.
 
-## PAYG hesabı açma
+## PAYG Hesabı Açma
 
 PAYG modelini kullanmaya başlamak için cloud2biz.com üzerinden bir PAYG hesabı satın almanız gerekir:
 
@@ -20,7 +20,7 @@ PAYG modelini kullanmaya başlamak için cloud2biz.com üzerinden bir PAYG hesab
 
 Hesabınız aktif olduktan sonra FlexoStack paneline giriş bilgilerinize **Hizmetler** altındaki PAYG hizmetinizin **Giriş Detayları** sekmesinden ulaşabilirsiniz. Bkz. [Panele giriş](../ilk-adimlar/panele-giris.md).
 
-## Neler ölçülür?
+## Neler Ölçülür?
 
 | Kaynak | Nasıl ölçülür? |
 | --- | --- |
@@ -32,18 +32,18 @@ Hesabınız aktif olduktan sonra FlexoStack paneline giriş bilgilerinize **Hizm
 | **Ağ trafiği** | Gelen (inbound) ve giden (outbound) trafik |
 | **Windows Server lisansı** | Windows Server imajıyla çalışan sanal makineler |
 
-### Ayrılan kaynak ölçülür, kullanılan değil
+### Ayrılan Kaynak Ölçülür, Kullanılan Değil
 
 Ölçüm, kaynakların **ne kadarının kullanıldığına göre değil, ne kadarının ayrıldığına (allocate edildiğine) göre** yapılır:
 
 - 4 vCPU ve 8 GB RAM ile oluşturulan bir sanal makine, işlemci kullanımı düşük olsa bile 4 vCPU ve 8 GB RAM üzerinden ölçülür.
 - 100 GB olarak oluşturulan bir disk, içinde yalnızca 10 GB veri olsa bile 100 GB üzerinden ölçülür.
 
-## Saatlik birim fiyatlar
+## Saatlik Birim Fiyatlar
 
 Tüm fiyatlar **USD** cinsindendir. vCPU, RAM ve diskte, kullanım miktarı arttıkça birim fiyat kademeli olarak düşer: her kademedeki miktar o kademenin fiyatıyla ücretlendirilir.
 
-### İşlemci ve bellek
+### İşlemci ve Bellek
 
 | Kaynak | Kademe | Saatlik fiyat | Aylık karşılığı (730 saat) |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ Tüm fiyatlar **USD** cinsindendir. vCPU, RAM ve diskte, kullanım miktarı artt
 | Disk Economy (SAS) | 4–20 TB (%10 indirimli) | 0,000045 / GB-saat | 0,033 |
 | Disk Economy (SAS) | 20 TB ve üzeri (%15 indirimli) | 0,000043 / GB-saat | 0,031 |
 
-### IP, load balancer ve lisans
+### IP, Load Balancer ve Lisans
 
 | Kaynak | Birim | Saatlik fiyat | Aylık karşılığı (730 saat) |
 | --- | --- | --- | --- |
@@ -73,13 +73,13 @@ Tüm fiyatlar **USD** cinsindendir. vCPU, RAM ve diskte, kullanım miktarı artt
 | Load balancer | 1 load balancer | 0,0308 | 22,48 |
 | Windows Server lisansı | 1 sanal makine | 0,0342 | ≈ 25,00 |
 
-Snapshot'larda 2 adet ücretsizdir; fazlası disk depolama ücreti üzerinden ölçülür.
+Snapshot ücretsizdir. Snapshot'lar disk kotanızdan kullanıldığı için ayrıca ücret alınmaz.
 
 :::info Sürekli çalışan sunucular için
 Bir ay boyunca kesintisiz çalışacak kaynaklarda [sabit kaynak](./sabit-kaynak.md) modeli PAYG'ye göre daha uygun maliyetlidir. Örneğin 1 vCPU, PAYG'de aylık yaklaşık 2,41 USD tutarken sabit kaynakta aylık 1,80 USD'dir.
 :::
 
-### Ağ trafiği
+### Ağ Trafiği
 
 PAYG hesabınızda **gelen (inbound)** ve **giden (outbound)** ağ trafiği ayrı ayrı ölçülür ve aylık toplam trafik üzerinden kademeli olarak ücretlendirilir:
 
@@ -96,7 +96,7 @@ Trafik fiyatları [sabit kaynak](./sabit-kaynak.md#ağ-trafiği) modeliyle aynı
 
 Örneğin bir ayda 1.500 GB giden trafik oluştuysa, ilk 1.024 GB ücretsizdir ve kalan 476 GB için 476 × 0,0070 = 3,33 USD ücretlendirilir.
 
-### Windows Server lisansı
+### Windows Server Lisansı
 
 FlexoStack'teki **Windows Server imajları hazır olarak lisanslanmıştır**; ayrıca lisans satın almanız veya etkinleştirmeniz gerekmez.
 
@@ -104,7 +104,7 @@ FlexoStack'teki **Windows Server imajları hazır olarak lisanslanmıştır**; a
 - Lisans bedeli **çekirdek (core) başına değildir**; sanal makine başına **aylık 25 USD** üzerinden hesaplanır. Sanal makinenize kaç vCPU verirseniz verin lisans bedeli değişmez.
 - Lisans kullanımı **saatlik** ölçülür (0,0342 USD / saat). Windows sanal makineniz bir ay boyunca kesintisiz çalışırsa lisans bedeli **25 USD** olur; daha kısa süre kullanırsanız yalnızca kullandığınız süre kadar ödersiniz.
 
-## Kullanımın hesaba yazılması
+## Kullanımın Hesaba Yazılması
 
 - Kullanımınız **saatlik** olarak ölçülür.
 - Ölçülen kullanım, cloud2biz.com müşteri panelinizde **PayG Hesapları** altında ilgili PAYG hesabınıza yazılır.
@@ -112,7 +112,7 @@ FlexoStack'teki **Windows Server imajları hazır olarak lisanslanmıştır**; a
 
 Kullanımınızı ve oluşan tutarları cloud2biz.com müşteri panelinizdeki **PayG Hesapları** bölümünden takip edebilirsiniz.
 
-## Örnek hesaplama
+## Örnek Hesaplama
 
 **4 vCPU, 8 GB RAM, 80 GB Disk High IOPS ve 1 IP** ile çalışan bir Linux sunucusu:
 
@@ -128,7 +128,7 @@ Ağ trafiği, aylık ilk 1 TB ücretsiz olduğu için bu örnekte ek ücret olu�
 
 Kendi yapılandırmanızın maliyetini hesaplamak için [PAYG Hesaplayıcı](./payg-hesaplayici.mdx) sayfasını kullanın.
 
-## Kota seviyeleri
+## Kota Seviyeleri
 
 PAYG hesapları, kaynak kullanımını sınırlayan **kota seviyeleriyle** çalışır. Kota, hesabınızda aynı anda oluşturabileceğiniz en fazla kaynak miktarını belirler:
 
@@ -141,7 +141,7 @@ PAYG hesapları, kaynak kullanımını sınırlayan **kota seviyeleriyle** çal�
 
 Kota yalnızca oluşturabileceğiniz en fazla kaynak miktarını sınırlar; ücretlendirme kotaya göre değil, ayırdığınız kaynaklara göre yapılır.
 
-### Kota artırma
+### Kota Artırma
 
 1. [cloud2biz.com müşteri panelinizden](https://cloud2biz.com/clientarea) bir destek talebi oluşturun.
 2. PAYG hesabınızı ve geçmek istediğiniz seviyeyi (ör. Basic Package) belirtin.
@@ -149,12 +149,12 @@ Kota yalnızca oluşturabileceğiniz en fazla kaynak miktarını sınırlar; üc
 
 Kota sınırına ulaştığınızda yeni sanal makine, disk veya floating IP oluşturma işlemi hata verir; mevcut kaynaklarınız çalışmaya devam eder.
 
-## Maliyeti düşürme ipuçları
+## Maliyeti Düşürme İpuçları {#maliyeti-düşürme-ipuçları}
 
 - Kullanmadığınız sunucuları yalnızca kapatmak yerine [rafa kaldırın (shelve)](../sanal-makineler/sanal-makine-yonetimi.md#rafa-kaldırma-shelve); kapalı bir sanal makine CPU ve RAM kaynaklarını ayırmaya devam eder.
 - Diskleri büyük başlatmak yerine ihtiyaç oldukça [büyütün](../depolama/diskler.md#disk-boyutunu-büyütme); disk boyutu küçültülemez.
 - Yüksek performans gerektirmeyen veriler için **Disk Economy** tipini kullanın.
-- Kullanmadığınız floating IP'leri serbest bırakın ve eski snapshot'ları silin.
+- Kullanmadığınız floating IP'leri serbest bırakın.
 - Sürekli çalışan sunucularınızı [sabit kaynak](./sabit-kaynak.md) modeline taşıyın.
 
 :::info Fiyatlar hakkında

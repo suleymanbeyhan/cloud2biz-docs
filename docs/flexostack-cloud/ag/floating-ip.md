@@ -6,7 +6,7 @@ description: FlexoStack'te floating IP oluşturma, sanal makineye atama, sanal m
 
 **Floating IP**, bir sanal makineye atayabileceğiniz ve gerektiğinde başka bir sanal makineye anında taşıyabileceğiniz genel (public) IP adresidir. Private Network'teki sunucunuzu internetten erişilebilir kılmak veya bakım ve arıza durumlarında trafiği IP adresini değiştirmeden yedek sunucuya yönlendirmek için kullanılır.
 
-## Nasıl çalışır?
+## Nasıl Çalışır?
 
 Floating IP, sanal makinenin işletim sistemine doğrudan tanımlanmaz. Sanal makine yalnızca kendi özel IP adresini (ör. `192.168.10.15`) görür; router, floating IP'ye gelen trafiği bu özel adrese yönlendirir (1:1 NAT).
 
@@ -19,11 +19,11 @@ Bu sayede:
 - Floating IP'yi bir sanal makineden alıp başka birine verdiğinizde sunucu içinde hiçbir ayar değiştirmeniz gerekmez.
 - Sanal makineyi silseniz bile floating IP projenizde kalır; DNS kayıtlarınızı değiştirmeden yeni bir sunucuya atayabilirsiniz.
 
-## Ön koşullar
+## Ön Koşullar
 
 Bir sanal makineye floating IP atayabilmek için sanal makinenin bağlı olduğu ağın, dış ağ geçidi tanımlı bir [router](./sanal-routerlar.md)'a bağlı olması gerekir.
 
-## Floating IP oluşturma ve atama
+## Floating IP Oluşturma ve Atama
 
 1. Panelde **Floating IPs** ekranını açın ve **Add floating IP** butonuna tıklayın.
 2. Genel ağı seçin.
@@ -32,7 +32,7 @@ Bir sanal makineye floating IP atayabilmek için sanal makinenin bağlı olduğu
 
 Mevcut boşta bir floating IP'yi atamak için IP'yi seçin, **Assign** seçeneğine tıklayın ve sanal makineyi seçin.
 
-## Floating IP'yi başka bir sanal makineye taşıma
+## Floating IP'yi Başka Bir Sanal Makineye Taşıma
 
 1. **Floating IPs** ekranında IP'yi seçin ve **Unassign** ile mevcut sanal makineden ayırın.
 2. **Assign** ile yeni sanal makineye atayın.
@@ -43,11 +43,11 @@ Bu işlem birkaç saniye sürer. Planlı bakımlarda veya bir sunucunun arızala
 Floating IP'yi taşıdığınız sanal makinede, gerekli portları açan güvenlik grubunun tanımlı olduğundan emin olun.
 :::
 
-## Ters DNS (PTR) kaydı
+## Ters DNS (PTR) Kaydı
 
 E-posta sunucuları gibi ters DNS kaydı gerektiren hizmetler için floating IP adresinize PTR kaydı tanımlatmak üzere, IP adresini ve kayıt değerini belirterek destek talebi oluşturabilirsiniz.
 
-## Floating IP'yi serbest bırakma
+## Floating IP'yi Serbest Bırakma
 
 Kullanmadığınız floating IP'ler ücretlendirilmeye devam eder. Bir IP'ye artık ihtiyacınız yoksa:
 

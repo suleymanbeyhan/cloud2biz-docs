@@ -6,25 +6,25 @@ description: FlexoStack sanal ağlarınızı ofisinize veya diğer veri merkezle
 
 **Site-to-Site VPN**, FlexoStack'teki sanal ağlarınızı ofis ağınıza, başka bir bulut ortamına veya farklı bir Cloud2Biz lokasyonuna **IPsec** protokolüyle şifreli olarak bağlar. Bağlantı kurulduktan sonra iki taraftaki sunucular, sanki aynı ağdaymış gibi özel IP adresleriyle haberleşir.
 
-## Kullanım senaryoları
+## Kullanım Senaryoları
 
 - Ofisteki çalışanların sunuculara internete açmadan, özel IP ile erişmesi
 - Şirket içi (on-premise) sistemler ile bulut sunucuları arasında hibrit yapı kurma
 - İstanbul, Ankara ve Sofya lokasyonlarındaki sunucularınızı tek bir özel ağ altında birleştirme
 - Felaket kurtarma için lokasyonlar arası veri replikasyonu
 
-## Ön koşullar
+## Ön Koşullar
 
 - FlexoStack tarafında, dış ağ geçidi tanımlı bir [router](./sanal-routerlar.md)'a bağlı bir sanal ağ
 - Karşı tarafta IPsec destekleyen bir cihaz (FortiGate, pfSense, MikroTik, Cisco gibi) ve **sabit bir genel IP adresi**
 - İki taraftaki ağ aralıklarının **çakışmaması** (ör. FlexoStack `192.168.10.0/24`, ofis `10.0.0.0/24`)
 
-## VPN bağlantısı oluşturma
+## VPN Bağlantısı Oluşturma
 
 1. Panelde **VPN** ekranını açın ve **Create VPN connection** butonuna tıklayın.
 2. Aşağıdaki bölümleri doldurun ve **Create** butonuna tıklayın.
 
-### Bağlantı bilgileri
+### Bağlantı Bilgileri
 
 | Alan | Açıklama |
 | --- | --- |
@@ -34,7 +34,7 @@ description: FlexoStack sanal ağlarınızı ofisinize veya diğer veri merkezle
 | **Peer subnets** | Karşı taraftaki ağ aralıkları (ör. `10.0.0.0/24`) |
 | **Pre-shared key (PSK)** | İki tarafın kimlik doğrulaması için kullanılan ortak gizli anahtar |
 
-### IKE ve IPsec politikaları
+### IKE ve IPsec Politikaları
 
 İki tarafın aynı şifreleme ayarlarını kullanması gerekir. Güvenli ve yaygın uyumlu bir başlangıç yapılandırması:
 
@@ -50,7 +50,7 @@ description: FlexoStack sanal ağlarınızı ofisinize veya diğer veri merkezle
 Pre-shared key en az 32 karakter uzunluğunda, rastgele üretilmiş bir değer olmalıdır. Örneğin `openssl rand -base64 32` komutuyla üretebilirsiniz. PSK'yı e-posta veya mesajlaşma uygulamalarıyla düz metin olarak paylaşmayın.
 :::
 
-## Karşı tarafı yapılandırma
+## Karşı Tarafı Yapılandırma
 
 Karşı taraftaki cihazda aynı parametrelerle bir IPsec tüneli oluşturun:
 
@@ -61,11 +61,11 @@ Karşı taraftaki cihazda aynı parametrelerle bir IPsec tüneli oluşturun:
 
 Tünel her iki tarafta da yapılandırıldıktan sonra bağlantı durumu panelde **Active** olarak görünür.
 
-## Güvenlik grupları ve güvenlik duvarı
+## Güvenlik Grupları ve Güvenlik Duvarı
 
 VPN üzerinden gelen trafik de [güvenlik grupları](./security-groups.md) tarafından denetlenir. FlexoStack sunucularınızın güvenlik gruplarında, karşı taraftaki ağ aralığından (ör. `10.0.0.0/24`) gelen trafiğe ihtiyaç duyduğunuz portlar için izin verin. Karşı taraftaki güvenlik duvarında da FlexoStack ağına izin vermeyi unutmayın.
 
-## Sorun giderme
+## Sorun Giderme
 
 - **Tünel kurulmuyor (Faz 1):** İki taraftaki IKE sürümü, şifreleme, hash, DH grubu ve PSK değerlerinin birebir aynı olduğunu; karşı taraftaki güvenlik duvarında UDP 500 ve UDP 4500 portlarının açık olduğunu kontrol edin.
 - **Tünel kuruluyor ama trafik geçmiyor (Faz 2):** Yerel ve uzak ağ aralıklarının iki tarafta birbirinin tersi olacak şekilde tanımlandığını ve güvenlik grubu kurallarını kontrol edin.

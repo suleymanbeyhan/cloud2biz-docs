@@ -3,12 +3,12 @@ sidebar_position: 1
 title: Genel Sorular
 ---
 
-## Object Storage hangi durumlar için uygundur?
+## Object Storage Hangi Durumlar İçin Uygundur? {#object-storage-hangi-durumlar-için-uygundur}
 
 - **Yedekleme ve arşivleme:** Nadiren erişilen verilerin uzun süreli saklanması
 - **Statik içerik:** Görseller, videolar ve dokümanlar
 
-## Object Storage hangi durumlar için uygun değildir?
+## Object Storage Hangi Durumlar İçin Uygun Değildir? {#object-storage-hangi-durumlar-için-uygun-değildir}
 
 - **Yüksek frekanslı okuma/yazma:** Veritabanları için blok depolama kullanın
 - **Çok küçük dosyalar:** 1 MB altındaki dosyaları arşivleyerek yükleyin

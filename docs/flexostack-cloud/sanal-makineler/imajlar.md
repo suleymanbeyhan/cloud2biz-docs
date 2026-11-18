@@ -6,11 +6,11 @@ description: FlexoStack'te hazır işletim sistemi imajları, kendi imajınızı
 
 İmaj, yeni bir sanal makinenin başlatılacağı hazır disk şablonudur. FlexoStack'te hazır işletim sistemi imajlarını kullanabilir, kendi imajlarınızı yükleyebilir veya mevcut bir sunucudan imaj oluşturabilirsiniz.
 
-## Hazır imajlar
+## Hazır İmajlar {#hazır-imajlar}
 
 Panelde **Images** ekranında projenizde kullanabileceğiniz tüm imajları görebilirsiniz. Hazır imajlar Cloud2Biz tarafından sağlanır ve güncel tutulur. Bu imajlarda genellikle cloud-init ve misafir araçları yüklüdür; SSH anahtarı ve kullanıcı verisi gibi özellikler doğrudan çalışır.
 
-## Desteklenen formatlar
+## Desteklenen Formatlar
 
 | Format | Açıklama |
 | --- | --- |
@@ -19,7 +19,7 @@ Panelde **Images** ekranında projenizde kullanabileceğiniz tüm imajları gör
 | **ISO** | Kurulum CD/DVD imajı. İşletim sistemini kendiniz kurmak için kullanılır. |
 | **VMDK / VHD(X)** | Diğer sanallaştırma platformlarından gelen diskler. Yüklemeden önce QCOW2'ye dönüştürmenizi öneririz. |
 
-## İmaj yükleme
+## İmaj Yükleme
 
 1. **Images** ekranında **Add image** butonuna tıklayın.
 2. Dosyayı bilgisayarınızdan seçin veya imajın indirileceği bir URL girin.
@@ -32,7 +32,7 @@ Birkaç GB'tan büyük imajlarda dosyayı bilgisayarınızdan yüklemek yerine, 
 
 Panelden yükleyemediğiniz özel imajlar için sipariş sonrasında destek talebi oluşturabilirsiniz; ekibimiz imajınızı eklemenize yardımcı olur.
 
-## Kendi imajınızı hazırlama
+## Kendi İmajınızı Hazırlama {#kendi-imajınızı-hazırlama}
 
 Kendi imajlarınızın FlexoStack'te sorunsuz çalışması için:
 
@@ -48,7 +48,7 @@ qemu-img convert -p -f vmdk -O qcow2 sunucu.vmdk sunucu.qcow2
 qemu-img info sunucu.qcow2
 ```
 
-## Diskten imaj oluşturma
+## Diskten İmaj Oluşturma {#diskten-imaj-oluşturma}
 
 Yapılandırdığınız bir sunucuyu şablon olarak saklayıp aynı ortamı yeni sunucularda kullanabilirsiniz:
 
@@ -62,6 +62,6 @@ Oluşan imaj **Images** ekranında görünür ve yeni sanal makine oluştururken
 Bir sunucuyu imaja dönüştürmeden önce SSH host anahtarlarını, geçmiş dosyalarını, günlükleri ve parola içeren yapılandırmaları temizleyin. Linux'ta `sudo cloud-init clean` komutu, imajdan oluşturulan sunucuların ilk açılış yapılandırmasını yeniden çalıştırmasını sağlar.
 :::
 
-## İmajı silme
+## İmajı Silme
 
 **Images** ekranında imajı seçin ve **Delete** butonuna tıklayın. Bir imajı silmek, o imajdan daha önce oluşturulmuş sanal makineleri etkilemez.

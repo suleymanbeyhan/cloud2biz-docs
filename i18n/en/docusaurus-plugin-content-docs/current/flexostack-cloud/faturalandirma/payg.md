@@ -73,7 +73,7 @@ All prices are in **USD**. For vCPU, RAM and disk, the unit price decreases in t
 | Load balancer | 1 load balancer | 0.0308 | 22.48 |
 | Windows Server license | 1 virtual machine | 0.0342 | ≈ 25.00 |
 
-Two snapshots are free; additional snapshots are metered at the disk storage rate.
+Snapshots are free. Snapshots use your disk quota, so no separate fee is charged.
 
 :::info For always-on servers
 For resources running continuously for a full month, the [fixed resources](./sabit-kaynak.md) model costs less than PAYG. For example, 1 vCPU costs about 2.41 USD per month on PAYG and 1.80 USD per month on fixed resources.
@@ -154,7 +154,7 @@ When you reach your quota, creating new virtual machines, volumes or floating IP
 - Instead of just shutting down servers you are not using, [shelve them](../sanal-makineler/sanal-makine-yonetimi.md#shelving); a stopped virtual machine keeps its CPU and RAM allocated.
 - Instead of starting with large volumes, [extend them](../depolama/diskler.md#extending-a-volume) as needed; volumes cannot be shrunk.
 - Use **Disk Economy** for data that does not need high performance.
-- Release unused floating IPs and delete old snapshots.
+- Release unused floating IPs.
 - Move always-on servers to the [fixed resources](./sabit-kaynak.md) model.
 
 :::info About prices

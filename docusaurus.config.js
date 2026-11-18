@@ -77,7 +77,7 @@ const config = {
         items: [
           {
             type: 'dropdown',
-            label: 'Platform seçin',
+            label: 'Platform Seçin',
             position: 'left',
             items: [
               {label: 'Genel', to: '/docs/intro'},

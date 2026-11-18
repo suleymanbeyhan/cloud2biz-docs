@@ -8,7 +8,7 @@ FlexoStack'in yedekleme hizmetiyle disklerinizin (volume) yedeklerini **yedeklem
 
 Bu sayfada yedek ve **kurtarma noktası** (recovery point) ifadeleri aynı anlamda kullanılır: bir diskin tamamının veya belirli bir anda değişen verilerinin kopyası.
 
-## Yedek türleri
+## Yedek Türleri
 
 | | Tam yedek (Full) | Artımlı yedek (Incremental) |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ Bu sayfada yedek ve **kurtarma noktası** (recovery point) ifadeleri aynı anlam
 | Geri yükleme | Tek başına yeterlidir | İlk tam yedek ve ardından gelen tüm artımlı yedekler (yedek zinciri) gerekir |
 | Süre ve alan | Daha uzun sürer, daha fazla yer kaplar | Daha hızlıdır, daha az yer kaplar |
 
-## Snapshot ile yedek arasındaki fark
+## Snapshot ile Yedek Arasındaki Fark
 
 | | Snapshot | Yedek |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ Bu sayfada yedek ve **kurtarma noktası** (recovery point) ifadeleri aynı anlam
 
 Snapshot'lar bir yedeğin yerini tutmaz. Önemli verileriniz için mutlaka bir yedekleme planı kullanın. Snapshot'lar hakkında bilgi için [Diskler ve snapshot'lar](./diskler.md#snapshotlar) sayfasına bakın.
 
-## Yedekleme planları
+## Yedekleme Planları
 
 Yedekleme planı üç şeyi belirler:
 
@@ -34,18 +34,18 @@ Yedekleme planı üç şeyi belirler:
 - **Ne sıklıkla yedekleneceği:** Yedeklerin hangi zamanlarda alınacağı.
 - **Ne kadar saklanacağı:** Aynı anda saklanacak en fazla **tam yedek** sayısı.
 
-### Yedek zinciri
+### Yedek Zinciri
 
 Bir **yedek zinciri**, bir tam yedek ve bir sonraki tam yedeğe kadar alınan artımlı yedeklerden oluşur. Varsayılan zincir uzunluğu **7**'dir: 1 tam yedek ve 6 artımlı yedek. Bu durumda saklanan toplam yedek sayısı yaklaşık olarak **en fazla tam yedek sayısı × zincir uzunluğu** kadardır.
 
-### Yedek rotasyonu
+### Yedek Rotasyonu
 
 Yeni bir tam yedek alındığında saklama sınırı aşılıyorsa, **en eski tam yedek ve ona bağlı tüm artımlı yedekler** otomatik olarak silinir. Örneğin:
 
 - Saklama sınırı **1** ise, yeni bir tam yedek alındığında önceki zincirin tamamı silinir.
 - Saklama sınırı **2** ise, üçüncü tam yedek alındığında en eski zincir silinir.
 
-### Plan oluşturma
+### Plan Oluşturma
 
 1. Panelde **Backup plans** ekranını açın ve **Create backup plan** butonuna tıklayın.
 2. **Create backup plan** penceresinde plana bir ad ve isteğe bağlı bir açıklama girin. Açıklamaya kişisel veya hassas iş verisi yazmayın.
@@ -64,7 +64,7 @@ Yeni bir tam yedek alındığında saklama sınırı aşılıyorsa, **en eski ta
 Bir sanal makineyi eksiksiz geri getirebilmek için sistem (boot) diskini ve tüm veri disklerini plana ekleyin. Sanal makineyi yedekten yeniden oluşturmak için **boot diskinin** yedeği gerekir.
 :::
 
-### Plana disk ekleme ve çıkarma
+### Plana Disk Ekleme ve Çıkarma
 
 **Disk eklemek için:**
 
@@ -80,13 +80,13 @@ Plandan çıkarılan bir diskin **daha önce alınmış yedekleri silinmez**.
 Bir disk aynı anda birden fazla yedekleme planına eklenemez. Diski başka bir plana taşımak için önce mevcut plandan çıkarın.
 :::
 
-### Planı düzenleme
+### Planı Düzenleme
 
 1. **Backup plans** ekranında planın üzerine tıklayın.
 2. Sağ bölmede **Edit** butonuna tıklayın.
 3. **Edit backup plan** penceresinde planın adını, açıklamasını veya takvimini değiştirin ve **Save** ile kaydedin.
 
-### Planı silme
+### Planı Silme
 
 1. **Backup plans** ekranında planın üzerine tıklayın.
 2. Sağ bölmede **Delete** butonuna tıklayın.
@@ -97,18 +97,18 @@ Bir disk aynı anda birden fazla yedekleme planına eklenemez. Diski başka bir 
 **Delete recovery points** seçeneğini işaretlerseniz planın tüm yedekleri kalıcı olarak silinir ve geri alınamaz. Yedekleri saklamak istiyorsanız bu seçeneği işaretlemeden silin.
 :::
 
-## Elle yedek alma
+## Elle Yedek Alma
 
 Elle alınan yedekler, tek bir diskin anlık ve tek seferlik yedeğidir. Bu yedeklere saklama politikası uygulanmaz; ihtiyacınız kalmadığında **elle silmeniz** gerekir.
 
-### Yedek alma
+### Yedek Alma
 
 1. **Volumes** ekranında diskin üzerine tıklayın.
 2. Sağ bölmede **Create backup now** butonuna tıklayın.
 
 Oluşturulan yedek **Recovery points** ekranında görünür.
 
-### Yedek silme
+### Yedek Silme
 
 1. **Recovery points** ekranında kurtarma noktasının üzerine tıklayın.
 2. **Delete** butonuna tıklayın ve işlemi onaylayın.
@@ -117,11 +117,11 @@ Oluşturulan yedek **Recovery points** ekranında görünür.
 Bir yedeği sildiğinizde, aynı zincirde ona **bağlı olan tüm yedekler** de silinir ve bu yedeklerdeki veriler kalıcı olarak kaybolur.
 :::
 
-## Yedekten geri yükleme
+## Yedekten Geri Yükleme
 
 Geri yükleme her zaman **yeni** bir disk veya **yeni** bir sanal makine oluşturur. Orijinal disk ve sanal makine değişmeden kalır; bu sayede yedeği güvenle deneyebilir, ihtiyacınız olan verileri alabilirsiniz.
 
-### Diski geri yükleme
+### Diski Geri Yükleme
 
 Otomatik veya elle alınmış, veri diski ya da boot diski yedeklerinden yeni bir disk oluşturabilirsiniz.
 
@@ -131,7 +131,7 @@ Otomatik veya elle alınmış, veri diski ya da boot diski yedeklerinden yeni bi
 
 Yeni disk **Volumes** ekranında görünür. Bu diski bir sanal makineye bağlayarak dosyalarınıza erişebilirsiniz.
 
-### Sanal makineyi geri yükleme
+### Sanal Makineyi Geri Yükleme
 
 Bir sanal makineyi yalnızca **boot diskinin** yedeğinden yeniden oluşturabilirsiniz.
 
@@ -146,7 +146,7 @@ Yeni sanal makine **Virtual machines** ekranında görünür. Sanal makinenin ve
 
 Yedekleme alanı **GB bazında** ücretlendirilir ve en az **100 GB** olarak satın alınır. Güncel birim fiyatlar ve miktar indirimleri için [Sabit Kaynak Faturalandırması](../faturalandirma/sabit-kaynak.md#snapshot-ve-yedekleme) sayfasına, tahmini tutar için [Fiyat Hesaplayıcı](../faturalandirma/fiyat-hesaplayici.mdx)'ya bakın.
 
-## Yedekleme önerileri
+## Yedekleme Önerileri
 
 - **3-2-1 kuralı:** Verilerinizin en az 3 kopyasını, 2 farklı ortamda ve 1'ini farklı bir lokasyonda tutun.
 - Kritik sanal makinelerin boot ve veri disklerini aynı plana ekleyin; böylece tüm diskler aynı zamanlarda yedeklenir.

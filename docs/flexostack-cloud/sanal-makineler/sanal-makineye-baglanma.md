@@ -6,7 +6,7 @@ description: FlexoStack sanal makinelerine panel konsolu, SSH ve RDP ile bağlan
 
 Sanal makinenize üç farklı yolla bağlanabilirsiniz: panel üzerindeki **konsol**, Linux için **SSH** ve Windows için **Uzak Masaüstü (RDP)**.
 
-## Panel konsolu
+## Panel Konsolu
 
 Konsol, sanal makinenin ekranına doğrudan tarayıcıdan erişmenizi sağlar. Ağ bağlantısı olmasa veya SSH çalışmasa bile kullanılabilir; bu nedenle kurulum ve sorun giderme için idealdir.
 
@@ -15,7 +15,7 @@ Konsol, sanal makinenin ekranına doğrudan tarayıcıdan erişmenizi sağlar. A
 
 Konsolda giriş yapmak için işletim sisteminde parola tanımlı bir kullanıcı gerekir. SSH anahtarıyla oluşturulan Linux sunucularda varsayılan olarak parola tanımlı değildir; parola belirlemek için aşağıdaki [Parola belirleme](#parola-belirleme) bölümüne bakın.
 
-## SSH ile bağlanma (Linux)
+## SSH ile Bağlanma (Linux)
 
 SSH ile bağlanmak için:
 
@@ -43,7 +43,7 @@ Kendi yüklediğiniz imajlarda kullanıcı adı imajın yapılandırmasına bağ
 
 Windows 10 ve sonrasında PowerShell içinde `ssh` komutu hazır gelir. Alternatif olarak PuTTY veya MobaXterm kullanabilirsiniz.
 
-## RDP ile bağlanma (Windows)
+## RDP ile Bağlanma (Windows)
 
 1. Güvenlik grubunda **TCP 3389** portunu yalnızca kendi IP adresinize açın.
 2. Windows sanal makinenize bir floating IP atayın.
@@ -54,9 +54,9 @@ Windows 10 ve sonrasında PowerShell içinde `ssh` komutu hazır gelir. Alternat
 3389 portunu `0.0.0.0/0` adresine açmak, sunucunuzu sürekli parola deneme saldırılarına maruz bırakır. Erişimi kendi IP adreslerinizle sınırlayın veya [Site-to-Site VPN](../ag/vpn.md) kullanın.
 :::
 
-## Parola belirleme
+## Parola Belirleme
 
-### Oluşturma sırasında (cloud-init)
+### Oluşturma Sırasında (cloud-init)
 
 Sanal makineyi oluştururken **User data** alanına aşağıdaki gibi bir yapılandırma ekleyerek parola belirleyebilirsiniz:
 
@@ -70,7 +70,7 @@ ssh_pwauth: false
 
 `ssh_pwauth: false` ayarı SSH'ta parola ile girişi kapalı tutar; parola yalnızca konsol girişi için kullanılır. Bu, önerilen güvenli yapılandırmadır.
 
-### Çalışan sunucuda
+### Çalışan Sunucuda
 
 SSH ile bağlandıktan sonra parolayı işletim sistemi içinden değiştirebilirsiniz:
 

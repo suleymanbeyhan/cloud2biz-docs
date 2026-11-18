@@ -9,7 +9,7 @@ FlexoStack, CPU, RAM ve disk kaynaklarını ihtiyacınıza göre şekillendirebi
 
 Bu sayfada FlexoStack'in sunduğu altyapıyı, faturalandırma modellerini, lokasyonları ve günlük kullanımda bilmeniz gereken temel konuları bulabilirsiniz.
 
-## FlexoStack kimler için uygun?
+## FlexoStack Kimler İçin Uygun? {#flexostack-kimler-için-uygun}
 
 - **Web hosting:** Yüksek erişilebilirlikli (H/A) cluster'larda hızlı, güvenilir ve güvenli barındırma.
 - **Yazılım geliştiriciler ve ajanslar:** Geliştirme, test ve canlı ortamlar için esnek kaynaklar ve API erişimi.
@@ -19,9 +19,9 @@ Bu sayfada FlexoStack'in sunduğu altyapıyı, faturalandırma modellerini, loka
 
 PAYG modeli özellikle kısa süreli projeler, test ortamları ve yükü gün içinde değişen uygulamalar için idealdir.
 
-## Altyapı ve teknik özellikler
+## Altyapı ve Teknik Özellikler
 
-### İşlemci ve depolama
+### İşlemci ve Depolama
 
 - **Intel® Xeon® Platinum** işlemciler ve yeni nesil yüksek hızlı RAM.
 - **NVMe SSD tabanlı High IOPS diskler:** Yüksek I/O performansı ve düşük gecikme.
@@ -47,7 +47,7 @@ FlexoStack, **KVM hypervisor** teknolojisini kullanır. Her sanal makine izole �
 - **Load Balancer:** Yazılım tanımlı yük dengeleyici ile trafiği sunucularınız arasında otomatik dağıtabilirsiniz.
 - **Floating IP:** Bir sanal makineye atayabileceğiniz ve gerektiğinde başka bir sanal makineye anında taşıyabileceğiniz genel (public) IP adresidir. Router üzerinden internete bağlanan bir Private Network'teki sunucunuzu dışarıdan erişilebilir kılmak veya bakım ve arıza durumlarında trafiği IP adresini değiştirmeden yedek sunucuya yönlendirmek için kullanılır.
 
-### API ve otomasyon
+### API ve Otomasyon
 
 Platform API'si (**OpenStack** uyumlu) dileyen kullanıcılara açıktır. API erişimi yalnızca sizin kendi kaynaklarınızı yönetmenize izin verecek şekilde yetkilendirilir. Böylece Terraform, Ansible gibi araçlarla altyapınızı kod olarak yönetebilirsiniz.
 
@@ -59,7 +59,7 @@ API bağlantılarına ağ erişimi sınırlı olarak tanımlanmıştır. OpenSta
 
 **Yönetilen Kubernetes (K8s)** servisi ile container tabanlı uygulamalarınızı çalıştırabilir, monolitik uygulamalarınızı mikro servis mimarisine kademeli olarak taşıyabilirsiniz. Kaynaklarınızı ister kullanıcı arayüzünden ister API üzerinden yönetebilirsiniz.
 
-### Güvenlik ve erişim
+### Güvenlik ve Erişim
 
 - Parola yerine **SSH anahtarı** ile sunuculara güvenli erişim.
 - Her sanal makinenin KVM ile izole çalışması.
@@ -69,7 +69,7 @@ API bağlantılarına ağ erişimi sınırlı olarak tanımlanmıştır. OpenSta
 
 CPU, RAM ve disk kullanımınızı FlexoStack panelinizden gerçek zamanlı grafiklerle takip edebilirsiniz.
 
-## Disk tipleri
+## Disk Tipleri
 
 FlexoStack'te iş yükünüze göre iki disk tipi arasından seçim yapabilirsiniz:
 
@@ -81,7 +81,7 @@ FlexoStack'te iş yükünüze göre iki disk tipi arasından seçim yapabilirsin
 - **Disk High IOPS** NVMe SSD disklerden oluşur ve disk (volume) başına 16.000 IOPS ve 2.000 MB/s'ye kadar performans sunar.
 - **Disk Economy** SAS disklerden oluşur; yüksek performansın öncelikli olmadığı, kapasite ve maliyetin önemli olduğu iş yükleri için uygundur.
 
-## Faturalandırma modelleri
+## Faturalandırma Modelleri
 
 FlexoStack iki faturalandırma modeli sunar. Aynı hesapta ikisini birlikte kullanarak, sürekli ihtiyaç duyduğunuz kaynakları sabit, değişken ihtiyaçlarınızı PAYG olarak yapılandırabilir ve maliyetinizi optimize edebilirsiniz.
 
@@ -92,7 +92,7 @@ FlexoStack iki faturalandırma modeli sunar. Aynı hesapta ikisini birlikte kull
 - Faturalarınız **her ayın başında** oluşturulur.
 - Kaynak değişiklikleri ücretlendirmeye **anında** yansır; kullanmadığınız kaynak için ödeme yapmazsınız.
 
-### Sabit kaynak
+### Sabit Kaynak
 
 - Belirli kaynaklar için **aylık sabit ücret** ödersiniz.
 - Faturalar **peşin** oluşturulur; ağ trafiği ay sonunda ölçülüp faturalandırılır.
@@ -110,7 +110,7 @@ FlexoStack iki faturalandırma modeli sunar. Aynı hesapta ikisini birlikte kull
 | Kaynak azaltma etkisi | Anında | Bir sonraki dönem |
 | En uygun olduğu durum | Test, kısa süreli projeler, değişken yük | Sürekli çalışan, yükü öngörülebilir sistemler |
 
-### Örnek birim fiyatlar
+### Örnek Birim Fiyatlar
 
 Aşağıdaki fiyatlar USD cinsindendir ve bilgi amaçlıdır. Güncel fiyatlar ve diğer bileşenler (Object Storage, yedekleme, trafik, SSL) için [fiyat hesaplayıcıyı](https://cloud2biz.com/calculator) kullanın.
 
@@ -121,7 +121,7 @@ Aşağıdaki fiyatlar USD cinsindendir ve bilgi amaçlıdır. Güncel fiyatlar v
 | Disk High IOPS | 1 GB | 0,000086 | 0,048 | 0,0456 | 0,0432 |
 | Public IP | 1 adet | 0,0036 | 2,00 | 1,90 | 1,80 |
 
-### Miktar indirimleri
+### Miktar İndirimleri {#miktar-indirimleri}
 
 Sabit kaynaklarda kullandığınız miktar arttıkça indirim oranı da artar:
 
@@ -143,7 +143,7 @@ FlexoStack'i aşağıdaki veri merkezi lokasyonlarında kullanabilirsiniz:
 
 Verileriniz, seçtiğiniz lokasyondaki veri merkezinde yedekli altyapılarda saklanır.
 
-### Hangi lokasyonu seçmeliyim?
+### Hangi Lokasyonu Seçmeliyim?
 
 - **İstanbul ve Ankara:** Türkiye ve çevre bölgelerdeki kullanıcılar için en düşük gecikme süresini ve verilerin yurt içinde barındırılmasını sağlar.
 - **Sofya:** Avrupa bağlantıları için optimize edilmiştir. Yurt dışı operasyonu olan şirketler ve verilerini yurt dışında yedeklemek isteyen işletmeler için uygundur; iş sürekliliği açısından ikinci lokasyon olarak da tercih edilir.
@@ -154,14 +154,14 @@ Verileriniz, seçtiğiniz lokasyondaki veri merkezinde yedekli altyapılarda sak
 
 Fiziksel sunucularınızı ve FlexoStack kaynaklarınızı birlikte kullanarak hibrit altyapılar da oluşturabilirsiniz.
 
-## Kaynak değişiklikleri
+## Kaynak Değişiklikleri
 
 - **CPU ve RAM** cloud paneli üzerinden istediğiniz zaman artırılıp azaltılabilir.
 - **Disk alanı yalnızca artırılabilir.** İşletim sistemi düzeyinde disk küçültme desteklenmez; bu nedenle disk boyutunu ihtiyacınıza göre kademeli artırmanızı öneririz.
 - PAYG kaynaklarında değişiklik ücretlendirmeye anında yansır.
 - Sabit kaynaklarda artırma, müşteri panelinden **paket yükseltme** ile ek ücret ödenerek anında yapılır. Azaltmada ücret iadesi yapılmaz, bir sonraki ayın faturası azalır. Ayrıntılar için [Sabit Kaynak Faturalandırması](./faturalandirma/sabit-kaynak.md#kaynak-değişiklikleri) sayfasına bakın.
 
-## Sunucu oluşturma ve yönetim
+## Sunucu Oluşturma ve Yönetim
 
 - **Hızlı kurulum:** Etkinleştirme otomatiktir. Ödemenin ardından sunucunuz ve işletim sistemi birkaç dakika içinde hazır olur; IP adresi ve giriş bilgileri e-posta ile gönderilir.
 - **Hazır veya kendi imajınız:** Hazır işletim sistemi imajlarını kullanabilir ya da kendi yapılandırmanızı imaj olarak kaydedip yeni sunucularda tekrar kullanabilirsiniz.
@@ -169,14 +169,13 @@ Fiziksel sunucularınızı ve FlexoStack kaynaklarınızı birlikte kullanarak h
 - **İşletim sistemini yeniden kurma:** Kontrol panelinden istediğiniz zaman, sınırsız sayıda yeniden kurulum yapabilirsiniz.
 - **IP adresi yönetimi:** IP adresi değişikliklerini bulut yönetim panelinden yapabilirsiniz.
 
-## Yedekleme ve snapshot
+## Yedekleme ve Snapshot
 
 ### Snapshot
 
 Snapshot, sunucunuzun belirli bir andaki görüntüsünü alır. Bir yapılandırma değişikliği veya güncelleme öncesinde snapshot almanız, sorun çıktığında değişiklikleri anında geri almanızı sağlar.
 
-- **2 adet snapshot ücretsizdir.**
-- Daha fazla snapshot için yalnızca kullandığınız depolama alanı ücretlendirilir.
+- **Snapshot ücretsizdir.** Snapshot'lar disk kotanızdan kullanıldığı için ayrıca ücret alınmaz.
 
 ### Yedekleme
 
@@ -193,7 +192,7 @@ Ayrıntılar için [Yedekleme](./depolama/yedekleme.md) sayfasına bakın.
 Yedeklerinizi sunucunuzdan farklı bir lokasyonda tutmak, veri merkezi düzeyindeki olası sorunlara karşı en güçlü korumadır. Cloud2Biz'in çok lokasyonlu altyapısıyla kendi felaket kurtarma (Disaster Recovery) senaryolarınızı oluşturabilirsiniz.
 :::
 
-## Ücretsiz deneme
+## Ücretsiz Deneme
 
 Yeni kullanıcılara **15 gün** boyunca, **50 ABD doları + KDV** tutarına kadar ücretsiz deneme sunulur. Deneme süresinde CPU, RAM ve disk kaynaklarını dilediğiniz gibi ayarlayabilir, süre sonunda memnun kalırsanız aynı yapılandırmayla devam edebilirsiniz.
 
@@ -203,14 +202,14 @@ Memnun kalmazsanız hizmeti portal üzerinden iptal edebilir, yüklediğiniz kre
 
 Kredi kartı veya banka kartıyla sanal POS üzerinden ödeme yapabilirsiniz. PAYG kullanımları için bakiyenize önceden yükleme yapmanız gerekir.
 
-## Destek ve süreklilik
+## Destek ve Süreklilik
 
 - Destek ekibine **7/24** ulaşabilirsiniz.
 - Donanım, sanallaştırma platformu ve ağ, kapsamlı bir izleme altyapısıyla sürekli takip edilir.
 - Yüksek erişilebilirlik ve yük dengelemeli mimari sayesinde çoğu donanım arızası kullanıcılar tarafından fark edilmez.
 - Planlı bakımlar önceden duyurulur; kesinti gerektiren çalışmalar yoğunluğun düşük olduğu saatlerde yapılır.
 
-## Sıkça sorulan sorular
+## Sıkça Sorulan Sorular
 
 <details>
 <summary>PAYG ile sabit kaynak arasındaki fark nedir?</summary>
@@ -241,9 +240,9 @@ Evet. Altyapı tamamen sanallaştırılmış olduğu için her türlü imaj çal
 </details>
 
 <details>
-<summary>Kaç adet snapshot alabilirim?</summary>
+<summary>Snapshot ücretli mi?</summary>
 
-2 adet snapshot ücretsizdir. Daha fazlası için kullandığınız depolama alanı ücretlendirilir.
+Snapshot ücretsizdir. Snapshot'lar disk kotanızdan kullanıldığı için ayrıca ücret alınmaz.
 
 </details>
 
@@ -254,7 +253,7 @@ Seçtiğiniz lokasyondaki (İstanbul Avrupa-1, İstanbul Avrupa-2, Ankara veya S
 
 </details>
 
-## Sonraki adımlar
+## Sonraki Adımlar
 
 - [Fiyat hesaplayıcı](https://cloud2biz.com/calculator) ile ihtiyacınıza uygun yapılandırmanın maliyetini görün.
 - [FlexoStack ürün sayfasından](https://cloud2biz.com/flexostack) siparişinizi oluşturun.
