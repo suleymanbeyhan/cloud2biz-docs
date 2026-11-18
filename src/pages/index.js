@@ -19,7 +19,7 @@ const TEXT = {
   en: {
     title: 'Cloud2Biz Docs',
     subtitle: 'Find the help you need in our guides and documentation.',
-    section: 'Select a platform and find your answer',
+    section: 'Select a Platform and Find Your Answer',
     cards: [
       {title: 'General', desc: 'Information on your Cloud2Biz account, client area and general topics', to: '/docs/intro'},
       {title: 'FlexoStack Cloud', desc: 'Flexible cloud: virtual servers, networking, storage, Kubernetes, billing and API', to: '/docs/flexostack-cloud/genel-bakis'},

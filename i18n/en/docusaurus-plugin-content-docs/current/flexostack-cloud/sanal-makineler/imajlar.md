@@ -6,11 +6,11 @@ description: Ready-made operating system images on FlexoStack, uploading your ow
 
 An image is a ready-made disk template used to boot a new virtual machine. On FlexoStack, you can use ready-made operating system images, upload your own images, or create an image from an existing server.
 
-## Ready-made images
+## Ready-Made Images
 
 The **Images** screen in the panel lists all images available in your project. Ready-made images are provided and kept up to date by Cloud2Biz. They usually include cloud-init and guest tools, so features such as SSH keys and user data work out of the box.
 
-## Supported formats
+## Supported Formats
 
 | Format | Description |
 | --- | --- |
@@ -19,7 +19,7 @@ The **Images** screen in the panel lists all images available in your project. R
 | **ISO** | An installation CD/DVD image, used to install an operating system yourself. |
 | **VMDK / VHD(X)** | Disks from other virtualization platforms. We recommend converting them to QCOW2 before uploading. |
 
-## Uploading an image
+## Uploading an Image
 
 1. On the **Images** screen, click **Add image**.
 2. Select the file from your computer, or enter a URL to download the image from.
@@ -32,7 +32,7 @@ For images larger than a few GB, placing the image at an internet-accessible add
 
 For custom images you cannot upload from the panel, open a support ticket after ordering and our team will help you add your image.
 
-## Preparing your own image
+## Preparing Your Own Image
 
 For your own images to work smoothly on FlexoStack:
 
@@ -48,7 +48,7 @@ qemu-img convert -p -f vmdk -O qcow2 server.vmdk server.qcow2
 qemu-img info server.qcow2
 ```
 
-## Creating an image from a volume
+## Creating an Image from a Volume
 
 You can save a configured server as a template and reuse the same environment for new servers:
 
@@ -62,6 +62,6 @@ The new image appears on the **Images** screen and can be selected as the source
 Before turning a server into an image, remove SSH host keys, history files, logs and configuration files containing passwords. On Linux, `sudo cloud-init clean` makes servers created from the image run their first-boot configuration again.
 :::
 
-## Deleting an image
+## Deleting an Image
 
 Select the image on the **Images** screen and click **Delete**. Deleting an image does not affect virtual machines previously created from it.

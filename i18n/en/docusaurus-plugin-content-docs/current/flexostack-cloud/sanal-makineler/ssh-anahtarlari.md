@@ -11,7 +11,7 @@ A key pair has two parts:
 - **Private key:** Stays on your computer and is never shared.
 - **Public key:** Added to the FlexoStack panel and placed on servers.
 
-## Creating a key pair
+## Creating a Key Pair
 
 ### Linux and macOS
 
@@ -40,7 +40,7 @@ If you use PuTTY, create the key with **PuTTYgen** and copy the text in the "Pub
 Ed25519 is shorter, faster and secure, and is recommended for new keys. If you need compatibility with very old systems, create an RSA key with `ssh-keygen -t rsa -b 4096`.
 :::
 
-## Adding a key to the panel
+## Adding a Key to the Panel
 
 1. In the panel, open **SSH keys** and click **Add key**.
 2. Name the key, for example `alex-laptop`.
@@ -49,7 +49,7 @@ Ed25519 is shorter, faster and secure, and is recommended for new keys. If you n
 
 Add only the **public key** (the contents of the `.pub` file) to the panel. Never paste your private key into the panel, an email or a support ticket.
 
-## Using it with a virtual machine
+## Using It with a Virtual Machine
 
 When creating a virtual machine, select your key in the **Key pair** field. On first boot, cloud-init adds the key to the default user's `~/.ssh/authorized_keys` file.
 
@@ -57,7 +57,7 @@ When creating a virtual machine, select your key in the **Key pair** field. On f
 The SSH key selected in the panel is added to the virtual machine only when it is first created. To add or change keys on a running server, use the method below.
 :::
 
-## Adding a key to a running server
+## Adding a Key to a Running Server
 
 If you can connect to the server, add the new public key to `authorized_keys`:
 
@@ -72,13 +72,13 @@ Or from your own computer:
 ssh-copy-id -i ~/.ssh/new_key.pub USER@FLOATING_IP_ADDRESS
 ```
 
-## If you lost your private key
+## If You Lost Your Private Key
 
 Without the private key, you cannot log in with that key. To regain access:
 
 1. If you can log in with a password via the panel [console](./sanal-makineye-baglanma.md#panel-console), add a new public key to `authorized_keys`.
 2. If no password is set, use [rescue mode](./sanal-makine-yonetimi.md#rescue-mode) to mount the boot volume and add the new key to the user's `.ssh/authorized_keys` file.
 
-## Deleting a key
+## Deleting a Key
 
 Select the key on the **SSH keys** screen and click **Delete**. Deleting a key from the panel does not remove it from servers it was added to; remove it from the `authorized_keys` files on those servers separately.

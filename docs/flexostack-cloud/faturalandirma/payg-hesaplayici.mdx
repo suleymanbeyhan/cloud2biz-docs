@@ -1,0 +1,29 @@
+---
+sidebar_position: 4
+title: PAYG Hesaplayıcı
+sidebar_label: PAYG Hesaplayıcı
+description: FlexoStack PAYG (kullandığın kadar öde) modelinde kaynaklarınızın saatlik, günlük, haftalık ve aylık maliyetini hesaplayın.
+---
+
+import PaygCalculator from '@site/src/components/PaygCalculator';
+
+Kullanacağınız kaynakları ve ne kadar süre çalışacaklarını girerek FlexoStack [PAYG](./payg.md) maliyetinizi hesaplayın. Tutarlar anında güncellenir.
+
+<PaygCalculator />
+
+## Hesaplama nasıl yapılır?
+
+- **Saatlik ölçüm:** Kaynaklar, kullanılan değil **ayrılan** (allocate edilen) miktar üzerinden saatlik olarak ölçülür. Dönem tutarı = saatlik tutar × kullanım süresi (saat).
+- **Kullanım süresi:** 1 gün 24 saat, 1 hafta 168 saat, 1 ay 730 saat olarak hesaplanır. Dilerseniz **Özel süre** alanına kendi saat değerinizi yazabilirsiniz.
+- **Kademeli fiyat:** vCPU, RAM ve diskte her kademedeki miktar, o kademenin fiyatıyla ücretlendirilir. Örneğin 10 vCPU için 8 vCPU 0,0033 USD'den, kalan 2 vCPU 0,00297 USD'den hesaplanır.
+
+| Kaynak | 1. kademe | 2. kademe (%10 indirimli) | 3. kademe (%15 indirimli) |
+| --- | --- | --- | --- |
+| vCPU | 1–8 vCore | 9–32 vCore | 33 vCore ve üzeri |
+| RAM | 1–32 GB | 33–64 GB | 65 GB ve üzeri |
+| Disk | 0–4 TB | 4–20 TB | 20 TB ve üzeri |
+
+- **Ağ trafiği:** Gelen ve giden trafik ayrı ayrı ölçülür; her yön için ilk 1 TB (1.024 GB) ücretsizdir, sonrası kademeli olarak ücretlendirilir. Trafik alanlarına seçtiğiniz süre boyunca oluşacak toplam trafiği yazın.
+- **Windows Server lisansı:** Windows Server çalıştıracağınız sanal makine sayısını girin; lisans sanal makine başına saatlik 0,0342 USD'dir (1 ayda ≈ 25 USD).
+
+Hesaplamaya vergiler dahil değildir. Tüm birim fiyatlar ve faturalandırma kuralları için [PAYG Faturalandırması](./payg.md) sayfasına bakın. Sürekli çalışacak kaynaklarınızın maliyetini karşılaştırmak için [Sabit Kaynak Hesaplayıcı](./fiyat-hesaplayici.mdx)'yı kullanabilirsiniz.

@@ -130,14 +130,33 @@ Bu yapılandırmada 12 aylık peşin ödeme, aylık ödemeye göre yıllık yakl
 
 ## Kaynak değişiklikleri
 
-| Değişiklik | Faturaya etkisi |
-| --- | --- |
-| **CPU / RAM artırma** | Fark ay sonunda faturalandırılır. |
-| **CPU / RAM azaltma** | Mevcut dönemin faturasını etkilemez, **bir sonraki dönemden** itibaren geçerli olur. |
-| **Disk artırma** | Fark ay sonunda faturalandırılır. |
-| **Disk azaltma** | Desteklenmez; disk alanı yalnızca artırılabilir. |
+### Kaynak artırma (paket yükseltme)
 
-Kaynak artırma veya azaltma talepleriniz için [cloud2biz.com müşteri panelinizden](https://cloud2biz.com/clientarea) destek talebi oluşturabilirsiniz.
+Sabit kaynak satın aldıysanız FlexoStack hesabınızın kaynaklarını dönem sonunu beklemeden, **anında** artırabilirsiniz:
+
+1. [cloud2biz.com müşteri panelinize](https://cloud2biz.com/clientarea) giriş yapın.
+2. **Hizmetler** bölümünden ilgili FlexoStack hizmetinizi seçin.
+3. **Paket yükseltme** seçeneğine tıklayın.
+4. Artırmak istediğiniz kaynakları (vCPU, RAM, disk, IP vb.) yeni değerleriyle güncelleyin.
+5. Oluşan ek ücreti ödeyin.
+
+Ödeme tamamlandığında yeni kaynaklar FlexoStack hesabınıza anında tanımlanır ve kullanmaya başlayabilirsiniz.
+
+### Kaynak azaltma
+
+FlexoStack hesabınızın kaynaklarını aynı **Paket yükseltme** ekranından azaltabilirsiniz. Bu durumda:
+
+- Mevcut dönem için **herhangi bir ücret iadesi yapılmaz**.
+- **Bir sonraki ayın faturası**, azaltılan kaynaklar kadar düşük oluşturulur.
+
+:::note Disk alanı
+Disk alanı yalnızca artırılabilir; mevcut bir disk küçültülemez. Bu nedenle disk boyutunu ihtiyacınıza göre kademeli olarak artırmanızı öneririz.
+:::
+
+| Değişiklik | Ne zaman geçerli olur? | Faturaya etkisi |
+| --- | --- | --- |
+| **Kaynak artırma** | Ödeme sonrasında anında | Paket yükseltme sırasında ek ücret ödenir. |
+| **Kaynak azaltma** | Hemen | Ücret iadesi yapılmaz; bir sonraki ayın faturası azalır. |
 
 ## Sabit kaynak mı, PAYG mi?
 

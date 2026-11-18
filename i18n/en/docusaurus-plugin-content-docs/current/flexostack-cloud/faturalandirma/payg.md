@@ -9,7 +9,7 @@ With **Pay As You Go (PAYG)**, you do not pay a fixed monthly fee for your Flexo
 
 PAYG is ideal for test and development environments, short-term projects, campaign periods and applications whose load varies during the day.
 
-## Opening a PAYG account
+## Opening a PAYG Account
 
 To start using PAYG, purchase a PAYG account on cloud2biz.com:
 
@@ -20,7 +20,7 @@ To start using PAYG, purchase a PAYG account on cloud2biz.com:
 
 After activation, your FlexoStack panel login details are on the **Giriş Detayları** (Login Details) tab of your PAYG service under **Hizmetler** (Services). See [Logging in](../ilk-adimlar/panele-giris.md).
 
-## What is metered?
+## What Is Metered?
 
 | Resource | How it is metered |
 | --- | --- |
@@ -32,18 +32,18 @@ After activation, your FlexoStack panel login details are on the **Giriş Detayl
 | **Network traffic** | Inbound and outbound traffic |
 | **Windows Server license** | Virtual machines running a Windows Server image |
 
-### Allocated capacity is metered, not usage
+### Allocated Capacity Is Metered, Not Usage
 
 Metering is based on **how much is allocated, not how much is used**:
 
 - A virtual machine created with 4 vCPUs and 8 GB RAM is metered as 4 vCPUs and 8 GB RAM, even if CPU usage is low.
 - A volume created at 100 GB is metered as 100 GB, even if it holds only 10 GB of data.
 
-## Hourly unit prices
+## Hourly Unit Prices
 
 All prices are in **USD**. For vCPU, RAM and disk, the unit price decreases in tiers as usage grows: the quantity in each tier is billed at that tier's price.
 
-### CPU and memory
+### CPU and Memory
 
 | Resource | Tier | Hourly price | Monthly equivalent (730 hours) |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ All prices are in **USD**. For vCPU, RAM and disk, the unit price decreases in t
 | Disk Economy (SAS) | 4–20 TB (10% off) | 0.000045 / GB-hour | 0.033 |
 | Disk Economy (SAS) | 20 TB and above (15% off) | 0.000043 / GB-hour | 0.031 |
 
-### IP, load balancer and license
+### IP, Load Balancer and License
 
 | Resource | Unit | Hourly price | Monthly equivalent (730 hours) |
 | --- | --- | --- | --- |
@@ -79,7 +79,7 @@ Two snapshots are free; additional snapshots are metered at the disk storage rat
 For resources running continuously for a full month, the [fixed resources](./sabit-kaynak.md) model costs less than PAYG. For example, 1 vCPU costs about 2.41 USD per month on PAYG and 1.80 USD per month on fixed resources.
 :::
 
-### Network traffic
+### Network Traffic
 
 On your PAYG account, **inbound** and **outbound** traffic are metered separately and billed in tiers based on monthly total traffic:
 
@@ -96,7 +96,7 @@ Traffic prices are the same as in the [fixed resources](./sabit-kaynak.md#networ
 
 For example, with 1,500 GB of outbound traffic in a month, the first 1,024 GB is free and the remaining 476 GB is billed at 476 × 0.0070 = 3.33 USD.
 
-### Windows Server license
+### Windows Server License
 
 **Windows Server images on FlexoStack are pre-licensed**; you do not need to buy or activate a license separately.
 
@@ -104,7 +104,7 @@ For example, with 1,500 GB of outbound traffic in a month, the first 1,024 GB is
 - The license fee is **not per core**; it is **25 USD per month** per virtual machine. The fee does not change regardless of how many vCPUs you assign.
 - License usage is metered **hourly** (0.0342 USD per hour). If your Windows virtual machine runs for a full month, the license fee is **25 USD**; for shorter use, you pay only for the time used.
 
-## How usage is recorded
+## How Usage Is Recorded
 
 - Your usage is metered **hourly**.
 - Metered usage is recorded to your PAYG account under **PayG Hesapları** (PAYG Accounts) in your cloud2biz.com client area.
@@ -112,7 +112,7 @@ For example, with 1,500 GB of outbound traffic in a month, the first 1,024 GB is
 
 Track your usage and accrued charges in the **PayG Hesapları** section of your cloud2biz.com client area.
 
-## Example calculation
+## Example Calculation
 
 A Linux server running with **4 vCPUs, 8 GB RAM, 80 GB Disk High IOPS and 1 IP**:
 
@@ -126,7 +126,9 @@ A Linux server running with **4 vCPUs, 8 GB RAM, 80 GB Disk High IOPS and 1 IP**
 
 Network traffic adds no cost in this example, since the first 1 TB per month is free. If the same server ran Windows Server, a 25 USD license fee would be added for a full month.
 
-## Quota levels
+To calculate the cost of your own configuration, use the [PAYG Calculator](./payg-hesaplayici.mdx).
+
+## Quota Levels
 
 PAYG accounts work with **quota levels** that limit resource usage. The quota sets the maximum resources you can have in your account at the same time:
 
@@ -139,7 +141,7 @@ PAYG accounts work with **quota levels** that limit resource usage. The quota se
 
 The quota only limits the maximum resources you can create; billing is based on the resources you allocate, not on the quota.
 
-### Increasing your quota
+### Increasing Your Quota
 
 1. Open a support ticket from your [cloud2biz.com client area](https://cloud2biz.com/clientarea).
 2. Specify your PAYG account and the level you want (e.g. Basic Package).
@@ -147,7 +149,7 @@ The quota only limits the maximum resources you can create; billing is based on 
 
 When you reach your quota, creating new virtual machines, volumes or floating IPs fails; existing resources keep running.
 
-## Tips for reducing costs
+## Tips for Reducing Costs
 
 - Instead of just shutting down servers you are not using, [shelve them](../sanal-makineler/sanal-makine-yonetimi.md#shelving); a stopped virtual machine keeps its CPU and RAM allocated.
 - Instead of starting with large volumes, [extend them](../depolama/diskler.md#extending-a-volume) as needed; volumes cannot be shrunk.

@@ -6,7 +6,7 @@ description: Connecting to FlexoStack virtual machines via the panel console, SS
 
 You can connect to your virtual machine in three ways: the **console** in the panel, **SSH** for Linux and **Remote Desktop (RDP)** for Windows.
 
-## Panel console
+## Panel Console
 
 The console gives you direct access to the virtual machine's screen from your browser. It works even without network connectivity or a working SSH service, which makes it ideal for installation and troubleshooting.
 
@@ -54,9 +54,9 @@ On Windows 10 and later, the `ssh` command is available in PowerShell. Alternati
 Opening port 3389 to `0.0.0.0/0` exposes your server to constant password-guessing attacks. Restrict access to your own IP addresses or use a [Site-to-Site VPN](../ag/vpn.md).
 :::
 
-## Setting a password
+## Setting a Password
 
-### At creation (cloud-init)
+### At Creation (cloud-init)
 
 When creating the virtual machine, add a configuration like the following in the **User data** field:
 
@@ -70,7 +70,7 @@ ssh_pwauth: false
 
 `ssh_pwauth: false` keeps password login over SSH disabled, so the password is used only for console login. This is the recommended secure configuration.
 
-### On a running server
+### On a Running Server
 
 After connecting via SSH, change the password from inside the operating system:
 
@@ -80,7 +80,7 @@ sudo passwd ubuntu
 
 For virtual machines with guest tools installed, the panel may also offer a **Set password** option, which lets you set a user's password inside the operating system without connecting to the server.
 
-## If you cannot connect
+## If You Cannot Connect
 
 1. Check that the virtual machine status is **Active**.
 2. Check that the floating IP is assigned to the correct virtual machine.

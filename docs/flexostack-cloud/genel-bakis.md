@@ -95,9 +95,10 @@ FlexoStack iki faturalandırma modeli sunar. Aynı hesapta ikisini birlikte kull
 ### Sabit kaynak
 
 - Belirli kaynaklar için **aylık sabit ücret** ödersiniz.
-- Faturalar **peşin** oluşturulur, dönem içinde oluşabilecek farklar ay sonunda faturalandırılır.
+- Faturalar **peşin** oluşturulur; ağ trafiği ay sonunda ölçülüp faturalandırılır.
+- Kaynaklarınızı müşteri panelinden **paket yükseltme** ile ek ücret ödeyerek anında artırabilirsiniz.
 - **6 aylık** ve **12 aylık** peşin ödemelerde indirimli fiyatlar uygulanır.
-- Dönem içinde yapılan kaynak azaltmaları mevcut dönemin faturasını etkilemez, **bir sonraki dönemden** itibaren geçerli olur.
+- Kaynak azaltmalarında ücret iadesi yapılmaz; **bir sonraki ayın faturası** azaltılan kaynaklar kadar düşer.
 
 ### Karşılaştırma
 
@@ -157,7 +158,8 @@ Fiziksel sunucularınızı ve FlexoStack kaynaklarınızı birlikte kullanarak h
 
 - **CPU ve RAM** cloud paneli üzerinden istediğiniz zaman artırılıp azaltılabilir.
 - **Disk alanı yalnızca artırılabilir.** İşletim sistemi düzeyinde disk küçültme desteklenmez; bu nedenle disk boyutunu ihtiyacınıza göre kademeli artırmanızı öneririz.
-- PAYG kaynaklarında değişiklik ücretlendirmeye anında yansır. Sabit kaynaklarda azaltma bir sonraki dönemden itibaren geçerli olur.
+- PAYG kaynaklarında değişiklik ücretlendirmeye anında yansır.
+- Sabit kaynaklarda artırma, müşteri panelinden **paket yükseltme** ile ek ücret ödenerek anında yapılır. Azaltmada ücret iadesi yapılmaz, bir sonraki ayın faturası azalır. Ayrıntılar için [Sabit Kaynak Faturalandırması](./faturalandirma/sabit-kaynak.md#kaynak-değişiklikleri) sayfasına bakın.
 
 ## Sunucu oluşturma ve yönetim
 

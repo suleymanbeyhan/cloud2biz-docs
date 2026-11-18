@@ -9,7 +9,7 @@ FlexoStack is a KVM-based flexible cloud infrastructure platform that lets you s
 
 This page covers FlexoStack's infrastructure, billing models, locations and the key things you need to know for day-to-day use.
 
-## Who is FlexoStack for?
+## Who Is FlexoStack For?
 
 - **Web hosting:** Fast, reliable and secure hosting on high-availability (H/A) clusters.
 - **Developers and agencies:** Flexible resources and API access for development, staging and production.
@@ -19,9 +19,9 @@ This page covers FlexoStack's infrastructure, billing models, locations and the 
 
 The PAYG model is especially well suited to short-term projects, test environments and applications with variable load.
 
-## Infrastructure and technical features
+## Infrastructure and Technical Features
 
-### Compute and storage
+### Compute and Storage
 
 - **Intel® Xeon® Platinum** processors and new-generation high-speed RAM.
 - **NVMe SSD-based High IOPS disks:** High I/O performance and low latency.
@@ -47,7 +47,7 @@ FlexoStack uses **KVM hypervisor** technology. Each virtual machine runs isolate
 - **Load Balancer:** Distribute traffic across your servers automatically with a software-defined load balancer.
 - **Floating IP:** A public IP address you can assign to a virtual machine and move instantly to another virtual machine when needed. Use it to make a server on a Private Network (connected to the internet via a router) reachable from outside, or to redirect traffic to a standby server during maintenance or failures without changing the IP address.
 
-### API and automation
+### API and Automation
 
 The platform API (**OpenStack**-compatible) is available to users who want it. API access is scoped so you can manage only your own resources, which lets you manage your infrastructure as code with tools such as Terraform and Ansible.
 
@@ -59,7 +59,7 @@ Network access to the API is restricted. To connect with the OpenStack API, open
 
 With **Managed Kubernetes (K8s)** you can run container-based applications and gradually migrate monolithic applications to a microservice architecture. Resources can be managed from the user interface or via the API.
 
-### Security and access
+### Security and Access
 
 - Secure server access with **SSH keys** instead of passwords.
 - Every virtual machine runs isolated with KVM.
@@ -69,7 +69,7 @@ With **Managed Kubernetes (K8s)** you can run container-based applications and g
 
 Track CPU, RAM and disk usage with real-time graphs in your FlexoStack panel.
 
-## Disk types
+## Disk Types
 
 FlexoStack offers two disk types to match your workload:
 
@@ -81,7 +81,7 @@ FlexoStack offers two disk types to match your workload:
 - **Disk High IOPS** is built on NVMe SSDs and delivers up to 16,000 IOPS and 2,000 MB/s per volume.
 - **Disk Economy** is built on SAS disks and suits workloads where capacity and cost matter more than peak performance.
 
-## Billing models
+## Billing Models
 
 FlexoStack offers two billing models. You can combine both in the same account: run always-needed resources as fixed and variable needs as PAYG to optimize your costs.
 
@@ -92,12 +92,13 @@ FlexoStack offers two billing models. You can combine both in the same account: 
 - Invoices are issued **at the beginning of each month**.
 - Resource changes affect billing **immediately**; you never pay for unused resources.
 
-### Fixed resources
+### Fixed Resources
 
 - You pay a **fixed monthly fee** for defined resources.
-- Invoices are issued **in advance**; any differences during the period are invoiced at month end.
+- Invoices are issued **in advance**; network traffic is metered and invoiced at month end.
+- You can increase resources instantly with a **package upgrade** in the client area by paying the additional fee.
 - **6-month** and **12-month** prepayments are discounted.
-- Resource reductions during a period do not change the current invoice and take effect **from the next period**.
+- Resource reductions are not refunded; **next month's invoice** is reduced accordingly.
 
 ### Comparison
 
@@ -109,7 +110,7 @@ FlexoStack offers two billing models. You can combine both in the same account: 
 | Effect of reducing resources | Immediate | Next period |
 | Best for | Testing, short projects, variable load | Always-on systems with predictable load |
 
-### Sample unit prices
+### Sample Unit Prices
 
 Prices are in USD and for reference only. For current prices and other components (Object Storage, backup, traffic, SSL), use the [price calculator](https://cloud2biz.com/calculator).
 
@@ -120,7 +121,7 @@ Prices are in USD and for reference only. For current prices and other component
 | Disk High IOPS | 1 GB | 0.000086 | 0.048 | 0.0456 | 0.0432 |
 | Public IP | 1 | 0.0036 | 2.00 | 1.90 | 1.80 |
 
-### Quantity discounts
+### Quantity Discounts
 
 For fixed resources, the discount rate increases with volume:
 
@@ -142,7 +143,7 @@ FlexoStack is available in the following data center locations:
 
 Your data is stored on redundant infrastructure in the data center of the location you choose.
 
-### Which location should I choose?
+### Which Location Should I Choose?
 
 - **Istanbul and Ankara:** Lowest latency for users in Turkey and the surrounding region, with data hosted in-country.
 - **Sofia:** Optimized for European connectivity. Suitable for companies with operations abroad and businesses that want to back up data outside Turkey; also a common choice as a second location for business continuity.
@@ -153,13 +154,14 @@ Istanbul Europe-1 and Europe-2 are located on the same campus in **two separate 
 
 You can also combine your physical servers with FlexoStack resources to build hybrid infrastructure.
 
-## Resource changes
+## Resource Changes
 
 - **CPU and RAM** can be increased or decreased at any time from the cloud panel.
 - **Disk space can only be increased.** Shrinking disks at the operating system level is not supported, so we recommend growing disk size gradually as needed.
-- For PAYG resources, changes affect billing immediately. For fixed resources, reductions take effect from the next period.
+- For PAYG resources, changes affect billing immediately.
+- For fixed resources, increases are made instantly with a **package upgrade** in the client area by paying the additional fee. Decreases are not refunded; next month's invoice is reduced. See [Fixed Resources Billing](./faturalandirma/sabit-kaynak.md#resource-changes) for details.
 
-## Creating and managing servers
+## Creating and Managing Servers
 
 - **Fast provisioning:** Activation is automatic. After payment, your server and operating system are ready within minutes; the IP address and login details are sent by email.
 - **Ready-made or custom images:** Use ready-made OS images, or save your own configuration as an image and reuse it for new servers.
@@ -167,7 +169,7 @@ You can also combine your physical servers with FlexoStack resources to build hy
 - **Reinstalling the OS:** Reinstall from the control panel at any time, as many times as you like.
 - **IP address management:** Manage IP address changes from the cloud management panel.
 
-## Backup and snapshots
+## Backup and Snapshots
 
 ### Snapshots
 
@@ -191,7 +193,7 @@ See [Backups](./depolama/yedekleme.md) for details.
 Keeping backups in a different location from your server is the strongest protection against data center-level issues. Cloud2Biz's multi-location infrastructure lets you build your own disaster recovery scenarios.
 :::
 
-## Free trial
+## Free Trial
 
 New users get a **15-day** free trial worth up to **50 USD + VAT**. During the trial you can adjust CPU, RAM and disk freely, and if you are satisfied you can continue with the same configuration.
 
@@ -201,14 +203,14 @@ If you are not satisfied, you can cancel the service from the portal and request
 
 You can pay by credit or debit card via virtual POS. PAYG usage requires a prepaid balance.
 
-## Support and continuity
+## Support and Continuity
 
 - Our support team is available **24/7**.
 - Hardware, the virtualization platform and the network are continuously monitored.
 - Thanks to high availability and load-balanced architecture, most hardware failures go unnoticed by users.
 - Planned maintenance is announced in advance; work requiring downtime is scheduled outside peak hours.
 
-## Frequently asked questions
+## Frequently Asked Questions
 
 <details>
 <summary>What is the difference between PAYG and fixed resources?</summary>
@@ -252,7 +254,7 @@ In the data center of the location you choose (Istanbul Europe-1, Istanbul Europ
 
 </details>
 
-## Next steps
+## Next Steps
 
 - Use the [price calculator](https://cloud2biz.com/calculator) to see the cost of your configuration.
 - Place your order on the [FlexoStack product page](https://cloud2biz.com/flexostack).

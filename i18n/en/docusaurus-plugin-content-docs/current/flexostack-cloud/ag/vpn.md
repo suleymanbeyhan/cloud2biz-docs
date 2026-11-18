@@ -6,7 +6,7 @@ description: Connecting FlexoStack virtual networks to your office or other data
 
 A **Site-to-Site VPN** connects your FlexoStack virtual networks to your office network, another cloud environment or a different Cloud2Biz location using encrypted **IPsec** tunnels. Once connected, servers on both sides communicate with private IP addresses as if they were on the same network.
 
-## Use cases
+## Use Cases
 
 - Letting office staff reach servers via private IPs without exposing them to the internet
 - Building hybrid setups between on-premises systems and cloud servers
@@ -19,12 +19,12 @@ A **Site-to-Site VPN** connects your FlexoStack virtual networks to your office 
 - On the remote side, an IPsec-capable device (FortiGate, pfSense, MikroTik, Cisco, etc.) with a **static public IP address**
 - **Non-overlapping** network ranges on both sides (e.g. FlexoStack `192.168.10.0/24`, office `10.0.0.0/24`)
 
-## Creating a VPN connection
+## Creating a VPN Connection
 
 1. In the panel, open **VPN** and click **Create VPN connection**.
 2. Fill in the sections below and click **Create**.
 
-### Connection details
+### Connection Details
 
 | Field | Description |
 | --- | --- |
@@ -34,7 +34,7 @@ A **Site-to-Site VPN** connects your FlexoStack virtual networks to your office 
 | **Peer subnets** | The network ranges on the remote side (e.g. `10.0.0.0/24`) |
 | **Pre-shared key (PSK)** | The shared secret used by both sides for authentication |
 
-### IKE and IPsec policies
+### IKE and IPsec Policies
 
 Both sides must use the same encryption settings. A secure and widely compatible starting configuration:
 
@@ -50,7 +50,7 @@ Both sides must use the same encryption settings. A secure and widely compatible
 The pre-shared key should be a randomly generated value at least 32 characters long, for example from `openssl rand -base64 32`. Do not share the PSK in plain text over email or messaging apps.
 :::
 
-## Configuring the remote side
+## Configuring the Remote Side
 
 On the remote device, create an IPsec tunnel with the same parameters:
 
@@ -61,7 +61,7 @@ On the remote device, create an IPsec tunnel with the same parameters:
 
 Once the tunnel is configured on both sides, the connection status shows **Active** in the panel.
 
-## Security groups and firewalls
+## Security Groups and Firewalls
 
 Traffic arriving over the VPN is also filtered by [security groups](./security-groups.md). In your FlexoStack servers' security groups, allow the required ports from the remote network range (e.g. `10.0.0.0/24`). Remember to allow the FlexoStack network in the remote firewall as well.
 

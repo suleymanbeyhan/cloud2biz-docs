@@ -6,7 +6,7 @@ description: Creating load balancers on FlexoStack; listeners, balancing pools, 
 
 A **load balancer** distributes incoming traffic across multiple virtual machines. Your application can serve more users, and if one server fails, traffic is automatically sent to the healthy ones.
 
-## Key concepts
+## Key Concepts
 
 ```text
                  Internet
@@ -41,7 +41,7 @@ FlexoStack offers a single load balancer type; there is no size to choose:
 
 See [Billing](../faturalandirma/sabit-kaynak.md#load-balancer) for details.
 
-## Creating a load balancer
+## Creating a Load Balancer
 
 1. In the panel, open **Load balancers** and click **Create load balancer**.
 2. Enter a name and select the **virtual network** the load balancer runs on. This should be the network your backend servers are on.
@@ -50,9 +50,9 @@ See [Billing](../faturalandirma/sabit-kaynak.md#load-balancer) for details.
 5. Add one or more **balancing pools** (see below).
 6. Click **Create**.
 
-## Balancing pool settings
+## Balancing Pool Settings
 
-### Protocol and port
+### Protocol and Port
 
 You set the listener protocol and port (frontend) and the members' application port (backend):
 
@@ -65,7 +65,7 @@ You set the listener protocol and port (frontend) and the members' application p
 
 With **TLS termination**, you upload your SSL certificate and private key to the load balancer. You manage the certificate in one place, and encryption overhead is removed from the servers.
 
-### Balancing algorithm
+### Balancing Algorithm
 
 | Algorithm | Behavior | When to use |
 | --- | --- | --- |
@@ -73,11 +73,11 @@ With **TLS termination**, you upload your SSL certificate and private key to the
 | **Least connections** | Sends each request to the member with the fewest active connections. | Long-lived connections or variable processing times |
 | **Source IP** | Always sends the same client IP to the same member. | Applications that store session data on the server |
 
-### Session persistence (sticky sessions)
+### Session Persistence (Sticky Sessions)
 
 If your application keeps session data in server memory, enable session persistence (e.g. based on source IP or an HTTP cookie) so all of a user's requests go to the same server.
 
-### HTTP headers
+### HTTP Headers
 
 On HTTP listeners, the load balancer can add headers such as `X-Forwarded-For` to pass the client's real IP to your servers. Use this header to see real visitor IPs in your web server logs.
 
@@ -85,7 +85,7 @@ On HTTP listeners, the load balancer can add headers such as `X-Forwarded-For` t
 
 To allow access to the pool only from specific IP ranges, add them in CIDR format (e.g. `203.0.113.0/24`) under **Allowed CIDRs**. If left empty, all addresses are allowed.
 
-### Health monitor
+### Health Monitor
 
 The health monitor sends requests to members at regular intervals to check that they are working:
 
@@ -97,7 +97,7 @@ The health monitor sends requests to members at regular intervals to check that 
 Creating a simple `/health` endpoint that also checks core dependencies such as the database connection, and using it for the HTTP health monitor, helps remove faulty servers from rotation more accurately.
 :::
 
-## Managing pool members
+## Managing Pool Members
 
 1. Select the load balancer and open the balancing pool.
 2. In **Members**, use **Add** to add virtual machines or remove existing members.
@@ -105,11 +105,11 @@ Creating a simple `/health` endpoint that also checks core dependencies such as 
 
 Temporarily removing a server from the pool lets you perform maintenance while traffic continues on the other members.
 
-## Security groups
+## Security Groups
 
 Make sure the security groups of pool member virtual machines allow traffic to the application port from the load balancer's network, including health checks. Otherwise members appear unhealthy and receive no traffic.
 
-## Editing and deleting a pool
+## Editing and Deleting a Pool
 
 - **Edit:** Changes balancing settings (headers, TLS, algorithm, session persistence).
 - **Edit allowed CIDRs:** Edits the allowed IP ranges.

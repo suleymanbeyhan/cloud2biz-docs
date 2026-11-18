@@ -126,6 +126,8 @@ Kullanımınızı ve oluşan tutarları cloud2biz.com müşteri panelinizdeki **
 
 Ağ trafiği, aylık ilk 1 TB ücretsiz olduğu için bu örnekte ek ücret oluşturmaz. Aynı sunucu Windows Server ile çalışsaydı, 1 aylık kullanımda toplama 25 USD lisans bedeli eklenirdi.
 
+Kendi yapılandırmanızın maliyetini hesaplamak için [PAYG Hesaplayıcı](./payg-hesaplayici.mdx) sayfasını kullanın.
+
 ## Kota seviyeleri
 
 PAYG hesapları, kaynak kullanımını sınırlayan **kota seviyeleriyle** çalışır. Kota, hesabınızda aynı anda oluşturabileceğiniz en fazla kaynak miktarını belirler:

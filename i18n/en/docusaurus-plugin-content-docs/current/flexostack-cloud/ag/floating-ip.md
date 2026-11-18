@@ -6,7 +6,7 @@ description: Creating floating IPs on FlexoStack, assigning them to virtual mach
 
 A **floating IP** is a public IP address you can assign to a virtual machine and move instantly to another virtual machine when needed. Use it to make a server on a Private Network reachable from the internet, or to redirect traffic to a standby server during maintenance or failures without changing the IP address.
 
-## How it works
+## How It Works
 
 A floating IP is not configured directly in the virtual machine's operating system. The virtual machine only sees its own private IP (e.g. `192.168.10.15`); the router forwards traffic arriving at the floating IP to that private address (1:1 NAT).
 
@@ -23,7 +23,7 @@ As a result:
 
 To assign a floating IP to a virtual machine, the network the virtual machine is on must be connected to a [router](./sanal-routerlar.md) with an external gateway.
 
-## Creating and assigning a floating IP
+## Creating and Assigning a Floating IP
 
 1. In the panel, open **Floating IPs** and click **Add floating IP**.
 2. Select the public network.
@@ -32,7 +32,7 @@ To assign a floating IP to a virtual machine, the network the virtual machine is
 
 To assign an existing unassigned floating IP, select it, click **Assign** and choose the virtual machine.
 
-## Moving a floating IP to another virtual machine
+## Moving a Floating IP to Another Virtual Machine
 
 1. On the **Floating IPs** screen, select the IP and click **Unassign** to detach it from the current virtual machine.
 2. Click **Assign** and select the new virtual machine.
@@ -43,11 +43,11 @@ This takes a few seconds. It is the fastest way to redirect traffic to a standby
 Make sure the virtual machine you move the floating IP to has a security group that opens the required ports.
 :::
 
-## Reverse DNS (PTR) record
+## Reverse DNS (PTR) Record
 
 For services that require reverse DNS, such as mail servers, open a support ticket with the IP address and the desired record value to have a PTR record set for your floating IP.
 
-## Releasing a floating IP
+## Releasing a Floating IP
 
 Unused floating IPs continue to be billed. If you no longer need an IP:
 

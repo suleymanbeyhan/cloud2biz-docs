@@ -8,7 +8,7 @@ With the FlexoStack backup service you can back up your volumes automatically wi
 
 On this page, backup and **recovery point** mean the same thing: a copy of an entire volume, or of the data that changed at a specific time.
 
-## Backup types
+## Backup Types
 
 | | Full backup | Incremental backup |
 | --- | --- | --- |
@@ -16,7 +16,7 @@ On this page, backup and **recovery point** mean the same thing: a copy of an en
 | Restore | Self-sufficient | Requires the first full backup and all following incremental backups (the backup chain) |
 | Time and space | Takes longer, uses more space | Faster, uses less space |
 
-## Snapshots vs. backups
+## Snapshots vs. Backups
 
 | | Snapshot | Backup |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ On this page, backup and **recovery point** mean the same thing: a copy of an en
 
 Snapshots are not a substitute for backups. Always use a backup plan for important data. For snapshots, see [Volumes and snapshots](./diskler.md#snapshots).
 
-## Backup plans
+## Backup Plans
 
 A backup plan defines three things:
 
@@ -34,18 +34,18 @@ A backup plan defines three things:
 - **How often:** When backups are created.
 - **How long to keep them:** The maximum number of **full backups** kept at any time.
 
-### Backup chains
+### Backup Chains
 
 A **backup chain** is one full backup followed by the incremental backups created before the next full backup. The default chain length is **7**: one full backup and six incremental backups. The total number of stored backups is therefore roughly **maximum number of full backups × chain length**.
 
-### Backup rotation
+### Backup Rotation
 
 When a new full backup is created and the retention limit is exceeded, the **oldest full backup and all of its incremental backups** are deleted automatically. For example:
 
 - With retention set to **1**, creating a new full backup deletes the previous chain.
 - With retention set to **2**, creating the third full backup deletes the oldest chain.
 
-### Creating a plan
+### Creating a Plan
 
 1. In the panel, open the **Backup plans** screen and click **Create backup plan**.
 2. In the **Create backup plan** window, enter a name and, optionally, a description. Do not put personal or sensitive business data in the description.
@@ -64,7 +64,7 @@ When a new full backup is created and the retention limit is exceeded, the **old
 To be able to bring a virtual machine back completely, add its boot volume and all data volumes to the plan. Recreating a virtual machine from a backup requires a backup of its **boot volume**.
 :::
 
-### Adding and removing volumes
+### Adding and Removing Volumes
 
 **To add volumes:**
 
@@ -80,13 +80,13 @@ Backups that were **already created** for a removed volume are not deleted.
 A volume cannot be added to more than one backup plan. To move a volume to another plan, remove it from its current plan first.
 :::
 
-### Editing a plan
+### Editing a Plan
 
 1. On the **Backup plans** screen, click the plan.
 2. In the right pane, click **Edit**.
 3. In the **Edit backup plan** window, change the name, description or schedule and click **Save**.
 
-### Deleting a plan
+### Deleting a Plan
 
 1. On the **Backup plans** screen, click the plan.
 2. In the right pane, click **Delete**.
@@ -97,18 +97,18 @@ A volume cannot be added to more than one backup plan. To move a volume to anoth
 If you select **Delete recovery points**, all backups of the plan are permanently deleted and cannot be recovered. To keep the backups, delete the plan without selecting this option.
 :::
 
-## Manual backups
+## Manual Backups
 
 Manual backups are instant, one-off backups of a single volume. No retention policy applies to them, so you must **delete them manually** when you no longer need them.
 
-### Creating a backup
+### Creating a Backup
 
 1. On the **Volumes** screen, click the volume.
 2. In the right pane, click **Create backup now**.
 
 The backup appears on the **Recovery points** screen.
 
-### Deleting a backup
+### Deleting a Backup
 
 1. On the **Recovery points** screen, click the recovery point.
 2. Click **Delete** and confirm.
@@ -117,11 +117,11 @@ The backup appears on the **Recovery points** screen.
 Deleting a backup also deletes **all backups that depend on it** in the same chain, and their data is permanently lost.
 :::
 
-## Restoring from backups
+## Restoring from Backups
 
 A restore always creates a **new** volume or a **new** virtual machine. The original volume and virtual machine stay unchanged, so you can safely try a backup and take the data you need.
 
-### Restoring a volume
+### Restoring a Volume
 
 You can create a new volume from a backup of a data or boot volume, whether the backup was created automatically or manually.
 
@@ -131,7 +131,7 @@ You can create a new volume from a backup of a data or boot volume, whether the 
 
 The new volume appears on the **Volumes** screen. Attach it to a virtual machine to access your files.
 
-### Restoring a virtual machine
+### Restoring a Virtual Machine
 
 You can recreate a virtual machine only from a backup of its **boot volume**.
 
@@ -144,9 +144,9 @@ The new virtual machine appears on the **Virtual machines** screen. To bring bac
 
 ## Pricing
 
-Backup storage is billed **per GB** with a minimum purchase of **100 GB**. For current unit prices and quantity discounts, see [Fixed Resource Billing](../faturalandirma/sabit-kaynak.md#snapshots-and-backups); for an estimate, use the [Price Calculator](../faturalandirma/fiyat-hesaplayici.mdx).
+Backup storage is billed **per GB** with a minimum purchase of **100 GB**. For current unit prices and quantity discounts, see [Fixed Resources Billing](../faturalandirma/sabit-kaynak.md#snapshots-and-backups); for an estimate, use the [Price Calculator](../faturalandirma/fiyat-hesaplayici.mdx).
 
-## Backup recommendations
+## Backup Recommendations
 
 - **3-2-1 rule:** Keep at least 3 copies of your data, on 2 different media, with 1 copy in a different location.
 - Add the boot and data volumes of critical virtual machines to the same plan so all volumes are backed up at the same times.

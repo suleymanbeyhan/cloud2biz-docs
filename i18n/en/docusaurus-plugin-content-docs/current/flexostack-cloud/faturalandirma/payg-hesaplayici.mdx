@@ -1,0 +1,29 @@
+---
+sidebar_position: 4
+title: PAYG Calculator
+sidebar_label: PAYG Calculator
+description: Calculate the hourly, daily, weekly and monthly cost of your resources with FlexoStack PAYG (pay as you go).
+---
+
+import PaygCalculator from '@site/src/components/PaygCalculator';
+
+Enter the resources you will use and how long they will run to calculate your FlexoStack [PAYG](./payg.md) cost. Amounts update instantly.
+
+<PaygCalculator />
+
+## How the Calculation Works
+
+- **Hourly metering:** Resources are metered hourly based on the amount **allocated**, not the amount used. Period total = hourly total × usage period (hours).
+- **Usage period:** 1 day is 24 hours, 1 week is 168 hours and 1 month is 730 hours. You can also enter your own number of hours in **Custom period**.
+- **Graduated pricing:** For vCPU, RAM and disk, the amount in each tier is billed at that tier's price. For example, for 10 vCPUs, 8 vCPUs are billed at 0.0033 USD and the remaining 2 at 0.00297 USD.
+
+| Resource | Tier 1 | Tier 2 (10% off) | Tier 3 (15% off) |
+| --- | --- | --- | --- |
+| vCPU | 1–8 vCores | 9–32 vCores | 33 vCores and above |
+| RAM | 1–32 GB | 33–64 GB | 65 GB and above |
+| Disk | 0–4 TB | 4–20 TB | 20 TB and above |
+
+- **Network traffic:** Inbound and outbound traffic are metered separately; the first 1 TB (1,024 GB) in each direction is free, and the rest is billed in tiers. Enter the total traffic expected during the selected period.
+- **Windows Server license:** Enter the number of virtual machines that will run Windows Server; the license is 0.0342 USD per virtual machine per hour (≈ 25 USD per month).
+
+Taxes are not included. For all unit prices and billing rules, see [PAYG Billing](./payg.md). To compare the cost of resources that run continuously, use the [Fixed Resources Calculator](./fiyat-hesaplayici.mdx).

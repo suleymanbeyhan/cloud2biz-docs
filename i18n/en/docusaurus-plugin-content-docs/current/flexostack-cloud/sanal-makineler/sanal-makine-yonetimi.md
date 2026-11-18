@@ -6,7 +6,7 @@ description: Starting, stopping, resizing, shelving, rescuing, attaching ISO ima
 
 This page covers everyday management of your virtual machines. Most actions are available from the action menu in the top-right corner after selecting a virtual machine on the **Virtual machines** screen.
 
-## Power actions
+## Power Actions
 
 | Action | What it does |
 | --- | --- |
@@ -38,7 +38,7 @@ Billing effect:
 
 To grow a volume, see [Volumes](../depolama/diskler.md#extending-a-volume).
 
-## Adding and removing network interfaces
+## Adding and Removing Network Interfaces
 
 You can add up to 15 network interfaces to a virtual machine:
 
@@ -61,7 +61,7 @@ The volumes of a shelved virtual machine continue to use storage.
 A virtual machine that is only shut down (**Shut off**) keeps its CPU and RAM allocated. Shelve it if you want to release those resources.
 :::
 
-## Attaching an ISO image
+## Attaching an ISO Image
 
 You can attach an ISO image to a virtual machine as a virtual CD/DVD drive, for installing an operating system, loading drivers or running tools from an ISO.
 
@@ -71,7 +71,7 @@ You can attach an ISO image to a virtual machine as a virtual CD/DVD drive, for 
 4. If needed, restart the virtual machine to boot from the ISO.
 5. When finished, remove it with **Detach ISO**.
 
-## Rescue mode
+## Rescue Mode
 
 If your virtual machine does not boot, you forgot your password or the file system is damaged, use **rescue mode**. In rescue mode, the virtual machine boots from a temporary rescue image and its own boot volume is attached as an additional disk.
 
@@ -89,11 +89,11 @@ sudo umount /mnt
 
 5. When finished, return the virtual machine to normal with **Unrescue**.
 
-## Guest tools
+## Guest Tools
 
 Guest tools are a small helper running inside the virtual machine. When installed, the panel can set passwords, take consistent volume snapshots and show additional information about the virtual machine. Most of our ready-made images include guest tools. Our support team can help you install them on your own images.
 
-## Deleting a virtual machine
+## Deleting a Virtual Machine
 
 1. Select the virtual machine and click **Delete**.
 2. Choose whether its volumes should be deleted as well.
@@ -105,24 +105,24 @@ A deleted virtual machine and any volumes deleted with it cannot be recovered. M
 
 ## Troubleshooting
 
-### Virtual machine is in "Error" state
+### Virtual Machine Is in "Error" State
 
 - Check the error message in the virtual machine details. The most common cause is insufficient quota (CPU, RAM, storage or IPs).
 - Check your quota; delete unused resources or request a quota increase if needed.
 - Open a support ticket with the error message and the virtual machine name.
 
-### Virtual machine does not boot
+### Virtual Machine Does Not Boot
 
 - Open the [console](./sanal-makineye-baglanma.md#panel-console) and check the messages shown during boot.
 - For file system or bootloader problems, use [rescue mode](#rescue-mode).
 
-### No network connectivity
+### No Network Connectivity
 
 - Check from the console that the network interface is up and has an IP address (`ip a`).
 - Check that the network is connected to a router with an external gateway.
 - Check the security group rules and the firewall inside the server.
 
-### Performance issues
+### Performance Issues
 
 - Review CPU, RAM, disk and network usage in the virtual machine's **Monitoring** tab.
 - Make sure disk-heavy applications use the **Disk High IOPS** type.

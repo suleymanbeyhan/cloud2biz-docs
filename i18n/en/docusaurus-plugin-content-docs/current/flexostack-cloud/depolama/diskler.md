@@ -8,7 +8,7 @@ On FlexoStack, all data of your virtual machines lives on **volumes**. Volumes a
 
 Your volumes are stored on highly available, redundant storage infrastructure; the failure of a single physical disk or server does not cause data loss.
 
-## Disk types
+## Disk Types
 
 | Disk type | Technology | Performance | Recommended for |
 | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ Your volumes are stored on highly available, redundant storage infrastructure; t
 
 The disk type is chosen at creation.
 
-## Creating a volume
+## Creating a Volume
 
 1. In the panel, open **Volumes** and click **Create volume**.
 2. Name the volume and enter its size (GB).
@@ -25,7 +25,7 @@ The disk type is chosen at creation.
 4. Optionally choose a source: empty, from an image, or from a snapshot.
 5. Click **Create**.
 
-## Attaching a volume to a virtual machine
+## Attaching a Volume to a Virtual Machine
 
 1. On the **Volumes** screen, select the volume and click **Attach**.
 2. Select the virtual machine and confirm.
@@ -47,14 +47,14 @@ Use `mkfs` only on new, empty disks. Running it on a disk with data destroys all
 
 On Windows, bring the new disk online and format it in **Disk Management** (`diskmgmt.msc`).
 
-## Detaching a volume
+## Detaching a Volume
 
 1. If the volume is in use inside the virtual machine, unmount it first (on Linux, `sudo umount /data`).
 2. On the **Volumes** screen, select the volume and click **Detach**.
 
 A boot volume cannot be detached from a running virtual machine.
 
-## Extending a volume
+## Extending a Volume
 
 You can extend a volume at any time:
 
@@ -82,7 +82,7 @@ A snapshot is an image of a volume at a specific point in time. Taking a snapsho
 - **2 snapshots are free.** Beyond that, the storage used is charged.
 - Snapshots are kept on the same storage infrastructure as the volume. For protection against disasters, use [backups](./yedekleme.md) in addition to snapshots.
 
-### Taking a snapshot
+### Taking a Snapshot
 
 1. On the **Volumes** screen, select the volume.
 2. On the **Snapshots** tab, click **Create snapshot**.
@@ -92,7 +92,7 @@ A snapshot is an image of a volume at a specific point in time. Taking a snapsho
 On servers running databases, stopping the application before the snapshot or having guest tools installed helps you get a consistent snapshot.
 :::
 
-### Reverting to a snapshot
+### Reverting to a Snapshot
 
 To return a volume to the moment the snapshot was taken:
 
@@ -104,10 +104,10 @@ To return a volume to the moment the snapshot was taken:
 When you revert to a snapshot, all data written to the volume after the snapshot was taken is lost.
 :::
 
-### Creating a new volume from a snapshot
+### Creating a New Volume from a Snapshot
 
 To access old data without touching the current volume, create a new volume from the snapshot and attach it to a virtual machine. This is the safest way to recover a single file.
 
-## Deleting a volume
+## Deleting a Volume
 
 On the **Volumes** screen, select the volume and click **Delete**. A deleted volume and its snapshots cannot be recovered. A volume attached to a virtual machine cannot be deleted; detach it first.

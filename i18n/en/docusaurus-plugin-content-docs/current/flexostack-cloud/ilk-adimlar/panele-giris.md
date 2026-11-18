@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
 title: Logging In to the FlexoStack Panel
-sidebar_label: Logging in
+sidebar_label: Logging In
 description: How to log in to the FlexoStack panel, set up two-factor authentication (2FA) and work with projects.
 ---
 
 You manage all of your FlexoStack resources (virtual machines, volumes, networks, load balancers, Kubernetes and backups) from the **FlexoStack panel**. This page explains how to log in and how to protect your account with two-factor authentication.
 
-## Your login details
+## Your Login Details
 
 You can find your FlexoStack panel login details in your [cloud2biz.com client area](https://cloud2biz.com/clientarea):
 
@@ -25,7 +25,7 @@ This screen shows:
 | **Kullanıcı Adı** (User name) | Your FlexoStack panel user name |
 | **Şifre** (Password) | Your panel password. Use the eye icon to reveal it and the copy icon to copy it to the clipboard. |
 
-## Logging in
+## Logging In
 
 1. Click the **URL** link on the Login Details screen or open the address in your browser.
 2. Enter your **user name** and **password**. Since the URL is specific to your account, you do not need to enter a domain name.
@@ -45,7 +45,7 @@ In FlexoStack, your resources are grouped into **projects**. A project is an iso
 
 Contact our support team if you need an additional project or user.
 
-## Two-factor authentication (2FA)
+## Two-Factor Authentication (2FA)
 
 Two-factor authentication requires a one-time code from an app on your phone in addition to your password. Even if someone obtains your password, they cannot log in without this code. We strongly recommend that every user enables 2FA.
 
@@ -58,7 +58,7 @@ You can use an authenticator app such as **Google Authenticator** or **Microsoft
 3. Scan the QR code with your authenticator app. If you cannot scan it, click **Setup key** and enter the key in the app manually.
 4. Enter the 6-digit code from the app and click **Configure**.
 
-### If you lose your phone
+### If You Lose Your Phone
 
 If you have lost access to the device with your authenticator app:
 
@@ -75,12 +75,12 @@ For example, before switching to a new phone:
 2. Enter the 6-digit code from your authenticator app and click **Reset**.
 3. Enable 2FA again with your new device.
 
-## Security recommendations
+## Security Recommendations
 
 - Do not reuse your panel password for any other service.
 - Use [API credentials](./api-erisimi.md) instead of your user password for automation tools and scripts.
 - Give each team member their own user; do not share accounts.
 
-## Next step
+## Next Step
 
 After logging in, see [Creating virtual machines](../sanal-makineler/sanal-makine-olusturma.md) to create your first virtual machine.

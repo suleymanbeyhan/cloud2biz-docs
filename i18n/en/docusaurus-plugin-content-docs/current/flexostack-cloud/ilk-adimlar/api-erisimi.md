@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: API Access and OpenStack CLI
-sidebar_label: API access
+sidebar_label: API Access
 description: Getting network access to the FlexoStack OpenStack-compatible API, creating API credentials and using them with the OpenStack CLI.
 ---
 
@@ -12,7 +12,7 @@ To connect to the API you need two things:
 1. **Network access** for the IP addresses you will connect from
 2. An **API credential** created in the panel
 
-## 1. Get network access
+## 1. Get Network Access
 
 :::warning Network access required for the API
 Network access to the API is restricted. To connect with the OpenStack API, open a support ticket from the [client area](https://cloud2biz.com/clientarea) to have network access granted for the IP addresses you will connect from.
@@ -25,7 +25,7 @@ In your support ticket, include:
 
 Our support team will let you know once access is granted.
 
-## 2. Create an API credential
+## 2. Create an API Credential
 
 API credentials let applications and scripts authenticate to the API without a user name and password. Each credential belongs to a user and a project and consists of a **Credential ID** and an **API secret key**.
 
@@ -53,7 +53,7 @@ The API secret key is displayed only at creation time and cannot be viewed again
 | **Expired** | Has expired and can no longer be used. |
 | **Revoked** | Has been revoked and can no longer be used. |
 
-## 3. Use it with the OpenStack CLI
+## 3. Use It with the OpenStack CLI
 
 ### Installing the CLI
 
@@ -71,7 +71,7 @@ For load balancer and Kubernetes commands, you can also install:
 pip install python-octaviaclient python-magnumclient
 ```
 
-### Environment variables
+### Environment Variables
 
 Create a file named `openrc-flexostack.sh` with your own values:
 
@@ -90,7 +90,7 @@ source openrc-flexostack.sh
 openstack server list
 ```
 
-### Common commands
+### Common Commands
 
 ```bash
 openstack server list                  # Virtual machines
@@ -135,7 +135,7 @@ resource "openstack_compute_instance_v2" "web" {
 }
 ```
 
-## Revoking or deleting a credential
+## Revoking or Deleting a Credential
 
 1. In the project, open **Settings** > **API credentials**.
 2. Select the credential and click **Delete** or **Revoke** in the right pane.
@@ -143,7 +143,7 @@ resource "openstack_compute_instance_v2" "web" {
 
 Applications using a revoked, deleted or expired credential can no longer authenticate.
 
-## Security recommendations
+## Security Recommendations
 
 - Never commit the API secret key to source code or a Git repository; use environment variables or a secrets manager.
 - Create a separate credential for each application or automation so revoking one does not affect the others.

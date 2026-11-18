@@ -7,7 +7,7 @@ import styles from './styles.module.css';
  * Sıra: [aylık, 6 ay peşin, 12 ay peşin]
  * Fiyatlar değiştiğinde yalnızca bu tabloyu güncelleyin.
  */
-const PRICES = {
+export const PRICES = {
   vcpu: [1.8, 1.71, 1.62],
   ram: [1.8, 1.71, 1.62],
   diskHigh: [0.048, 0.0456, 0.0432],
@@ -19,7 +19,7 @@ const PRICES = {
 };
 
 // Miktar indirimleri: [eşik, oran]; miktar eşiğe ulaştığında oran tüm miktara uygulanır.
-const TIERS = {
+export const TIERS = {
   vcpu: [[33, 0.15], [9, 0.1]],
   ram: [[65, 0.15], [33, 0.1]],
   diskHigh: [[20480, 0.15], [4097, 0.1]],
@@ -67,11 +67,11 @@ const T = {
     totalPeriod: (m) => `${m} aylık dönem toplamı`,
     saving: (v) => `Aylık ödemeye göre bu dönemde ${v} tasarruf`,
     reset: 'Sıfırla',
-    note: 'Hesaplanan tutarlar tahminidir ve bilgilendirme amaçlıdır. Vergiler, ağ trafiği ve diğer hizmetler dahil değildir. Kesin tutar için sipariş ekranını esas alın.',
+    note: 'Hesaplanan tutarlar tahminidir ve bilgilendirme amaçlıdır. Ağ trafiği ve vergiler dahil değildir. Kesin tutar için sipariş ekranını esas alın.',
   },
   en: {
-    period: 'Billing period',
-    periods: {1: 'Monthly', 6: '6 months prepaid', 12: '12 months prepaid'},
+    period: 'Billing Period',
+    periods: {1: 'Monthly', 6: '6 Months Prepaid', 12: '12 Months Prepaid'},
     resources: 'Resources',
     labels: {
       vcpu: 'vCPU',
@@ -79,29 +79,29 @@ const T = {
       diskHigh: 'Disk High IOPS (NVMe SSD)',
       diskEco: 'Disk Economy (SAS)',
       ip: 'Public IP',
-      lb: 'Load balancer',
-      windows: 'Windows Server license',
-      backupGb: 'Backup storage',
+      lb: 'Load Balancer',
+      windows: 'Windows Server License',
+      backupGb: 'Backup Storage',
     },
     units: {'': 'pcs'},
     minHint: (n) => `Minimum ${n} GB · leave 0 if not used`,
     item: 'Item',
     qty: 'Quantity',
-    unitPrice: 'Unit price',
+    unitPrice: 'Unit Price',
     discount: 'Discount',
     monthly: 'Monthly',
     empty: 'Enter at least one resource to calculate.',
-    totalMonthly: 'Monthly total',
+    totalMonthly: 'Monthly Total',
     totalPeriod: (m) => `${m}-month period total`,
     saving: (v) => `${v} saved in this period compared to monthly billing`,
     reset: 'Reset',
-    note: 'Amounts are estimates for information only. Taxes, network traffic and other services are not included. The order screen is authoritative.',
+    note: 'Amounts are estimates for information only. Network traffic and taxes are not included. The order screen is authoritative.',
   },
 };
 
 const DEFAULTS = {vcpu: '4', ram: '8', diskHigh: '80', diskEco: '0', ip: '1', lb: '0', windows: '0', backupGb: '0'};
 
-function discountFor(key, qty) {
+export function discountFor(key, qty) {
   for (const [min, rate] of TIERS[key] || []) if (qty >= min) return rate;
   return 0;
 }

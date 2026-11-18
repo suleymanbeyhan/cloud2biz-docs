@@ -13,18 +13,18 @@ Fixed resources are ideal for **always-on systems with predictable resource need
 Use the [Fixed Resources Calculator](./fiyat-hesaplayici.mdx) to see monthly and period totals for the resources you need.
 :::
 
-## How it works
+## How It Works
 
 1. Purchase the FlexoStack fixed resources service for the location you need on [cloud2biz.com](https://cloud2biz.com) (e.g. **Flexostack - Sabit Kaynak - İstanbul**).
 2. During ordering, choose the vCPU, RAM and disk amounts and the billing period (monthly, 6 months or 12 months).
 3. Once payment is complete, your service is active. Your FlexoStack panel login details are on the **Giriş Detayları** (Login Details) tab of your service under **Hizmetler** (Services). See [Logging in](../ilk-adimlar/panele-giris.md).
 4. Distribute the purchased resource pool across as many virtual machines as you like. For example, with a pool of 8 vCPUs and 16 GB RAM, you can create one VM with 4 vCPUs / 8 GB and two with 2 vCPUs / 4 GB.
 
-## Unit prices
+## Unit Prices
 
 All prices are in **USD** and are **monthly unit prices**. The 6- and 12-month columns show the monthly price when you prepay for that period.
 
-### CPU and memory
+### CPU and Memory
 
 | Resource | Unit | Monthly | 6 months prepaid | 12 months prepaid |
 | --- | --- | --- | --- | --- |
@@ -40,13 +40,13 @@ All prices are in **USD** and are **monthly unit prices**. The 6- and 12-month c
 
 Disks are billed by their created (allocated) size.
 
-### IP addresses
+### IP Addresses
 
 | Resource | Unit | Monthly | 6 months prepaid | 12 months prepaid |
 | --- | --- | --- | --- | --- |
 | Public IP | 1 | 2.00 | 1.90 | 1.80 |
 
-### Network traffic
+### Network Traffic
 
 In the fixed resources model, network traffic is not included in the fixed fee. Your **inbound** and **outbound** traffic is metered separately during the month and invoiced **at month end**. Traffic prices are the same as for PAYG:
 
@@ -61,11 +61,11 @@ In the fixed resources model, network traffic is not included in the fixed fee. 
 
 For example, with 1,500 GB of outbound traffic in a month, the first 1,024 GB is free and the remaining 476 GB is invoiced at month end at 476 × 0.0070 = 3.33 USD.
 
-### Windows Server license
+### Windows Server License
 
 Windows Server images on FlexoStack are **pre-licensed**. Licensing uses the **Windows Server Datacenter** license, and the fee is **not per core**: it is **25 USD per month** per virtual machine, regardless of how many vCPUs you assign.
 
-### Load balancer
+### Load Balancer
 
 FlexoStack offers a single load balancer type. A fixed monthly fee applies per load balancer; the monthly price is the same for 6- and 12-month prepayment.
 
@@ -73,7 +73,7 @@ FlexoStack offers a single load balancer type. A fixed monthly fee applies per l
 | --- | --- | --- | --- | --- |
 | Load balancer | 1 | 15.00 | 15.00 | 15.00 |
 
-### Snapshots and backups
+### Snapshots and Backups
 
 - **Snapshots:** 2 snapshots are free. Beyond that, the space used is billed at the disk storage rate.
 - **Backups:** Backup storage used by [backup plans](../depolama/yedekleme.md) and manual backups is billed per GB. The **minimum purchase is 100 GB**; if you do not use backups, you do not need to buy any.
@@ -82,12 +82,12 @@ FlexoStack offers a single load balancer type. A fixed monthly fee applies per l
 | --- | --- | --- | --- | --- |
 | Backup storage (minimum 100 GB) | 1 GB | 0.0140 | 0.0133 | 0.0126 |
 
-### Free services
+### Free Services
 
 - vLAN, switch and port-based firewall ([Security Groups](../ag/security-groups.md))
 - 2 snapshots
 
-## Quantity discounts
+## Quantity Discounts
 
 The unit price is discounted as the amount you buy increases:
 
@@ -100,7 +100,7 @@ The unit price is discounted as the amount you buy increases:
 
 Quantity discounts apply in addition to the 6- and 12-month prepaid prices.
 
-## Billing periods and invoices
+## Billing Periods and Invoices
 
 | Period | Invoice | Benefit |
 | --- | --- | --- |
@@ -113,7 +113,7 @@ Quantity discounts apply in addition to the 6- and 12-month prepaid prices.
 - **Network traffic** metered during the month is invoiced at month end.
 - Pay from your [cloud2biz.com client area](https://cloud2biz.com/clientarea) by credit or debit card.
 
-## Example calculation
+## Example Calculation
 
 A configuration with **8 vCPUs, 16 GB RAM, 200 GB Disk High IOPS and 1 IP**:
 
@@ -128,18 +128,37 @@ A configuration with **8 vCPUs, 16 GB RAM, 200 GB Disk High IOPS and 1 IP**:
 
 For this configuration, 12-month prepayment saves about 65.76 USD per year compared to monthly billing. Use the [Fixed Resources Calculator](./fiyat-hesaplayici.mdx) for your own configuration.
 
-## Resource changes
+## Resource Changes
 
-| Change | Billing effect |
-| --- | --- |
-| **Increasing CPU / RAM** | The difference is invoiced at month end. |
-| **Decreasing CPU / RAM** | Does not change the current invoice; takes effect **from the next period**. |
-| **Increasing disk** | The difference is invoiced at month end. |
-| **Decreasing disk** | Not supported; disk space can only be increased. |
+### Increasing Resources (Package Upgrade)
 
-To increase or decrease resources, open a support ticket from your [cloud2biz.com client area](https://cloud2biz.com/clientarea).
+If you have fixed resources, you can increase the resources of your FlexoStack account **instantly**, without waiting for the end of the period:
 
-## Fixed resources or PAYG?
+1. Log in to your [cloud2biz.com client area](https://cloud2biz.com/clientarea).
+2. Under **Services**, select your FlexoStack service.
+3. Click the **Upgrade/Downgrade** (package upgrade) option.
+4. Update the resources you want to increase (vCPU, RAM, disk, IP, etc.) with their new values.
+5. Pay the additional fee.
+
+Once the payment is complete, the new resources are added to your FlexoStack account immediately and you can start using them.
+
+### Decreasing Resources
+
+You can decrease the resources of your FlexoStack account from the same package upgrade screen. In this case:
+
+- **No refund** is made for the current period.
+- **Next month's invoice** is reduced by the amount of the decreased resources.
+
+:::note Disk space
+Disk space can only be increased; an existing disk cannot be shrunk. We recommend growing disk size gradually as needed.
+:::
+
+| Change | When it takes effect | Billing effect |
+| --- | --- | --- |
+| **Increasing resources** | Immediately after payment | An additional fee is paid during the package upgrade. |
+| **Decreasing resources** | Immediately | No refund; next month's invoice is reduced. |
+
+## Fixed Resources or PAYG?
 
 | | Fixed resources | PAYG |
 | --- | --- | --- |

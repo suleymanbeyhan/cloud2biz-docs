@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
 title: Managed Kubernetes (K8s)
-sidebar_label: Kubernetes clusters
+sidebar_label: Kubernetes Clusters
 description: Creating managed Kubernetes clusters on FlexoStack, worker groups, autoscaling, kubeconfig and persistent volumes.
 ---
 
 With FlexoStack **Managed Kubernetes**, you can create production-ready Kubernetes clusters in a few clicks. Cluster setup, master nodes and core components are managed by the platform, so you can focus on your applications. Run container-based workloads and gradually migrate monolithic applications to a microservice architecture.
 
-## Cluster components
+## Cluster Components
 
 | Component | Description |
 | --- | --- |
@@ -17,13 +17,13 @@ With FlexoStack **Managed Kubernetes**, you can create production-ready Kubernet
 | **Load balancer** | Load balancers created automatically for services of type `LoadBalancer`. |
 | **Persistent volumes** | FlexoStack volumes created automatically through a `PersistentVolumeClaim`. |
 
-## Before you begin
+## Before You Begin
 
 - A [virtual network](../ag/sanal-aglar.md) connected to a [router](../ag/sanal-routerlar.md) with an external gateway
 - An [SSH key](../sanal-makineler/ssh-anahtarlari.md) for SSH access to nodes
 - The `kubectl` tool on your computer
 
-## Creating a cluster
+## Creating a Cluster
 
 1. In the panel, open **Kubernetes clusters** and click **Create Kubernetes cluster**.
 2. Name the cluster and select the **Kubernetes version**. Unless you have a specific requirement, choose the latest version in the list.
@@ -36,7 +36,7 @@ With FlexoStack **Managed Kubernetes**, you can create production-ready Kubernet
 
 Cluster creation takes a few minutes. When the status is **Active**, the cluster is ready.
 
-## Connecting to the cluster (kubeconfig)
+## Connecting to the Cluster (kubeconfig)
 
 1. Select the cluster in the panel and download the configuration file with **Download kubeconfig**.
 2. Connect to the cluster with it:
@@ -51,14 +51,14 @@ kubectl get pods -A
 The kubeconfig file grants full access to your cluster. Do not commit it to a Git repository and share it only with authorized people.
 :::
 
-## Worker groups
+## Worker Groups
 
 Worker groups let you run nodes with different CPU and RAM sizes in the same cluster. For example, you can create one group of small nodes for general workloads and another of large nodes for memory-intensive jobs.
 
 - A new cluster is created with a single worker group, the **default** group. You add other groups after creation.
 - You can change the node count of a group later.
 
-### Adding a group
+### Adding a Group
 
 1. Open the cluster's **Groups** tab and click **Add** in the **Workers** section.
 2. Enter the group name, select the flavor and the autoscaling setting.
@@ -67,12 +67,12 @@ Worker groups let you run nodes with different CPU and RAM sizes in the same clu
 
 Use `nodeSelector` or `nodeAffinity` to schedule pods on a specific group.
 
-### Editing and deleting a group
+### Editing and Deleting a Group
 
 - **Edit:** Click the pencil icon (default group) or the ellipsis menu (other groups) and select **Edit** to change autoscaling or the node count.
 - **Delete:** Select **Delete** from the group's ellipsis menu. The group and its nodes are deleted; local data on those nodes is lost.
 
-### Disabling the default group
+### Disabling the Default Group
 
 The default group is part of the cluster's initial setup and cannot be deleted, but it can be drained and scaled to zero:
 
@@ -100,7 +100,7 @@ Some pod types (e.g. pods using local storage or not managed by a controller) ca
 For the autoscaler to work correctly, always define CPU and memory `requests` on your pods.
 :::
 
-## Exposing applications
+## Exposing Applications
 
 When you create a service of type `LoadBalancer`, FlexoStack automatically creates a [load balancer](../ag/load-balancer.md) and a floating IP:
 
@@ -125,7 +125,7 @@ kubectl get svc web        # The public IP appears in the EXTERNAL-IP column
 
 To publish multiple web applications behind a single IP, install an Ingress controller (e.g. ingress-nginx) and expose only it with the `LoadBalancer` type.
 
-## Persistent storage
+## Persistent Storage
 
 When you create a `PersistentVolumeClaim` (PVC), FlexoStack automatically creates a volume and attaches it to the pod:
 
@@ -144,7 +144,7 @@ spec:
 
 Run `kubectl get storageclass` to see the available storage classes. The volumes also appear on the **Volumes** screen in the panel and are billed as storage usage.
 
-## Upgrading the Kubernetes version
+## Upgrading the Kubernetes Version
 
 When a new Kubernetes version is available, an upgrade option appears in the cluster details. During the upgrade, nodes are updated one by one. Before upgrading:
 
@@ -152,10 +152,10 @@ When a new Kubernetes version is available, an upgrade option appears in the clu
 - Define a `PodDisruptionBudget` for applications running multiple replicas to minimize disruption.
 - Back up important data.
 
-## Backing up the cluster
+## Backing Up the Cluster
 
 To back up your Kubernetes resources and persistent volumes, use tools such as Velero with Cloud2Biz S3-compatible Object Storage as the backup target.
 
-## Deleting the cluster
+## Deleting the Cluster
 
 Select the cluster in the panel and click **Delete**. Master and worker nodes are removed. What happens to load balancers created for `LoadBalancer` services and to PVC volumes depends on how the cluster is deleted; afterwards, check the **Load balancers**, **Floating IPs** and **Volumes** screens and clean up unused resources.

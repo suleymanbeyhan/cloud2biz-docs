@@ -6,7 +6,7 @@ description: Options used when creating a FlexoStack virtual machine, resource l
 
 Each FlexoStack virtual machine (VM) is an independent server with its own virtual hardware. It works like a physical computer, and your applications run without modification. Although virtual machines share physical hardware, they are fully isolated from each other in terms of file system, processes and networking.
 
-## Resource limits
+## Resource Limits
 
 The upper limits for a single virtual machine are:
 
@@ -19,7 +19,7 @@ The upper limits for a single virtual machine are:
 
 Your project's total resources are also limited by the quotas assigned to your account. Open a support ticket to request a quota increase.
 
-## Before you begin
+## Before You Begin
 
 Having the following ready makes things easier:
 
@@ -70,11 +70,11 @@ A flavor is a template that defines the number of vCPUs and the amount of RAM. C
 - Select one or more **security groups** for each network interface. If you do not select any, the **default** group is assigned.
 - Optionally specify a fixed IP address for the interface; otherwise one is assigned via DHCP.
 
-### SSH key (key pair)
+### SSH Key (Key Pair)
 
 On Linux images, select the SSH key used for login. The key is added to the server only **at creation time** and cannot be changed later from the panel.
 
-### User data (cloud-init)
+### User Data (cloud-init)
 
 You can configure the server automatically on first boot by entering a cloud-init script in the **User data** field. Example:
 
@@ -91,11 +91,11 @@ runcmd:
 
 Windows images use cloudbase-init, and PowerShell scripts start with the line `#ps1_sysnative`.
 
-### Tags and description
+### Tags and Description
 
 Add a description and tags to tell your virtual machines apart. Do not put passwords or personal data in the description.
 
-## After creation
+## After Creation
 
 The virtual machine becomes **Active** within a few minutes. Then:
 
@@ -103,7 +103,7 @@ The virtual machine becomes **Active** within a few minutes. Then:
 2. [Connect to the virtual machine](./sanal-makineye-baglanma.md).
 3. Create a [backup plan](../depolama/yedekleme.md) for important data.
 
-## Virtual machine statuses
+## Virtual Machine Statuses
 
 | Status | Meaning |
 | --- | --- |
