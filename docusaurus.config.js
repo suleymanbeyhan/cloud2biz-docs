@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Cloud2Biz Docs',
-  tagline: 'Bulut altyapısı rehberleri, SSS ve blog',
+  tagline: 'Bulut altyapısı rehberleri ve dokümantasyon',
   favicon: 'img/favicon.png',
 
   url: 'https://docs.cloud2biz.com',
@@ -33,18 +33,7 @@ const config = {
           sidebarPath: './sidebars.js',
           routeBasePath: 'docs',
         },
-        blog: {
-          showReadingTime: true,
-          blogTitle: 'Cloud2Biz Blog',
-          blogDescription: 'Bulut, sunucu ve depolama üzerine yazılar',
-          blogSidebarTitle: 'Son yazılar',
-          blogSidebarCount: 'ALL',
-          postsPerPage: 10,
-          feedOptions: {type: ['rss', 'atom']},
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'ignore',
-        },
+        blog: false,
         theme: {customCss: './src/css/custom.css'},
       }),
     ],
@@ -56,7 +45,7 @@ const config = {
       {
         hashed: true,
         language: ['tr', 'en'],
-        indexBlog: true,
+        indexBlog: false,
         indexDocs: true,
         highlightSearchTermsOnTargetPage: true,
         searchBarShortcutHint: false,
@@ -78,8 +67,16 @@ const config = {
           href: '/',
         },
         items: [
-          {type: 'docSidebar', sidebarId: 'tutorialSidebar', label: 'Dokümantasyon', position: 'left'},
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            type: 'dropdown',
+            label: 'Platform seçin',
+            position: 'left',
+            items: [
+              {label: 'Genel', to: '/docs/intro'},
+              {label: 'FlexoStack Cloud', to: '/docs/flexostack-cloud/genel-bakis'},
+              {label: 'Object Storage', to: '/docs/object-storage/genel-bakis'},
+            ],
+          },
           {href: 'https://cloud2biz.com', label: 'cloud2biz.com', position: 'right'},
           {type: 'localeDropdown', position: 'right'},
         ],

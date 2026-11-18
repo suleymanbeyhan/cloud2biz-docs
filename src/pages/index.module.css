@@ -1,38 +1,172 @@
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem 5rem;
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  z-index: 2;
+  padding: 5rem 1.5rem 6rem;
 }
-.hero { margin-bottom: 3rem; }
-.hero h1 { font-size: 2.8rem; margin-bottom: 0.8rem; }
-.hero p { font-size: 1.15rem; color: #666; max-width: 640px; }
+/* Arka plan ayrı katmanda: arama önerileri hero dışına taşabilsin diye */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.55) 0, rgba(255, 255, 255, 0) 40%),
+    linear-gradient(120deg, #fde3d6 0%, #f7eee9 45%, #dbe8f7 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 82% 100%, 80.5% calc(100% - 14px), 19.5% calc(100% - 14px), 18% 100%, 0 100%);
+}
+.heroBg::before {
+  /* hafif ızgara deseni */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(29, 111, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 111, 184, 0.06) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(90deg, #000 0%, transparent 35%, transparent 65%, #000 100%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 35%, transparent 65%, #000 100%);
+  pointer-events: none;
+}
 
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.heroInner h1 {
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 2.8rem;
+  color: #2b2b2b;
+  margin-bottom: 0.6rem;
+}
+.heroInner p {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 1.6rem;
+}
+
+.artRight {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  width: 360px;
+  transform: translateY(-50%);
+}
+.artLeft {
+  position: absolute;
+  left: 8%;
+  top: 14%;
+  width: 130px;
+}
+
+/* ===== Arama ===== */
+.searchRow {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(13, 21, 41, 0.12);
+  border-radius: 4px;
+}
+.searchBox {
+  flex: 1;
+  min-width: 0;
+}
+.searchBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0 1.4rem;
+  border: 0;
+  border-radius: 0 4px 4px 0;
+  background: var(--c2b-orange);
+  color: #fff;
+  font: 600 1.1rem/1 var(--ifm-font-family-base);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.searchBtn:hover { background: var(--c2b-orange-dark); }
+
+/* ===== Platform kartları ===== */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 5rem;
+}
+.section {
+  text-align: center;
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #2b2b2b;
+  margin-bottom: 2.5rem;
+}
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
 }
 .card {
-  position: relative;
   display: block;
   background: #fff;
-  padding: 1.8rem 1.8rem 2.6rem;
-  border-top: 3px solid transparent;
+  padding: 1.6rem 1.8rem 2rem;
+  text-align: center;
   color: var(--c2b-text);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border-top: 3px solid transparent;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
 }
 .card:hover {
   text-decoration: none;
   color: var(--c2b-text);
   border-top-color: var(--c2b-orange);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
-.card h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-.card p { color: #666; font-size: 0.95rem; margin: 0; }
-.arrow {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.2rem;
-  color: var(--c2b-orange);
-  font-size: 1.3rem;
+.card h3 {
+  font-family: 'Roboto', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+.card p {
+  margin: 0;
+  color: #555;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.chevron {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: 0.5rem;
+  border-right: 2px solid currentColor;
+  border-top: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+.card:hover .chevron { border-color: var(--c2b-orange); }
+
+/* ===== Duyarlı ===== */
+@media (max-width: 1240px) {
+  .artRight { width: 280px; right: 1%; }
+  .artLeft { left: 3%; width: 100px; }
+}
+@media (max-width: 1060px) {
+  .artRight, .artLeft { display: none; }
+}
+@media (max-width: 996px) {
+  .grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .section { font-size: 1.4rem; }
+}
+@media (max-width: 576px) {
+  .hero { padding: 3rem 1rem 4rem; }
+  .heroBg { clip-path: none; }
+  .heroInner h1 { font-size: 2rem; }
+  .searchBtn { padding: 0 1rem; font-size: 1rem; }
 }

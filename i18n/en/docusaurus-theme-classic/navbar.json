@@ -7,20 +7,24 @@
     "message": "Cloud2Biz",
     "description": "The alt text of navbar logo"
   },
-  "item.label.Dokümantasyon": {
-    "message": "Documentation",
-    "description": "Navbar item with label Dokümantasyon"
-  },
-  "item.label.Blog": {
-    "message": "Blog",
-    "description": "Navbar item with label Blog"
-  },
   "item.label.cloud2biz.com": {
     "message": "cloud2biz.com",
     "description": "Navbar item with label cloud2biz.com"
   },
-  "item.label.Müşteri Paneli": {
-    "message": "Client Area",
-    "description": "Navbar item with label Müşteri Paneli"
+  "item.label.Platform seçin": {
+    "message": "Choose platform",
+    "description": "Navbar item with label Platform seçin"
+  },
+  "item.label.Genel": {
+    "message": "General",
+    "description": "Navbar item with label Genel"
+  },
+  "item.label.FlexoStack Cloud": {
+    "message": "FlexoStack Cloud",
+    "description": "Navbar item with label FlexoStack Cloud"
+  },
+  "item.label.Object Storage": {
+    "message": "Object Storage",
+    "description": "Navbar item with label Object Storage"
   }
 }
