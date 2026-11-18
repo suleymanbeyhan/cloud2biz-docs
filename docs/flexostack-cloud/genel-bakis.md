@@ -176,13 +176,16 @@ Snapshot, sunucunuzun belirli bir andaki görüntüsünü alır. Bir yapılandı
 - **2 adet snapshot ücretsizdir.**
 - Daha fazla snapshot için yalnızca kullandığınız depolama alanı ücretlendirilir.
 
-### Acronis yedekleme
+### Yedekleme
 
-Planlı yedekleme için Acronis tabanlı yedekleme hizmetini kullanabilirsiniz. Satın aldığınız yedekleme alanıyla bir veya birden fazla sanal makinenizi yedekleyebilirsiniz; ayrıca lisans ücreti yansıtılmaz.
+Yedekleme planlarıyla disklerinizi belirlediğiniz takvime göre otomatik olarak yedekleyebilir veya istediğiniz anda elle yedek alabilirsiniz.
 
-- **GB bazlı** veya **sanal makine / fiziksel sunucu adedi bazlı** ücretlendirme seçenekleri.
-- Yedekleme lokasyonları: İstanbul-1 (FlexoStack dışında), İstanbul-2 ve Ankara (FlexoStack içinde).
-- **Acronis Cloud Backup** ile yedeklerinizi Frankfurt veya İstanbul'daki Acronis bulutunda da tutabilirsiniz.
+- **Tam ve artımlı yedekler:** İlk yedek tam, sonrakiler yalnızca değişen verileri içeren artımlı yedeklerdir; bu sayede yedekler hızlı alınır ve az yer kaplar.
+- **Esnek takvim ve saklama:** Günlük 7 veya 14 günlük saklama seçeneklerinden birini ya da kendi takviminizi kullanın.
+- **Kolay geri yükleme:** Bir yedekten yeni bir disk veya yeni bir sanal makine oluşturun; orijinal sistem değişmeden kalır.
+- **GB bazlı ücretlendirme:** Yedekleme alanı en az 100 GB olarak, GB bazında ücretlendirilir.
+
+Ayrıntılar için [Yedekleme](./depolama/yedekleme.md) sayfasına bakın.
 
 :::tip Felaket kurtarma
 Yedeklerinizi sunucunuzdan farklı bir lokasyonda tutmak, veri merkezi düzeyindeki olası sorunlara karşı en güçlü korumadır. Cloud2Biz'in çok lokasyonlu altyapısıyla kendi felaket kurtarma (Disaster Recovery) senaryolarınızı oluşturabilirsiniz.

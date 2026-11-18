@@ -1,85 +1,155 @@
 ---
 sidebar_position: 2
 title: Yedekleme
-description: FlexoStack'te yedekleme planları oluşturma, saklama süreleri, artımlı yedekler, geri yükleme ve Acronis yedekleme seçenekleri.
+description: FlexoStack'te yedekleme planları oluşturma, disk ekleme ve çıkarma, elle yedek alma, diskleri ve sanal makineleri yedekten geri yükleme.
 ---
 
-FlexoStack, disklerinizin düzenli olarak yedeklenmesi için iki seçenek sunar:
+FlexoStack'in yedekleme hizmetiyle disklerinizin (volume) yedeklerini **yedekleme planları** sayesinde otomatik olarak veya istediğiniz anda **elle** alabilirsiniz. Yedeklerden yeni bir disk ya da yeni bir sanal makine oluşturarak verilerinizi geri yükleyebilirsiniz.
 
-- **Panel üzerinden yedekleme planları:** Disklerinizi belirlediğiniz takvime göre otomatik yedekler.
-- **Acronis yedekleme:** Dosya düzeyinde geri yükleme, farklı lokasyonda saklama ve fiziksel sunucu yedekleme gibi gelişmiş ihtiyaçlar için.
+Bu sayfada yedek ve **kurtarma noktası** (recovery point) ifadeleri aynı anlamda kullanılır: bir diskin tamamının veya belirli bir anda değişen verilerinin kopyası.
+
+## Yedek türleri
+
+| | Tam yedek (Full) | Artımlı yedek (Incremental) |
+| --- | --- | --- |
+| İçerik | Diskin tamamının kopyası | Yalnızca son yedekten (türü ne olursa olsun) bu yana değişen veriler |
+| Geri yükleme | Tek başına yeterlidir | İlk tam yedek ve ardından gelen tüm artımlı yedekler (yedek zinciri) gerekir |
+| Süre ve alan | Daha uzun sürer, daha fazla yer kaplar | Daha hızlıdır, daha az yer kaplar |
 
 ## Snapshot ile yedek arasındaki fark
 
 | | Snapshot | Yedek |
 | --- | --- | --- |
 | Saklandığı yer | Diskle aynı depolama altyapısı | Ayrı yedekleme depolaması |
-| Kullanım amacı | Değişiklik öncesi hızlı geri dönüş | Veri kaybına ve felaketlere karşı koruma |
-| Otomasyon | Elle alınır | Takvime göre otomatik |
+| Kullanım amacı | Değişiklik öncesi hızlı geri dönüş | Veri kaybına karşı koruma |
+| Otomasyon | Elle alınır | Takvime göre otomatik veya elle |
 
 Snapshot'lar bir yedeğin yerini tutmaz. Önemli verileriniz için mutlaka bir yedekleme planı kullanın. Snapshot'lar hakkında bilgi için [Diskler ve snapshot'lar](./diskler.md#snapshotlar) sayfasına bakın.
 
 ## Yedekleme planları
 
-Yedekleme planı, hangi disklerin, ne zaman yedekleneceğini ve kaç yedeğin saklanacağını belirler.
+Yedekleme planı üç şeyi belirler:
+
+- **Neyin yedekleneceği:** Bir veya daha fazla disk. Bir disk yalnızca **tek bir** plana dahil edilebilir.
+- **Ne sıklıkla yedekleneceği:** Yedeklerin hangi zamanlarda alınacağı.
+- **Ne kadar saklanacağı:** Aynı anda saklanacak en fazla **tam yedek** sayısı.
+
+### Yedek zinciri
+
+Bir **yedek zinciri**, bir tam yedek ve bir sonraki tam yedeğe kadar alınan artımlı yedeklerden oluşur. Varsayılan zincir uzunluğu **7**'dir: 1 tam yedek ve 6 artımlı yedek. Bu durumda saklanan toplam yedek sayısı yaklaşık olarak **en fazla tam yedek sayısı × zincir uzunluğu** kadardır.
+
+### Yedek rotasyonu
+
+Yeni bir tam yedek alındığında saklama sınırı aşılıyorsa, **en eski tam yedek ve ona bağlı tüm artımlı yedekler** otomatik olarak silinir. Örneğin:
+
+- Saklama sınırı **1** ise, yeni bir tam yedek alındığında önceki zincirin tamamı silinir.
+- Saklama sınırı **2** ise, üçüncü tam yedek alındığında en eski zincir silinir.
 
 ### Plan oluşturma
 
 1. Panelde **Backup plans** ekranını açın ve **Create backup plan** butonuna tıklayın.
-2. Plana bir ad ve isteğe bağlı bir açıklama girin. Açıklamaya kişisel veya hassas iş verisi yazmayın.
-3. **What to back up** bölümünde **Manage** butonuna tıklayın, yedeklenecek diskleri seçin ve **Save** ile kaydedin.
-4. **Schedule** bölümünde bir saklama seçeneği belirleyin veya özel takvim oluşturun.
+2. **Create backup plan** penceresinde plana bir ad ve isteğe bağlı bir açıklama girin. Açıklamaya kişisel veya hassas iş verisi yazmayın.
+3. **What to back up** bölümünde **Manage** butonuna tıklayın. **Manage volumes** penceresinde yedeklenecek diskleri seçin ve **Save** ile kaydedin.
+4. **Schedule** bölümünde bir takvim seçin:
+
+   | Seçenek | Açıklama |
+   | --- | --- |
+   | **Retention 7 days** | Her gün 02:00 UTC'de (Türkiye saatiyle 05:00) yedek alınır, en fazla 7 tam kurtarma noktası saklanır. |
+   | **Retention 14 days** | Her gün 02:00 UTC'de yedek alınır, en fazla 14 tam kurtarma noktası saklanır. |
+   | **Custom** | Ayları, haftanın günlerini, ayın günlerini, saati ve saklanacak en fazla tam kurtarma noktası sayısını kendiniz belirlersiniz. |
+
 5. **Create** butonuna tıklayın.
 
-### Takvim seçenekleri
+:::tip Sanal makinenin tamamını yedekleyin
+Bir sanal makineyi eksiksiz geri getirebilmek için sistem (boot) diskini ve tüm veri disklerini plana ekleyin. Sanal makineyi yedekten yeniden oluşturmak için **boot diskinin** yedeği gerekir.
+:::
 
-| Seçenek | Açıklama |
-| --- | --- |
-| **Retention 7 days** | Her gün 02:00 UTC'de (Türkiye saatiyle 05:00) yedek alınır, en fazla 7 tam kurtarma noktası saklanır. |
-| **Retention 14 days** | Her gün 02:00 UTC'de yedek alınır, en fazla 14 tam kurtarma noktası saklanır. |
-| **Custom** | Ayları, haftanın günlerini, ayın günlerini, saati ve saklanacak en fazla tam yedek sayısını kendiniz belirlersiniz. |
+### Plana disk ekleme ve çıkarma
 
-### Tam ve artımlı yedekler
+**Disk eklemek için:**
 
-Yedekler **zincirler** halinde tutulur. Her zincir bir **tam yedek** ve onu takip eden **artımlı yedeklerden** oluşur. Artımlı yedekler yalnızca bir önceki yedekten bu yana değişen verileri içerdiği için hem daha hızlı alınır hem de daha az yer kaplar.
+1. **Backup plans** ekranında planın üzerine tıklayın.
+2. Sağ bölmede **Volumes to back up** sekmesine geçin.
+3. **Manage** butonuna tıklayın, **Manage volumes** penceresinde eklemek istediğiniz diskleri seçin ve **Save** ile kaydedin.
 
-- Varsayılan zincir uzunluğu 7'dir: 1 tam yedek ve 6 artımlı yedek.
-- Saklanan toplam yedek sayısı yaklaşık olarak **en fazla tam yedek sayısı × zincir uzunluğu** kadardır.
-- Yeni bir tam yedek, saklama limitini aştığında en eski tam yedek ve ona bağlı artımlı yedekler otomatik olarak silinir.
+**Disk çıkarmak için** aynı adımları izleyin ve çıkarmak istediğiniz disklerin seçimini kaldırın. Yalnızca plana bağlı diskleri görmek için arama alanının yanındaki **Show only selected items** seçeneğini işaretleyebilirsiniz.
 
-### Kurallar ve sınırlamalar
+Plandan çıkarılan bir diskin **daha önce alınmış yedekleri silinmez**.
 
-- Bir disk yalnızca **tek bir** yedekleme planına dahil edilebilir.
-- Bir sanal makinenin tamamını yedeklemek için tüm disklerini (sistem diski ve veri diskleri) plana ekleyin.
-- Yedekleme alanı kullandığınız kadar ücretlendirilir.
+:::note
+Bir disk aynı anda birden fazla yedekleme planına eklenemez. Diski başka bir plana taşımak için önce mevcut plandan çıkarın.
+:::
+
+### Planı düzenleme
+
+1. **Backup plans** ekranında planın üzerine tıklayın.
+2. Sağ bölmede **Edit** butonuna tıklayın.
+3. **Edit backup plan** penceresinde planın adını, açıklamasını veya takvimini değiştirin ve **Save** ile kaydedin.
+
+### Planı silme
+
+1. **Backup plans** ekranında planın üzerine tıklayın.
+2. Sağ bölmede **Delete** butonuna tıklayın.
+3. Planın kurtarma noktaları varsa, bunları da silmek için **Delete recovery points** seçeneğini işaretleyin ve onaylamak için kutuya `Delete` yazın.
+4. Onay penceresinde **Delete** butonuna tıklayın.
+
+:::danger
+**Delete recovery points** seçeneğini işaretlerseniz planın tüm yedekleri kalıcı olarak silinir ve geri alınamaz. Yedekleri saklamak istiyorsanız bu seçeneği işaretlemeden silin.
+:::
+
+## Elle yedek alma
+
+Elle alınan yedekler, tek bir diskin anlık ve tek seferlik yedeğidir. Bu yedeklere saklama politikası uygulanmaz; ihtiyacınız kalmadığında **elle silmeniz** gerekir.
+
+### Yedek alma
+
+1. **Volumes** ekranında diskin üzerine tıklayın.
+2. Sağ bölmede **Create backup now** butonuna tıklayın.
+
+Oluşturulan yedek **Recovery points** ekranında görünür.
+
+### Yedek silme
+
+1. **Recovery points** ekranında kurtarma noktasının üzerine tıklayın.
+2. **Delete** butonuna tıklayın ve işlemi onaylayın.
+
+:::warning
+Bir yedeği sildiğinizde, aynı zincirde ona **bağlı olan tüm yedekler** de silinir ve bu yedeklerdeki veriler kalıcı olarak kaybolur.
+:::
 
 ## Yedekten geri yükleme
 
-1. **Backups** ekranında ilgili diskin yedeklerini açın.
-2. Geri yüklemek istediğiniz kurtarma noktasını (tarih ve saat) seçin.
-3. Geri yükleme yöntemini seçin:
-   - **Yeni bir disk olarak geri yükleme:** Mevcut diske dokunmadan yedeği yeni bir diske açar. Önerilen ve en güvenli yöntemdir; bu diski bir sanal makineye bağlayıp ihtiyacınız olan dosyaları alabilirsiniz.
-   - **Mevcut diskin üzerine geri yükleme:** Diskin içeriğini yedekteki haliyle değiştirir. Bu işlem için disk sanal makineden ayrılmış veya sanal makine kapalı olmalıdır.
+Geri yükleme her zaman **yeni** bir disk veya **yeni** bir sanal makine oluşturur. Orijinal disk ve sanal makine değişmeden kalır; bu sayede yedeği güvenle deneyebilir, ihtiyacınız olan verileri alabilirsiniz.
 
-:::danger Üzerine geri yükleme mevcut verileri siler
-Mevcut diskin üzerine geri yükleme yapıldığında, yedek alındıktan sonra diske yazılan tüm veriler kaybolur. Emin değilseniz önce yeni bir disk olarak geri yükleyin.
-:::
+### Diski geri yükleme
 
-## Acronis yedekleme
+Otomatik veya elle alınmış, veri diski ya da boot diski yedeklerinden yeni bir disk oluşturabilirsiniz.
 
-Daha gelişmiş yedekleme ihtiyaçları için Acronis tabanlı yedekleme hizmetini kullanabilirsiniz:
+1. **Recovery points** ekranında kurtarma noktasının üzerine tıklayın.
+2. Sağ bölmede **Restore volume** butonuna tıklayın.
+3. **Restore volume** penceresinde yeni diskin adını girin, bir depolama politikası (disk tipi) seçin ve **Restore** butonuna tıklayın.
 
-- **GB bazlı** veya **sanal makine / fiziksel sunucu adedi bazlı** ücretlendirme
-- Dosya ve klasör düzeyinde geri yükleme
-- Yedekleme lokasyonları: İstanbul-1 (FlexoStack dışında), İstanbul-2 ve Ankara (FlexoStack içinde)
-- **Acronis Cloud Backup** ile yedeklerinizi Frankfurt veya İstanbul'daki Acronis bulutunda saklama
-- Ek lisans ücreti yansıtılmaz
+Yeni disk **Volumes** ekranında görünür. Bu diski bir sanal makineye bağlayarak dosyalarınıza erişebilirsiniz.
 
-Acronis yedekleme hizmeti için [müşteri panelinden](https://cloud2biz.com/clientarea) sipariş verebilir veya destek ekibimizle iletişime geçebilirsiniz.
+### Sanal makineyi geri yükleme
+
+Bir sanal makineyi yalnızca **boot diskinin** yedeğinden yeniden oluşturabilirsiniz.
+
+1. **Recovery points** ekranında boot diskine ait kurtarma noktasının üzerine tıklayın.
+2. Sağ bölmede **Restore virtual machine** butonuna tıklayın.
+3. **Restore virtual machine** penceresinde boot diski, seçtiğiniz kurtarma noktasından otomatik olarak ayarlanır. Diğer ayarları (flavor, ağlar, SSH anahtarı vb.) [yeni bir sanal makine oluştururken](../sanal-makineler/sanal-makine-olusturma.md) olduğu gibi yapın.
+4. **Deploy** butonuna tıklayın.
+
+Yeni sanal makine **Virtual machines** ekranında görünür. Sanal makinenin veri disklerini de geri getirmek için bu disklerin yedeklerini [disk olarak geri yükleyip](#diski-geri-yükleme) yeni sanal makineye bağlayın.
+
+## Ücretlendirme
+
+Yedekleme alanı **GB bazında** ücretlendirilir ve en az **100 GB** olarak satın alınır. Güncel birim fiyatlar ve miktar indirimleri için [Sabit Kaynak Faturalandırması](../faturalandirma/sabit-kaynak.md#snapshot-ve-yedekleme) sayfasına, tahmini tutar için [Fiyat Hesaplayıcı](../faturalandirma/fiyat-hesaplayici.mdx)'ya bakın.
 
 ## Yedekleme önerileri
 
 - **3-2-1 kuralı:** Verilerinizin en az 3 kopyasını, 2 farklı ortamda ve 1'ini farklı bir lokasyonda tutun.
-- Kritik sistemlerde yedekleri sunucunuzdan farklı bir lokasyonda saklayın.
-- Yedeklerinizi düzenli olarak **geri yükleme testi** yapın. Test edilmemiş bir yedek, ihtiyaç anında çalışmayabilir.
+- Kritik sanal makinelerin boot ve veri disklerini aynı plana ekleyin; böylece tüm diskler aynı zamanlarda yedeklenir.
+- Saklama sınırını, geri dönmek isteyebileceğiniz en eski tarihe göre belirleyin.
+- Yedeklerinizi düzenli olarak **geri yükleme testi** yapın. Yedeği yeni bir disk olarak açmak orijinal sisteminizi etkilemez.
 - Veritabanları için disk yedeğine ek olarak veritabanının kendi döküm (dump) yedeklerini de alın.

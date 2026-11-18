@@ -176,13 +176,16 @@ A snapshot captures your server at a specific point in time. Taking a snapshot b
 - **2 snapshots are free.**
 - Beyond that, only the storage you use is charged.
 
-### Acronis backup
+### Backups
 
-For scheduled backups, use the Acronis-based backup service. The backup space you purchase can protect one or more virtual machines; no separate license fee applies.
+With backup plans you can back up your volumes automatically on the schedule you choose, or take a manual backup at any time.
 
-- **Per-GB** or **per-VM / per-physical-server** pricing options.
-- Backup locations: Istanbul-1 (outside FlexoStack), Istanbul-2 and Ankara (inside FlexoStack).
-- With **Acronis Cloud Backup** you can also keep backups in the Acronis cloud in Frankfurt or Istanbul.
+- **Full and incremental backups:** The first backup is full; later ones are incremental and contain only the changed data, so backups are fast and use less space.
+- **Flexible schedule and retention:** Use daily backups with 7 or 14 days of retention, or your own schedule.
+- **Easy restore:** Create a new volume or a new virtual machine from a backup; the original system stays unchanged.
+- **Per-GB pricing:** Backup storage is billed per GB with a minimum of 100 GB.
+
+See [Backups](./depolama/yedekleme.md) for details.
 
 :::tip Disaster recovery
 Keeping backups in a different location from your server is the strongest protection against data center-level issues. Cloud2Biz's multi-location infrastructure lets you build your own disaster recovery scenarios.

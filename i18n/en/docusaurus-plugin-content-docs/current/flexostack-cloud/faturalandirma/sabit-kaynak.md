@@ -76,16 +76,11 @@ FlexoStack offers a single load balancer type. A fixed monthly fee applies per l
 ### Snapshots and backups
 
 - **Snapshots:** 2 snapshots are free. Beyond that, the space used is billed at the disk storage rate.
-- **Acronis backup:**
+- **Backups:** Backup storage used by [backup plans](../depolama/yedekleme.md) and manual backups is billed per GB. The **minimum purchase is 100 GB**; if you do not use backups, you do not need to buy any.
 
 | Service | Unit | Monthly | 6 months prepaid | 12 months prepaid |
 | --- | --- | --- | --- | --- |
-| Acronis Backup (per GB) | 1 GB | 0.100 | 0.095 | 0.090 |
-| Acronis Backup (per VM) | 1 VM | 11.00 | 10.45 | 9.90 |
-| Acronis Backup (per physical server) | 1 server | 36.00 | 34.20 | 32.40 |
-| Acronis Cloud Backup (per GB, Frankfurt or Istanbul) | 1 GB | 0.200 | 0.190 | 0.180 |
-
-Per-VM and per-physical-server backup is purchased together with backup storage, which is billed separately. See [Backups](../depolama/yedekleme.md#acronis-backup) for locations and other options.
+| Backup storage (minimum 100 GB) | 1 GB | 0.0140 | 0.0133 | 0.0126 |
 
 ### Free services
 
@@ -101,8 +96,7 @@ The unit price is discounted as the amount you buy increases:
 | vCPU | 1–8 | 9–32 | 33 and above |
 | RAM | 1–32 GB | 33–64 GB | 65 GB and above |
 | Disk | 0–4 TB | 4–20 TB | 20 TB and above |
-| Acronis backup storage | 0–4 TB | 4–20 TB | 20 TB and above |
-| Acronis VMs / physical servers | 1–10 | 11–30 | 31 and above |
+| Backup storage | 100–4,095 GB | 4,096–20,479 GB | 20,480–51,200 GB |
 
 Quantity discounts apply in addition to the 6- and 12-month prepaid prices.
 

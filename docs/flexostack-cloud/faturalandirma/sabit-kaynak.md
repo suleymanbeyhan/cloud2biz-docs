@@ -76,16 +76,11 @@ FlexoStack'te tek tip load balancer vardır. Load balancer başına sabit aylık
 ### Snapshot ve yedekleme
 
 - **Snapshot:** 2 adet snapshot ücretsizdir. Daha fazlası için kullanılan alan, disk depolama ücreti üzerinden ücretlendirilir.
-- **Acronis yedekleme:**
+- **Yedekleme:** [Yedekleme planları](../depolama/yedekleme.md) ve elle alınan yedekler için kullanılan yedekleme alanı GB bazında ücretlendirilir. **En az 100 GB** satın alınır; yedekleme kullanmayacaksanız satın almanız gerekmez.
 
 | Hizmet | Birim | Aylık | 6 ay peşin | 12 ay peşin |
 | --- | --- | --- | --- | --- |
-| Acronis Backup (GB bazlı) | 1 GB | 0,100 | 0,095 | 0,090 |
-| Acronis Backup (sanal makine bazlı) | 1 VM | 11,00 | 10,45 | 9,90 |
-| Acronis Backup (fiziksel sunucu bazlı) | 1 sunucu | 36,00 | 34,20 | 32,40 |
-| Acronis Cloud Backup (GB bazlı, Frankfurt veya İstanbul) | 1 GB | 0,200 | 0,190 | 0,180 |
-
-Sanal makine ve fiziksel sunucu bazlı yedekleme, ayrıca ücretlendirilen yedekleme depolama alanıyla birlikte satın alınır. Yedekleme lokasyonları ve diğer seçenekler için [Yedekleme](../depolama/yedekleme.md#acronis-yedekleme) sayfasına bakın.
+| Yedekleme alanı (en az 100 GB) | 1 GB | 0,0140 | 0,0133 | 0,0126 |
 
 ### Ücretsiz hizmetler
 
@@ -101,8 +96,7 @@ Satın aldığınız kaynak miktarı arttıkça birim fiyata indirim uygulanır:
 | vCPU | 1–8 adet | 9–32 adet | 33 adet ve üzeri |
 | RAM | 1–32 GB | 33–64 GB | 65 GB ve üzeri |
 | Disk | 0–4 TB | 4–20 TB | 20 TB ve üzeri |
-| Acronis yedekleme alanı | 0–4 TB | 4–20 TB | 20 TB ve üzeri |
-| Acronis VM / fiziksel sunucu | 1–10 adet | 11–30 adet | 31 adet ve üzeri |
+| Yedekleme alanı | 100–4.095 GB | 4.096–20.479 GB | 20.480–51.200 GB |
 
 Miktar indirimleri, 6 ve 12 aylık peşin ödeme fiyatlarına ek olarak uygulanır.
 

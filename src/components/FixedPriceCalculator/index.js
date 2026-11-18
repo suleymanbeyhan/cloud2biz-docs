@@ -15,7 +15,7 @@ const PRICES = {
   ip: [2, 1.9, 1.8],
   lb: [15, 15, 15],
   windows: [25, 25, 25],
-  backupGb: [0.1, 0.095, 0.09],
+  backupGb: [0.014, 0.0133, 0.0126],
 };
 
 // Miktar indirimleri: [eşik, oran]; miktar eşiğe ulaştığında oran tüm miktara uygulanır.
@@ -24,7 +24,7 @@ const TIERS = {
   ram: [[65, 0.15], [33, 0.1]],
   diskHigh: [[20480, 0.15], [4097, 0.1]],
   diskEco: [[20480, 0.15], [4097, 0.1]],
-  backupGb: [[20480, 0.15], [4097, 0.1]],
+  backupGb: [[20480, 0.15], [4096, 0.1]],
 };
 
 const PERIODS = [1, 6, 12];
@@ -37,7 +37,7 @@ const FIELDS = [
   {key: 'ip', unit: '', max: 256, step: 1},
   {key: 'lb', unit: '', max: 64, step: 1},
   {key: 'windows', unit: 'VM', max: 512, step: 1},
-  {key: 'backupGb', unit: 'GB', max: 512000, step: 10},
+  {key: 'backupGb', unit: 'GB', max: 51200, step: 10, min: 100},
 ];
 
 const T = {
@@ -53,9 +53,10 @@ const T = {
       ip: 'Public IP',
       lb: 'Load balancer',
       windows: 'Windows Server lisansı',
-      backupGb: 'Acronis yedekleme (GB bazlı)',
+      backupGb: 'Yedekleme alanı',
     },
     units: {'': 'adet'},
+    minHint: (n) => `En az ${n} GB · kullanmayacaksanız 0`,
     item: 'Kalem',
     qty: 'Miktar',
     unitPrice: 'Birim fiyat',
@@ -80,9 +81,10 @@ const T = {
       ip: 'Public IP',
       lb: 'Load balancer',
       windows: 'Windows Server license',
-      backupGb: 'Acronis backup (per GB)',
+      backupGb: 'Backup storage',
     },
     units: {'': 'pcs'},
+    minHint: (n) => `Minimum ${n} GB · leave 0 if not used`,
     item: 'Item',
     qty: 'Quantity',
     unitPrice: 'Unit price',
@@ -121,8 +123,10 @@ export default function FixedPriceCalculator() {
 
   const idx = PERIODS.indexOf(period);
 
-  const calc = (pIdx) => FIELDS.map(({key}) => {
-    const qty = Math.max(0, Number(values[key]) || 0);
+  const calc = (pIdx) => FIELDS.map(({key, min, max}) => {
+    let qty = Math.max(0, Number(values[key]) || 0);
+    if (qty > 0 && min && qty < min) qty = min;
+    if (max && qty > max) qty = max;
     const unit = PRICES[key][pIdx];
     const rate = discountFor(key, qty);
     return {key, qty, unit, rate, total: qty * unit * (1 - rate)};
@@ -158,7 +162,7 @@ export default function FixedPriceCalculator() {
       <div className={styles.section}>
         <div className={styles.label}>{t.resources}</div>
         <div className={styles.grid}>
-          {FIELDS.map(({key, unit, max, step}) => (
+          {FIELDS.map(({key, unit, max, step, min}) => (
             <label key={key} className={styles.field}>
               <span>{t.labels[key]}</span>
               <span className={styles.inputWrap}>
@@ -170,9 +174,15 @@ export default function FixedPriceCalculator() {
                   step={step}
                   value={values[key]}
                   onChange={(e) => set(key, e.target.value)}
+                  onBlur={(e) => {
+                    const v = Number(e.target.value) || 0;
+                    if (min && v > 0 && v < min) set(key, String(min));
+                    if (max && v > max) set(key, String(max));
+                  }}
                 />
                 <span className={styles.unit}>{unit || t.units['']}</span>
               </span>
+              {min && <small className={styles.hint}>{t.minHint(min)}</small>}
             </label>
           ))}
         </div>
@@ -196,7 +206,7 @@ export default function FixedPriceCalculator() {
               {rows.map((r) => (
                 <tr key={r.key}>
                   <td>{t.labels[r.key]}</td>
-                  <td>{unitFmt.format(r.qty)}</td>
+                  <td>{r.qty.toLocaleString(locale === 'en' ? 'en-US' : 'tr-TR')}</td>
                   <td>${unitFmt.format(r.unit)}</td>
                   <td>{r.rate ? (locale === 'en' ? `${Math.round(r.rate * 100)}%` : `%${Math.round(r.rate * 100)}`) : '–'}</td>
                   <td>{money(r.total)}</td>

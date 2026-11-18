@@ -20,9 +20,11 @@ import FixedPriceCalculator from '@site/src/components/FixedPriceCalculator';
 | --- | --- | --- |
 | vCPU | 9–32 adet | 33 adet ve üzeri |
 | RAM | 33–64 GB | 65 GB ve üzeri |
-| Disk ve yedekleme alanı | 4–20 TB | 20 TB ve üzeri |
+| Disk | 4–20 TB | 20 TB ve üzeri |
+| Yedekleme alanı | 4.096–20.479 GB | 20.480 GB ve üzeri |
 
 - **Dönem toplamı:** Aylık toplam × dönem süresi (1, 6 veya 12 ay).
+- **Yedekleme alanı:** En az 100 GB, en fazla 51.200 GB girilebilir. 1–99 GB arası bir değer girerseniz 100 GB olarak hesaplanır. Yedekleme kullanmayacaksanız 0 bırakın.
 - **Windows Server lisansı:** Windows Server çalıştıracağınız sanal makine sayısını girin; lisans bedeli vCPU sayısından bağımsız olarak sanal makine başına aylık 25 USD'dir.
 
 Hesaplamaya ağ trafiği, Object Storage, SSL ve vergiler dahil değildir. Tüm birim fiyatlar ve faturalandırma kuralları için [Sabit Kaynak Faturalandırması](./sabit-kaynak.md) sayfasına bakın.

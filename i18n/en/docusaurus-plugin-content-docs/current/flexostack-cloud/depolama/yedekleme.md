@@ -1,85 +1,155 @@
 ---
 sidebar_position: 2
 title: Backups
-description: Creating backup plans on FlexoStack, retention, incremental backups, restoring and Acronis backup options.
+description: Creating backup plans on FlexoStack, adding and removing volumes, manual backups, and restoring volumes and virtual machines from backups.
 ---
 
-FlexoStack offers two options for backing up your volumes regularly:
+With the FlexoStack backup service you can back up your volumes automatically with **backup plans** or **manually** whenever you need. You restore your data by creating a new volume or a new virtual machine from a backup.
 
-- **Backup plans in the panel:** Automatically back up your volumes on a schedule you define.
-- **Acronis backup:** For advanced needs such as file-level restore, off-site storage and physical server backups.
+On this page, backup and **recovery point** mean the same thing: a copy of an entire volume, or of the data that changed at a specific time.
+
+## Backup types
+
+| | Full backup | Incremental backup |
+| --- | --- | --- |
+| Contents | A copy of the entire volume | Only the changes since the latest backup, whatever its type |
+| Restore | Self-sufficient | Requires the first full backup and all following incremental backups (the backup chain) |
+| Time and space | Takes longer, uses more space | Faster, uses less space |
 
 ## Snapshots vs. backups
 
 | | Snapshot | Backup |
 | --- | --- | --- |
-| Stored on | Same storage as the volume | Separate backup storage |
-| Purpose | Quick rollback before changes | Protection against data loss and disasters |
-| Automation | Taken manually | Automatic, on a schedule |
+| Where it is stored | Same storage as the volume | Separate backup storage |
+| Purpose | Quick rollback before a change | Protection against data loss |
+| Automation | Taken manually | Scheduled automatically or taken manually |
 
-Snapshots do not replace backups. Always use a backup plan for important data. For snapshots, see [Volumes and snapshots](./diskler.md#snapshots).
+Snapshots are not a substitute for backups. Always use a backup plan for important data. For snapshots, see [Volumes and snapshots](./diskler.md#snapshots).
 
 ## Backup plans
 
-A backup plan defines which volumes are backed up, when, and how many backups are kept.
+A backup plan defines three things:
+
+- **What to back up:** One or more volumes. A volume can belong to **only one** plan.
+- **How often:** When backups are created.
+- **How long to keep them:** The maximum number of **full backups** kept at any time.
+
+### Backup chains
+
+A **backup chain** is one full backup followed by the incremental backups created before the next full backup. The default chain length is **7**: one full backup and six incremental backups. The total number of stored backups is therefore roughly **maximum number of full backups × chain length**.
+
+### Backup rotation
+
+When a new full backup is created and the retention limit is exceeded, the **oldest full backup and all of its incremental backups** are deleted automatically. For example:
+
+- With retention set to **1**, creating a new full backup deletes the previous chain.
+- With retention set to **2**, creating the third full backup deletes the oldest chain.
 
 ### Creating a plan
 
-1. In the panel, open **Backup plans** and click **Create backup plan**.
-2. Enter a name and an optional description. Do not put personal or sensitive business data in the description.
-3. Under **What to back up**, click **Manage**, select the volumes and click **Save**.
-4. Under **Schedule**, choose a retention option or create a custom schedule.
+1. In the panel, open the **Backup plans** screen and click **Create backup plan**.
+2. In the **Create backup plan** window, enter a name and, optionally, a description. Do not put personal or sensitive business data in the description.
+3. Under **What to back up**, click **Manage**. In the **Manage volumes** window, select the volumes to back up and click **Save**.
+4. Under **Schedule**, choose a schedule:
+
+   | Option | Description |
+   | --- | --- |
+   | **Retention 7 days** | A backup is created every day at 2:00 AM UTC; at most 7 full recovery points are kept. |
+   | **Retention 14 days** | A backup is created every day at 2:00 AM UTC; at most 14 full recovery points are kept. |
+   | **Custom** | You set the months, days of the week, days of the month, time and the maximum number of full recovery points to keep. |
+
 5. Click **Create**.
 
-### Schedule options
-
-| Option | Description |
-| --- | --- |
-| **Retention 7 days** | Daily backups at 02:00 UTC, keeping up to 7 full recovery points. |
-| **Retention 14 days** | Daily backups at 02:00 UTC, keeping up to 14 full recovery points. |
-| **Custom** | You set the months, days of the week, days of the month, time, and the maximum number of full backups to keep. |
-
-### Full and incremental backups
-
-Backups are kept in **chains**. Each chain consists of one **full backup** followed by **incremental backups**. Incremental backups contain only the data changed since the previous backup, so they are faster and take less space.
-
-- The default chain length is 7: one full backup and six incremental backups.
-- The total number of stored backups is roughly **maximum full backups × chain length**.
-- When a new full backup exceeds the retention limit, the oldest full backup and its incremental backups are deleted automatically.
-
-### Rules and limitations
-
-- A volume can belong to only **one** backup plan.
-- To back up a whole virtual machine, add all of its volumes (boot and data volumes) to the plan.
-- Backup storage is billed by usage.
-
-## Restoring from a backup
-
-1. On the **Backups** screen, open the backups of the volume.
-2. Select the recovery point (date and time) you want to restore.
-3. Choose a restore method:
-   - **Restore as a new volume:** Restores the backup to a new volume without touching the current one. This is the recommended and safest method; attach the new volume to a virtual machine and copy the files you need.
-   - **Restore over the existing volume:** Replaces the volume contents with the backup. The volume must be detached or the virtual machine shut down.
-
-:::danger Restoring over a volume erases current data
-When you restore over an existing volume, all data written after the backup was taken is lost. If unsure, restore to a new volume first.
+:::tip Back up the whole virtual machine
+To be able to bring a virtual machine back completely, add its boot volume and all data volumes to the plan. Recreating a virtual machine from a backup requires a backup of its **boot volume**.
 :::
 
-## Acronis backup
+### Adding and removing volumes
 
-For more advanced backup needs, use the Acronis-based backup service:
+**To add volumes:**
 
-- **Per-GB** or **per-VM / per-physical-server** pricing
-- File and folder-level restore
-- Backup locations: Istanbul-1 (outside FlexoStack), Istanbul-2 and Ankara (inside FlexoStack)
-- **Acronis Cloud Backup** to keep backups in the Acronis cloud in Frankfurt or Istanbul
-- No additional license fee
+1. On the **Backup plans** screen, click the plan.
+2. In the right pane, go to the **Volumes to back up** tab.
+3. Click **Manage**, select the volumes in the **Manage volumes** window and click **Save**.
 
-Order Acronis backup from the [client area](https://cloud2biz.com/clientarea) or contact our support team.
+**To remove volumes**, follow the same steps and clear the selection for the volumes you want to remove. To see only the volumes assigned to the plan, select **Show only selected items** next to the search field.
+
+Backups that were **already created** for a removed volume are not deleted.
+
+:::note
+A volume cannot be added to more than one backup plan. To move a volume to another plan, remove it from its current plan first.
+:::
+
+### Editing a plan
+
+1. On the **Backup plans** screen, click the plan.
+2. In the right pane, click **Edit**.
+3. In the **Edit backup plan** window, change the name, description or schedule and click **Save**.
+
+### Deleting a plan
+
+1. On the **Backup plans** screen, click the plan.
+2. In the right pane, click **Delete**.
+3. If the plan has recovery points, select **Delete recovery points** to delete them too, and type `Delete` to confirm.
+4. Click **Delete** in the confirmation window.
+
+:::danger
+If you select **Delete recovery points**, all backups of the plan are permanently deleted and cannot be recovered. To keep the backups, delete the plan without selecting this option.
+:::
+
+## Manual backups
+
+Manual backups are instant, one-off backups of a single volume. No retention policy applies to them, so you must **delete them manually** when you no longer need them.
+
+### Creating a backup
+
+1. On the **Volumes** screen, click the volume.
+2. In the right pane, click **Create backup now**.
+
+The backup appears on the **Recovery points** screen.
+
+### Deleting a backup
+
+1. On the **Recovery points** screen, click the recovery point.
+2. Click **Delete** and confirm.
+
+:::warning
+Deleting a backup also deletes **all backups that depend on it** in the same chain, and their data is permanently lost.
+:::
+
+## Restoring from backups
+
+A restore always creates a **new** volume or a **new** virtual machine. The original volume and virtual machine stay unchanged, so you can safely try a backup and take the data you need.
+
+### Restoring a volume
+
+You can create a new volume from a backup of a data or boot volume, whether the backup was created automatically or manually.
+
+1. On the **Recovery points** screen, click the recovery point.
+2. In the right pane, click **Restore volume**.
+3. In the **Restore volume** window, enter a name for the new volume, select a storage policy (disk type) and click **Restore**.
+
+The new volume appears on the **Volumes** screen. Attach it to a virtual machine to access your files.
+
+### Restoring a virtual machine
+
+You can recreate a virtual machine only from a backup of its **boot volume**.
+
+1. On the **Recovery points** screen, click the recovery point of the boot volume.
+2. In the right pane, click **Restore virtual machine**.
+3. In the **Restore virtual machine** window, the boot volume is set automatically from the selected recovery point. Configure the other settings (flavor, networks, SSH key, etc.) as you would when [creating a virtual machine](../sanal-makineler/sanal-makine-olusturma.md).
+4. Click **Deploy**.
+
+The new virtual machine appears on the **Virtual machines** screen. To bring back its data volumes as well, [restore their backups as volumes](#restoring-a-volume) and attach them to the new virtual machine.
+
+## Pricing
+
+Backup storage is billed **per GB** with a minimum purchase of **100 GB**. For current unit prices and quantity discounts, see [Fixed Resource Billing](../faturalandirma/sabit-kaynak.md#snapshots-and-backups); for an estimate, use the [Price Calculator](../faturalandirma/fiyat-hesaplayici.mdx).
 
 ## Backup recommendations
 
-- **3-2-1 rule:** Keep at least 3 copies of your data, on 2 different media, with 1 off-site.
-- For critical systems, store backups in a different location from your server.
-- **Test restores** regularly. An untested backup may not work when you need it.
-- For databases, take database dumps in addition to volume backups.
+- **3-2-1 rule:** Keep at least 3 copies of your data, on 2 different media, with 1 copy in a different location.
+- Add the boot and data volumes of critical virtual machines to the same plan so all volumes are backed up at the same times.
+- Set the retention limit based on the oldest date you may want to go back to.
+- **Test restores** regularly. Restoring a backup as a new volume does not affect your original system.
+- For databases, take the database's own dump backups in addition to volume backups.
