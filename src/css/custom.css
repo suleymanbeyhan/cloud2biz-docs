@@ -348,3 +348,120 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
 .markdown table { display: table; width: 100%; font-size: 0.92rem; }
 .markdown table thead tr { background: #e9e9e9; }
 .markdown table tr { background: #ffffff; }
+
+/* ===== Mobil menü: Hetzner tarzı beyaz çekmece ===== */
+@media (max-width: 996px) {
+  /* Çekmece */
+  .navbar-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    max-width: 380px;
+    background: #ffffff;
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+    --ifm-menu-color: #333333;
+    --ifm-menu-color-active: var(--c2b-orange);
+    --ifm-menu-color-background-active: transparent;
+    --ifm-menu-color-background-hover: #f6f6f6;
+    --ifm-navbar-link-color: #333333;
+    color: #333333;
+  }
+  .navbar-sidebar__backdrop { background: rgba(0, 0, 0, 0.45); }
+
+  /* Üst kısım: logo ve kapat */
+  .navbar-sidebar__brand {
+    flex: 0 0 auto;
+    height: auto;
+    padding: 1.6rem 1.5rem 1rem;
+    background: #ffffff;
+    box-shadow: none;
+  }
+  .navbar-sidebar__brand .navbar__logo { height: 2.6rem; }
+  .navbar-sidebar__brand .navbar__logo img { filter: invert(1); } /* beyaz logo -> siyah */
+  .navbar-sidebar__brand .navbar__title { color: #555555; }
+  .navbar-sidebar__close { color: #333333; }
+
+  /* Arama kutusu */
+  .navbar .navbar-sidebar .mobile-sidebar-search .navbar__search { display: block !important; }
+  .mobile-sidebar-search {
+    flex-shrink: 0;
+    padding: 0.4rem 1.5rem 1rem;
+    background: #ffffff;
+  }
+  .mobile-sidebar-search .navbar__search { width: 100%; padding: 0; margin: 0; }
+  .mobile-sidebar-search .algolia-autocomplete { display: block !important; width: 100%; }
+  .mobile-sidebar-search .navbar__search-input {
+    width: 100% !important;
+    height: 3rem;
+    font-size: 1rem;
+    background-color: #fafafa;
+    border: 2px solid #dcdcdc;
+    border-radius: 4px;
+    color: #333333;
+    padding-left: 2.6rem;
+  }
+  .mobile-sidebar-search .navbar__search-input::placeholder { color: #999999; }
+  .mobile-sidebar-search .navbar__search-input:focus { border-color: var(--c2b-orange); outline: none; }
+
+  /* Menü öğeleri */
+  .navbar-sidebar__items { flex: 1; height: auto; min-height: 0; }
+  .navbar-sidebar__item { padding: 0; }
+  .navbar-sidebar__item > .menu__list,
+  .navbar-sidebar__item.menu { padding: 0 !important; }
+
+  .navbar-sidebar__item:first-child > .menu__list > .menu__list-item {
+    border-bottom: 1px solid #eeeeee;
+  }
+  .navbar-sidebar__item:first-child > .menu__list > .menu__list-item:first-child {
+    border-top: 1px solid #eeeeee;
+  }
+  .navbar-sidebar__item:first-child > .menu__list > .menu__list-item > .menu__link {
+    position: relative;
+    padding: 1rem 3rem 1rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333333;
+    border-radius: 0;
+    background: transparent !important;
+  }
+  /* Sağdaki ok (dış bağlantılar ve dil menüsü hariç) */
+  .navbar-sidebar__item:first-child > .menu__list > .menu__list-item > .menu__link:not([target='_blank']):not(.menu__link--sublist)::after {
+    content: '';
+    position: absolute;
+    right: 1.6rem;
+    top: 50%;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-right: 2px solid #333333;
+    border-top: 2px solid #333333;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .navbar-sidebar__item:first-child .menu__link--active { color: var(--c2b-orange) !important; }
+
+  /* Dil seçici: çerçeveli kutu */
+  .navbar-sidebar__item:first-child .menu__list-item:has(.menu__link--sublist) {
+    border-bottom: 0;
+    padding: 1.5rem 1.5rem 0;
+  }
+  .navbar-sidebar__item:first-child .menu__link--sublist {
+    border: 2px solid #333333 !important;
+    border-radius: 4px;
+    padding: 0.6rem 1rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  /* Doküman menüsüne geri dönüş butonu */
+  .navbar-sidebar__back {
+    margin: 0 0 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #f6f6f6;
+    color: #333333;
+    font-weight: 500;
+    border-radius: 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  /* Doküman ağacı (ikinci panel) */
+  .navbar-sidebar__item:last-child .menu__list { padding: 0; }
+  .navbar-sidebar__item:last-child .menu__link { color: #333333; }
+}
