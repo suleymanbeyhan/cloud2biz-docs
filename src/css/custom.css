@@ -524,7 +524,7 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
   .theme-doc-toc-desktop { display: none; }
   .row > .col.col--3:has(> .theme-doc-toc-desktop) { display: none; }
   .row > .col[class*='docItemCol'] { max-width: 100% !important; flex-basis: 100%; }
-  [class*='docItemContainer'] { max-width: 980px; }
+  [class*='docItemContainer'] { max-width: 980px; margin-left: auto; margin-right: auto; }
 }
 .sidebar-toc-wrap { list-style: none; }
 .sidebar-toc {
@@ -597,4 +597,12 @@ body:has(.c2b-askai-fab) .c2b-back-to-top { bottom: 5.2rem; }
   .theme-doc-markdown h1 { font-size: 2rem; margin-bottom: 1.4rem; }
   .theme-doc-markdown h1, .theme-doc-markdown h2 { overflow-wrap: normal; word-break: normal; hyphens: auto; }
   .theme-doc-markdown h2 { font-size: 1.55rem; }
+}
+
+/* İçerikteki görseller ortalı */
+.theme-doc-markdown img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 100%;
+  height: auto;
 }
