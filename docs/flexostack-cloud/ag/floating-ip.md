@@ -25,7 +25,10 @@ Bir sanal makineye floating IP atayabilmek için sanal makinenin bağlı olduğu
 
 ## Floating IP Oluşturma ve Atama
 
-1. Panelde **Floating IPs** ekranını açın ve **Add floating IP** butonuna tıklayın.
+1. **Compute** panelinde sol menüden **Floating IPs** ekranını açın ve **Add floating IP** butonuna tıklayın.
+
+   ![Floating IPs ekranı ve Add floating IP butonu](/img/flexostack/floating-ip-add.png)
+
 2. Genel ağı seçin.
 3. İsterseniz IP'yi hemen bir sanal makinenin ağ arayüzüne atayın veya daha sonra atamak üzere boşta bırakın.
 4. **Add** butonuna tıklayın.
