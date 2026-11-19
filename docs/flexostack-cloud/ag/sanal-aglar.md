@@ -84,7 +84,3 @@ Bu yapıda veritabanı sunucularının floating IP'si yoktur; internetten doğru
 ## Sanal Ağı Silme
 
 Bir ağı silmeden önce o ağa bağlı tüm sanal makine arayüzlerini, router arayüzlerini ve load balancer'ları kaldırmanız gerekir. Ardından **Networks** ekranında ağı seçip **Delete** butonuna tıklayın.
-
-## MTU Hakkında
-
-Sanal ağlar VXLAN kapsüllemesi kullandığı için, sanal makine içindeki MTU değeri standart 1500'den biraz düşük olabilir. Hazır imajlarda MTU, DHCP üzerinden otomatik ayarlanır. Kendi imajlarınızda veya VPN/tünel kurulumlarında büyük paketlerle ilgili sorun yaşarsanız MTU değerini kontrol edin.

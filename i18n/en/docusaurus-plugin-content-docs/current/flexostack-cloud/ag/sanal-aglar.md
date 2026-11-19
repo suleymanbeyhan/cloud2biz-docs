@@ -84,7 +84,3 @@ Select the network on the **Networks** screen and click **Edit** to change its n
 ## Deleting a Virtual Network
 
 Before deleting a network, remove all virtual machine interfaces, router interfaces and load balancers connected to it. Then select the network on the **Networks** screen and click **Delete**.
-
-## About MTU
-
-Because virtual networks use VXLAN encapsulation, the MTU inside virtual machines may be slightly lower than the standard 1500. On ready-made images, the MTU is set automatically via DHCP. If you see problems with large packets on your own images or with VPNs and tunnels, check the MTU value.
