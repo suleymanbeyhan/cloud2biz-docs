@@ -90,12 +90,33 @@ Kaynak olarak CIDR yerine başka bir güvenlik grubu seçtiğinizde, kural o gru
 
 ## Sanal Makineye Güvenlik Grubu Atama
 
-Güvenlik gruplarını hem yeni hem de mevcut sanal makinelere atayabilirsiniz:
+Güvenlik grupları sanal makinenin **ağ arayüzüne** atanır. Bir arayüze birden fazla grup atayabilirsiniz; bu durumda tüm grupların izin kuralları birlikte geçerli olur.
 
-- **Oluşturma sırasında:** **Networks** bölümünde her ağ arayüzü için grupları seçin.
-- **Çalışan sanal makinede:** Sanal makinenin **Networks** sekmesinde ilgili arayüzü düzenleyerek grup ekleyin veya çıkarın.
+### Oluşturma Sırasında
 
-Güvenlik gruplarına kural eklediğinizde veya kural kaldırdığınızda değişiklikler **anında**, sanal makineyi yeniden başlatmaya gerek kalmadan uygulanır.
+1. **Virtual machines** ekranında **Create virtual machine** butonuna tıklayın.
+2. **Network interfaces** bölümünde **Add** ile bir ağ arayüzü ekleyin (veya mevcut arayüzü düzenleyin).
+3. **Add network interface** penceresinde **Network** alanından ağı seçin.
+4. **Security groups** alanını açın ve arayüze atamak istediğiniz grupları işaretleyin. Birden fazla grup seçebilirsiniz.
+5. **Add** ile arayüzü kaydedin ve sanal makine oluşturma adımlarına devam edin.
+
+![Add network interface penceresinde Security groups seçimi](/img/flexostack/security-group-add-interface.png)
+
+### Kurulumdan Sonra Değiştirme
+
+1. **Virtual machines** ekranında sanal makinenin üzerine tıklayın.
+2. **Network interfaces** bölümünde **Edit** butonuna tıklayın ve düzenlemek istediğiniz arayüzü seçin.
+3. **Edit network interface** penceresinde **Security groups** alanını açın.
+4. Eklemek istediğiniz grupları işaretleyin, çıkarmak istediğiniz grupların işaretini kaldırın.
+5. **Save** ile kaydedin, ardından **Done** butonuna tıklayın.
+
+![Edit network interface penceresinde Security groups değiştirme](/img/flexostack/security-group-edit-interface.png)
+
+Güvenlik grubu atamalarında ve kurallarında yaptığınız değişiklikler **anında**, sanal makineyi yeniden başlatmaya gerek kalmadan uygulanır.
+
+:::tip
+Bir arayüzden tüm güvenlik gruplarını kaldırırsanız o arayüze hiçbir izin kuralı uygulanmaz ve trafik engellenir. Sanal makineye erişiminizi kaybetmemek için en az bir uygun grubun seçili kaldığından emin olun.
+:::
 
 ## Gelişmiş Güvenlik Duvarı İhtiyaçları {#gelişmiş-güvenlik-duvarı-ihtiyaçları}
 

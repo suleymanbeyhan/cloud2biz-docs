@@ -89,12 +89,33 @@ When you select another security group instead of a CIDR as the source, the rule
 
 ## Assigning Security Groups to a Virtual Machine
 
-You can assign security groups to both new and existing virtual machines:
+Security groups are assigned to a virtual machine's **network interface**. You can assign more than one group to an interface; the allow rules of all groups then apply together.
 
-- **At creation:** Select groups for each network interface in the **Networks** section.
-- **On a running VM:** Edit the interface on the virtual machine's **Networks** tab to add or remove groups.
+### At Creation
 
-When you add or remove rules, changes are enforced **immediately**, without restarting the virtual machine.
+1. On the **Virtual machines** screen, click **Create virtual machine**.
+2. In the **Network interfaces** section, add a network interface with **Add** (or edit an existing one).
+3. In the **Add network interface** window, select the network in the **Network** field.
+4. Open the **Security groups** field and select the groups to assign to the interface. You can select more than one.
+5. Save the interface with **Add** and continue creating the virtual machine.
+
+![Selecting security groups in the Add network interface window](/img/flexostack/security-group-add-interface.png)
+
+### Changing After Creation
+
+1. On the **Virtual machines** screen, click the virtual machine.
+2. In the **Network interfaces** section, click **Edit** and select the interface to change.
+3. In the **Edit network interface** window, open the **Security groups** field.
+4. Select the groups to add and clear the groups to remove.
+5. Click **Save**, then **Done**.
+
+![Changing security groups in the Edit network interface window](/img/flexostack/security-group-edit-interface.png)
+
+Changes to security group assignments and rules are applied **immediately**, without restarting the virtual machine.
+
+:::tip
+If you remove all security groups from an interface, no allow rules apply to it and its traffic is denied. Make sure at least one suitable group stays selected so you do not lose access to the virtual machine.
+:::
 
 ## Advanced Firewall Needs
 
