@@ -32,14 +32,7 @@ description: FlexoStack'te load balancer oluşturma, dinleyiciler, dengeleme hav
 
 ## Ücretlendirme
 
-FlexoStack'te tek tip load balancer vardır; boyut seçimi yapmanız gerekmez:
-
-| Model | Fiyat |
-| --- | --- |
-| Sabit kaynak | Load balancer başına aylık 15 USD |
-| PAYG | Load balancer başına saatlik 0,0308 USD (aylık ≈ 22,48 USD) |
-
-Ayrıntılar için [Faturalandırma](../faturalandirma/sabit-kaynak.md#load-balancer) sayfasına bakın.
+FlexoStack'te tek tip load balancer vardır; boyut seçimi yapmanız gerekmez. Güncel fiyatlar için [Sabit Kaynak](../faturalandirma/sabit-kaynak.md#load-balancer) ve [PAYG](../faturalandirma/payg.md) faturalandırma sayfalarına bakın.
 
 ## Load Balancer Oluşturma
 

@@ -32,14 +32,7 @@ A **load balancer** distributes incoming traffic across multiple virtual machine
 
 ## Pricing
 
-FlexoStack offers a single load balancer type; there is no size to choose:
-
-| Model | Price |
-| --- | --- |
-| Fixed resources | 15 USD per load balancer per month |
-| PAYG | 0.0308 USD per load balancer per hour (≈ 22.48 USD per month) |
-
-See [Billing](../faturalandirma/sabit-kaynak.md#load-balancer) for details.
+FlexoStack offers a single load balancer type; there is no size to choose. For current prices, see the [Fixed Resources](../faturalandirma/sabit-kaynak.md#load-balancer) and [PAYG](../faturalandirma/payg.md) billing pages.
 
 ## Creating a Load Balancer
 
