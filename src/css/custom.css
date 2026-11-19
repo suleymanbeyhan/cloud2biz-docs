@@ -518,3 +518,30 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
 .menu__list-item.sidebar-hidden { display: none; }
 /* Kategori içindeki "Tümünü göster" bağlantısı */
 .sidebar-show-all > .menu__link { font-weight: 600; }
+
+/* ===== İçindekiler kenar çubuğunda, aktif sayfanın altında ===== */
+@media (min-width: 997px) {
+  .theme-doc-toc-desktop { display: none; }
+  .row > .col.col--3:has(> .theme-doc-toc-desktop) { display: none; }
+  .row > .col[class*='docItemCol'] { max-width: 100% !important; flex-basis: 100%; }
+  [class*='docItemContainer'] { max-width: 980px; }
+}
+.sidebar-toc-wrap { list-style: none; }
+.sidebar-toc {
+  list-style: none;
+  margin: 0.15rem 0 0.4rem 1.6rem;
+  padding: 0 0 0 0.7rem;
+  border-left: 2px solid #ececec;
+}
+.sidebar-toc__item { margin: 0; }
+.sidebar-toc__item--l3 { padding-left: 0.8rem; }
+.sidebar-toc__link {
+  display: block;
+  padding: 0.22rem 0.4rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: #666;
+}
+.sidebar-toc__link:hover { color: var(--c2b-orange); text-decoration: none; }
+.sidebar-toc__link--active { color: var(--c2b-orange); font-weight: 600; }
+.sidebar-toc__link code { font-size: 0.85em; }
