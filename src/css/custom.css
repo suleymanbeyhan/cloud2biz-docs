@@ -584,3 +584,17 @@ body:has(.c2b-askai-fab) .c2b-back-to-top { bottom: 5.2rem; }
   font-size: 0.95rem;
   letter-spacing: 0;
 }
+
+/* ===== Mobil: logo ve başlıklar sığsın ===== */
+@media (max-width: 996px) {
+  .navbar { height: 3.75rem; }
+  .navbar__brand { margin-right: 0.5rem; min-width: 0; }
+  .navbar__logo { height: 2.3rem; margin-right: 0.4rem; }
+  .navbar__title { font-size: 1.15rem; white-space: nowrap; overflow: visible; }
+}
+@media (max-width: 576px) {
+  .navbar__logo { height: 2rem; }
+  .theme-doc-markdown h1 { font-size: 2rem; margin-bottom: 1.4rem; }
+  .theme-doc-markdown h1, .theme-doc-markdown h2 { overflow-wrap: normal; word-break: normal; hyphens: auto; }
+  .theme-doc-markdown h2 { font-size: 1.55rem; }
+}
