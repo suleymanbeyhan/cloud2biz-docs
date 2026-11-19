@@ -29,9 +29,14 @@ To assign a floating IP to a virtual machine, the network the virtual machine is
 
    ![Floating IPs screen and the Add floating IP button](/img/flexostack/floating-ip-add.png)
 
-2. Select the public network.
-3. Optionally assign the IP to a virtual machine's network interface right away, or leave it unassigned for later.
-4. Click **Add**.
+2. In the **Add floating IP address** window, select the public network to take the floating IP address from in **Network**.
+3. In the field below, select the **virtual machine** or **load balancer** to assign the IP to.
+4. In **IP address**, select the private IP address the floating IP will point to (e.g. `(Primary) 10.10.10.119`).
+5. Click **Add**.
+
+   ![Add floating IP address window: selecting the network, virtual machine and private IP address](/img/flexostack/floating-ip-add-dialog.png)
+
+A floating IP can only be assigned to virtual machines or load balancers that have a **fixed private IP address**.
 
 To assign an existing unassigned floating IP, select it, click **Assign** and choose the virtual machine.
 

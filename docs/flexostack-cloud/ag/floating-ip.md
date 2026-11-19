@@ -29,9 +29,14 @@ Bir sanal makineye floating IP atayabilmek için sanal makinenin bağlı olduğu
 
    ![Floating IPs ekranı ve Add floating IP butonu](/img/flexostack/floating-ip-add.png)
 
-2. Genel ağı seçin.
-3. İsterseniz IP'yi hemen bir sanal makinenin ağ arayüzüne atayın veya daha sonra atamak üzere boşta bırakın.
-4. **Add** butonuna tıklayın.
+2. **Add floating IP address** penceresinde **Network** alanından floating IP adresinin alınacağı genel ağı (public network) seçin.
+3. Altındaki alandan IP'yi atamak istediğiniz **sanal makineyi** veya **load balancer**'ı seçin.
+4. **IP address** alanından, floating IP'nin yönlendirileceği özel (private) IP adresini seçin (ör. `(Primary) 10.10.10.119`).
+5. **Add** butonuna tıklayın.
+
+   ![Add floating IP address penceresi: ağ, sanal makine ve özel IP adresi seçimi](/img/flexostack/floating-ip-add-dialog.png)
+
+Floating IP yalnızca **sabit bir özel IP adresi** olan sanal makinelere veya load balancer'lara atanabilir.
 
 Mevcut boşta bir floating IP'yi atamak için IP'yi seçin, **Assign** seçeneğine tıklayın ve sanal makineyi seçin.
 
