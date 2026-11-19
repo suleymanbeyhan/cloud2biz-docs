@@ -18,19 +18,35 @@ FlexoStack'te sunucularınızı **sanal ağlar (Private Network)** üzerinde bir
 
 ## Sanal Ağ Oluşturma
 
-1. Panelde **Networks** ekranını açın ve **Create virtual network** butonuna tıklayın.
-2. Ağa bir ad verin, örneğin `uygulama-agi`.
-3. **IP adres yönetimi** seçeneğini açık bırakın ve alt ağ (subnet) bilgilerini girin:
+**1. Networks sayfasını açın**
+
+**Compute** panelinde sol menüden **Networks** sekmesine girin ve sağ üstteki **Create network** butonuna tıklayın.
+
+![Networks sayfası ve Create network butonu](/img/flexostack/network-create.png)
+
+**2. Subnet ekleyin**
+
+Açılan **Create virtual network** penceresinde ağa bir ad verin (ör. `Private Network`). **IP address management** adımında **Subnets** bölümündeki **Add** butonuna tıklayın ve IPv4 subnet ekleyin.
+
+![Create virtual network penceresinde Subnets - Add butonu](/img/flexostack/network-subnet-add.png)
+
+**3. IPv4 subnet bilgilerini girin**
+
+**Add IPv4 subnet** penceresinde **CIDR** bilgisini girin (ör. `192.168.1.0/24`). İsteğe bağlı olarak **Gateway**, **Allocation pools** ve **DNS servers** alanlarını da doldurabilirsiniz. **Add** ile subnet'i ekleyin, ardından özet ekranında **Create** ile ağı oluşturun.
+
+![Add IPv4 subnet penceresi](/img/flexostack/network-subnet-ipv4.png)
 
 | Alan | Örnek | Açıklama |
 | --- | --- | --- |
-| **Subnet CIDR** | `192.168.10.0/24` | Ağın IP aralığı. `/24` yaklaşık 250 adres sağlar. |
-| **Gateway** | `192.168.10.1` | Ağ geçidi adresi. Router bu adresi kullanır. Boş bırakılırsa otomatik atanır. |
-| **DHCP** | Açık | Sanal makinelerin IP adresini otomatik almasını sağlar. |
-| **Allocation pool** | `192.168.10.100-192.168.10.200` | DHCP'nin dağıtacağı adres aralığı (isteğe bağlı). |
-| **DNS servers** | `1.1.1.1`, `8.8.8.8` | Sanal makinelere dağıtılacak DNS sunucuları. |
+| **CIDR** | `192.168.1.0/24` | Ağın IP aralığı. `/24` yaklaşık 250 adres sağlar. |
+| **Gateway** | `192.168.1.1` | Ağ geçidi adresi (isteğe bağlı). Router bu adresi kullanır; boş bırakılırsa otomatik atanır. |
+| **Built-in DHCP server** | Açık | Sanal makinelerin IP adresini otomatik almasını sağlar. |
+| **Allocation pools** | `192.168.1.100 — 192.168.1.200` | DHCP'nin dağıtacağı adres aralığı (isteğe bağlı). |
+| **DNS servers** | `8.8.8.8` | Sanal makinelere dağıtılacak DNS sunucuları (isteğe bağlı). |
 
-4. **Create** butonuna tıklayın.
+:::tip Sonraki adım: router
+Private network'teki sunucuların internete çıkabilmesi veya [Site-to-Site VPN](./vpn.md) kurabilmeniz için ağı bir [sanal router](./sanal-routerlar.md#router-oluşturma)'a bağlamanız gerekir.
+:::
 
 :::tip Adres aralığı planlaması
 Farklı sanal ağlar için çakışmayan aralıklar kullanın (ör. `192.168.10.0/24`, `192.168.20.0/24`). Ofis ağınızla [Site-to-Site VPN](./vpn.md) kurmayı planlıyorsanız ofisinizdeki aralıklarla da çakışmamasına dikkat edin.

@@ -15,39 +15,87 @@ A **Site-to-Site VPN** connects your FlexoStack virtual networks to your office 
 
 ## Prerequisites
 
-- On the FlexoStack side, a virtual network connected to a [router](./sanal-routerlar.md) with an external gateway
-- On the remote side, an IPsec-capable device (FortiGate, pfSense, MikroTik, Cisco, etc.) with a **static public IP address**
-- **Non-overlapping** network ranges on both sides (e.g. FlexoStack `192.168.10.0/24`, office `10.0.0.0/24`)
+:::info Create a private network and router first
+An IPsec VPN requires a **private network** and a **virtual router** connected to it. Before setting up the VPN, read the following documents and complete their steps:
+
+1. [Creating a Virtual Network](./sanal-aglar.md#creating-a-virtual-network): create the private network and subnet
+2. [Creating a Router](./sanal-routerlar.md#creating-a-router): create a virtual router that connects the private network to the public network
+:::
+
+You also need:
+
+- An IPsec-capable device on the remote side (such as FortiGate, pfSense, MikroTik or Cisco) with a **static public IP address**
+- **Non-overlapping** network ranges on both sides (e.g. FlexoStack `192.168.1.0/24`, office `10.1.1.0/24`)
 
 ## Creating a VPN Connection
 
-1. In the panel, open **VPN** and click **Create VPN connection**.
-2. Fill in the sections below and click **Create**.
+Once the private network and virtual router are ready, you can create the VPN.
 
-### Connection Details
+### 1. Open the VPN Page
 
-| Field | Description |
-| --- | --- |
-| **Router** | The FlexoStack router the VPN runs on |
-| **Local subnets** | The FlexoStack virtual network(s) reachable over the VPN |
-| **Peer address** | The public IP of the remote VPN device |
-| **Peer subnets** | The network ranges on the remote side (e.g. `10.0.0.0/24`) |
-| **Pre-shared key (PSK)** | The shared secret used by both sides for authentication |
+Open **VPN** in the left menu and click **Add VPN**. The **Create VPN** wizard opens.
 
-### IKE and IPsec Policies
+![VPN page and the Add VPN button](/img/flexostack/vpn-add.png)
 
-Both sides must use the same encryption settings. A secure and widely compatible starting configuration:
+### 2. Configure the IKE Policy
+
+In the **Configure IKE** step, select **New IKE policy** in **IKE policy** and set the **Policy name**, **Key lifetime**, **Authentication algorithm**, **Encryption algorithm**, **IKE version** and **Diffie-Hellman group**. Click **Next**.
+
+![Create VPN: Configure IKE step](/img/flexostack/vpn-ike.png)
+
+### 3. Configure the IPsec Policy
+
+In the **Configure IPsec** step, set the parameters of the IPsec policy used to encrypt VPN traffic: policy name, **Key lifetime**, authentication and encryption algorithms, and **Diffie-Hellman group**. Click **Next**.
+
+![Create VPN: Configure IPsec step](/img/flexostack/vpn-ipsec.png)
+
+### 4. Create Endpoint Groups
+
+In the **Create endpoint groups** step, first select the virtual router you created earlier in **Router**.
+
+![Create endpoint groups: selecting the router](/img/flexostack/vpn-router.png)
+
+Then define the networks that will communicate over the VPN:
+
+- **Local endpoint:** Select **Create endpoint group**, enter a group name and select your FlexoStack private network in **Subnets** (e.g. `192.168.1.0/24`).
+- **Remote endpoint:** Select **Create endpoint group**, enter a group name and add the remote subnet with **Add** in **Subnets** (e.g. `10.1.1.0/24`).
+
+![Create endpoint groups: Local and Remote endpoints](/img/flexostack/vpn-endpoints.png)
+
+### 5. Enter the VPN Connection Details
+
+In the **Configure VPN** step:
+
+- **VPN name:** Enter a name for the remote location (e.g. `Branch Office`).
+- **Public IPv4 address (Peer IP):** Enter the public IP address of the remote location.
+- **Pre-shared key (PSK):** Create a new key with **Generate** or enter the key you were given.
+- **Peer ID authentication** and **Local ID authentication** are optional; fill them in if needed.
+- Under **Advanced settings**, you can also adjust **Initiator mode** and **Dead Peer Detection (DPD)**.
+
+![Create VPN: Configure VPN step](/img/flexostack/vpn-configure.png)
+
+### 6. Review the Summary and Create
+
+The **Summary** step shows the settings you selected. Click **Create** to complete the IPsec VPN setup.
+
+:::note Summary
+An IPsec VPN setup requires first creating a private network and a virtual router, then defining the IKE and IPsec policies, the endpoint groups (local/remote) and finally the remote gateway and pre-shared key in the VPN wizard.
+:::
+
+### Recommended IKE and IPsec Settings
+
+Both sides must use the **same** encryption settings. A secure and widely compatible starting configuration:
 
 | Parameter | IKE (Phase 1) | IPsec (Phase 2) |
 | --- | --- | --- |
 | Version | IKEv2 | – |
 | Encryption | AES-256 | AES-256 |
-| Integrity (hash) | SHA-256 | SHA-256 |
-| DH group / PFS | Group 14 | Group 14 |
-| Lifetime | 28800 seconds | 3600 seconds |
+| Authentication | SHA-256 | SHA-256 |
+| Diffie-Hellman group | group14 | group14 |
+| Key lifetime | 3600 seconds | 3600 seconds |
 
 :::warning Use a strong PSK
-The pre-shared key should be a randomly generated value at least 32 characters long, for example from `openssl rand -base64 32`. Do not share the PSK in plain text over email or messaging apps.
+The pre-shared key should be a randomly generated value of at least 32 characters. You can use the **Generate** button in the panel. Do not share the PSK in plain text by email or messaging apps.
 :::
 
 ## Configuring the Remote Side
@@ -55,15 +103,15 @@ The pre-shared key should be a randomly generated value at least 32 characters l
 On the remote device, create an IPsec tunnel with the same parameters:
 
 - **Remote gateway:** The public IP of your FlexoStack router (shown in the router details)
-- **Local subnet:** Your office network (e.g. `10.0.0.0/24`)
-- **Remote subnet:** Your FlexoStack virtual network (e.g. `192.168.10.0/24`)
+- **Local subnet:** Your office network (e.g. `10.1.1.0/24`)
+- **Remote subnet:** Your FlexoStack virtual network (e.g. `192.168.1.0/24`)
 - **PSK and IKE/IPsec settings:** Exactly the same as on the FlexoStack side
 
 Once the tunnel is configured on both sides, the connection status shows **Active** in the panel.
 
 ## Security Groups and Firewalls
 
-Traffic arriving over the VPN is also filtered by [security groups](./security-groups.md). In your FlexoStack servers' security groups, allow the required ports from the remote network range (e.g. `10.0.0.0/24`). Remember to allow the FlexoStack network in the remote firewall as well.
+Traffic arriving over the VPN is also filtered by [security groups](./security-groups.md). In your FlexoStack servers' security groups, allow the required ports from the remote network range (e.g. `10.1.1.0/24`). Remember to allow the FlexoStack network in the remote firewall as well.
 
 ## Troubleshooting
 

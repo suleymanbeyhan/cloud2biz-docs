@@ -14,12 +14,25 @@ Sanal router, sanal ağlarınızı birbirine ve internete bağlayan yazılım ta
 
 ## Router Oluşturma
 
-1. Panelde **Routers** ekranını açın ve **Add router** butonuna tıklayın.
-2. Router'a bir ad verin, örneğin `ana-router`.
-3. **External gateway** olarak genel ağı seçin.
-4. **SNAT** seçeneğini, sunucularınızın internete çıkabilmesi için açık bırakın.
-5. **Add interface** ile router'ı bağlamak istediğiniz sanal ağları ekleyin. Router, her ağın gateway adresini kullanır.
-6. **Create** butonuna tıklayın.
+**1. Routers sayfasını açın**
+
+Sol menüden **Routers** sekmesine girin ve **Add router** butonuna tıklayın.
+
+![Routers sayfası ve Add router butonu](/img/flexostack/router-add.png)
+
+**2. Router bilgilerini girin**
+
+**Add virtual router** penceresinde:
+
+1. **Name** alanına router için bir ad verin.
+2. **Network** alanından internete çıkmasını istediğiniz **public network**'ü seçin.
+3. **SNAT** seçeneğini işaretli bırakın.
+4. **Add internal interfaces** bölümünde **Add** ile daha önce oluşturduğunuz [private network](./sanal-aglar.md#sanal-ağ-oluşturma)'ü ekleyin. Router, ağın gateway adresini kullanır.
+5. **Create** butonuna tıklayın.
+
+![Add virtual router penceresi](/img/flexostack/router-create.png)
+
+Router oluşturulduktan sonra private network, **tek bir sabit IP adresiyle** internete çıkar. Bu router'ı [Site-to-Site VPN](./vpn.md) için de kullanabilirsiniz.
 
 ## Arayüz Ekleme ve Çıkarma
 

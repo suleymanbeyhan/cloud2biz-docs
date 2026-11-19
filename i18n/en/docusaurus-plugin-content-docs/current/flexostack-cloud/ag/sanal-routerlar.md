@@ -14,12 +14,25 @@ A virtual router is a software-defined router that connects your virtual network
 
 ## Creating a Router
 
-1. In the panel, open **Routers** and click **Add router**.
-2. Name the router, for example `main-router`.
-3. Select the public network as the **External gateway**.
-4. Keep **SNAT** enabled so your servers can reach the internet.
-5. Use **Add interface** to connect the virtual networks. The router uses the gateway address of each network.
-6. Click **Create**.
+**1. Open the Routers page**
+
+Open **Routers** in the left menu and click **Add router**.
+
+![Routers page and the Add router button](/img/flexostack/router-add.png)
+
+**2. Enter the router details**
+
+In the **Add virtual router** window:
+
+1. Enter a name for the router in **Name**.
+2. In **Network**, select the **public network** through which it should reach the internet.
+3. Leave **SNAT** selected.
+4. In **Add internal interfaces**, click **Add** and add the [private network](./sanal-aglar.md#creating-a-virtual-network) you created earlier. The router uses the network's gateway address.
+5. Click **Create**.
+
+![Add virtual router window](/img/flexostack/router-create.png)
+
+Once the router is created, the private network reaches the internet **through a single fixed IP address**. You can also use this router for a [site-to-site VPN](./vpn.md).
 
 ## Adding and Removing Interfaces
 
