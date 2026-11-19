@@ -545,3 +545,35 @@ html[lang='en'] .table-of-contents::before { content: 'TABLE OF CONTENTS'; }
 .sidebar-toc__link:hover { color: var(--c2b-orange); text-decoration: none; }
 .sidebar-toc__link--active { color: var(--c2b-orange); font-weight: 600; }
 .sidebar-toc__link code { font-size: 0.85em; }
+
+/* ===== Yukarı çık düğmesi ===== */
+.theme-back-to-top-button { display: none !important; }
+.c2b-back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 250;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 4px;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s, background 0.15s;
+}
+.c2b-back-to-top--show { opacity: 1; visibility: visible; transform: none; }
+.c2b-back-to-top:hover { background: var(--c2b-orange); }
+/* Yapay zekâ düğmesi varsa onun üstünde dursun */
+body:has(.c2b-askai-fab) .c2b-back-to-top { bottom: 5.2rem; }
+@media (max-width: 576px) {
+  .c2b-back-to-top { right: 1rem; bottom: 1rem; width: 2.75rem; height: 2.75rem; }
+  body:has(.c2b-askai-fab) .c2b-back-to-top { bottom: 4.6rem; }
+}

@@ -245,7 +245,7 @@ export default function AskAI() {
   return (
     <>
       {!open && (
-        <button type="button" className={styles.fab} onClick={() => setOpen(true)}>
+        <button type="button" className={`${styles.fab} c2b-askai-fab`} onClick={() => setOpen(true)}>
           <Logo />
           <span>{t.button}</span>
         </button>

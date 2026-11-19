@@ -8,16 +8,7 @@ FlexoStack'teki her sanal makine (VM), kendi sanal donanımına sahip bağımsı
 
 ## Kaynak Limitleri
 
-Tek bir sanal makine için üst limitler şunlardır:
-
-| Kaynak | Üst limit |
-| --- | --- |
-| RAM | 1 TiB |
-| CPU | 64 vCPU |
-| Disk | 15 disk (volume), her biri en fazla 512 TiB |
-| Ağ | 15 ağ arayüzü (NIC) |
-
-Projenizin toplam kaynakları ayrıca hesabınıza tanımlı kotalarla sınırlıdır. Kota artışı için destek talebi oluşturabilirsiniz.
+Sanal makineyi oluştururken **Flavor** bölümünden kullanabileceğiniz tüm kaynak seçeneklerini (vCPU ve RAM) görüntüleyebilirsiniz. İhtiyacınız olan yeni bir flavor yoksa [cloud2biz.com](https://cloud2biz.com/clientarea) üzerinden destek talebi oluşturmanız gerekmektedir.
 
 ## Başlamadan Önce
 

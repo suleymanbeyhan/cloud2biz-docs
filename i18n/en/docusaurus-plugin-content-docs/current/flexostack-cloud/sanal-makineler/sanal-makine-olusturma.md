@@ -8,16 +8,7 @@ Each FlexoStack virtual machine (VM) is an independent server with its own virtu
 
 ## Resource Limits
 
-The upper limits for a single virtual machine are:
-
-| Resource | Limit |
-| --- | --- |
-| RAM | 1 TiB |
-| CPU | 64 vCPUs |
-| Storage | 15 volumes, up to 512 TiB each |
-| Network | 15 network interfaces (NICs) |
-
-Your project's total resources are also limited by the quotas assigned to your account. Open a support ticket to request a quota increase.
+When creating a virtual machine, you can view all available resource options (vCPU and RAM) in the **Flavor** section. If you need a new flavor that is not listed, open a support ticket on [cloud2biz.com](https://cloud2biz.com/clientarea).
 
 ## Before You Begin
 
