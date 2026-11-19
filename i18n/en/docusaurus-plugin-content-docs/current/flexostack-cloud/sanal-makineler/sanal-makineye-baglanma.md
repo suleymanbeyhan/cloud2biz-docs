@@ -48,7 +48,7 @@ On Windows 10 and later, the `ssh` command is available in PowerShell. Alternati
 1. Open TCP port **3389** in the security group to your own IP address only.
 2. Assign a floating IP to your Windows virtual machine.
 3. Open **Remote Desktop Connection** on your computer and enter the floating IP.
-4. Log in as `Administrator` with the password you set.
+4. Log in as `Administrator` with the password you set from the console after installation. See [Initial Password on Windows Servers](#initial-password-on-windows-servers).
 
 :::warning Do not open RDP to everyone
 Opening port 3389 to `0.0.0.0/0` exposes your server to constant password-guessing attacks. Restrict access to your own IP addresses or use a [Site-to-Site VPN](../ag/vpn.md).
@@ -58,7 +58,7 @@ Opening port 3389 to `0.0.0.0/0` exposes your server to constant password-guessi
 
 ### At Creation (cloud-init)
 
-When creating the virtual machine, add a configuration like the following in the **User data** field:
+When creating a Linux virtual machine, add a configuration like the following in the **Customization script** field. For details and a root password example, see [Customization Script](./sanal-makine-olusturma.md#customization-script-cloud-init):
 
 ```yaml
 #cloud-config
@@ -69,6 +69,19 @@ ssh_pwauth: false
 ```
 
 `ssh_pwauth: false` keeps password login over SSH disabled, so the password is used only for console login. This is the recommended secure configuration.
+
+### Initial Password on Windows Servers
+
+Windows Server images are generalized with Sysprep, so when the virtual machine first starts, Windows setup waits for you to set the administrator password as its final step:
+
+1. After the virtual machine becomes **Active**, open it in the panel and connect with **Console**.
+2. Confirm the region, language and keyboard settings on the setup screen.
+3. Set a strong password for the `Administrator` user and enter it again.
+4. When setup finishes, log in with this password from the console or via [RDP](#connecting-via-rdp-windows).
+
+:::tip
+You cannot connect via RDP until the password is set. Keep your password in a safe place.
+:::
 
 ### On a Running Server
 

@@ -44,6 +44,11 @@ Choose what the virtual machine boots from:
 - **Volume:** A bootable volume you prepared earlier.
 - **ISO:** An ISO image for installing the operating system yourself. In this case, you complete the installation through the panel console.
 
+#### How Are the Ready-Made Images Prepared?
+
+- **Linux:** All Linux operating system images on FlexoStack are prepared with **cloud-init**. The virtual machine is installed in a few minutes, and you can configure users, passwords, SSH keys, packages and more automatically at creation with a [Customization Script](#customization-script-cloud-init).
+- **Windows:** Windows Server images are pre-installed and then generalized with **Sysprep**. When you deploy from a Sysprep image, you must **set the administrator (Administrator) password through the panel console** after the installation completes. See [Initial Password on Windows Servers](./sanal-makineye-baglanma.md#initial-password-on-windows-servers).
+
 ### Volumes
 
 - **Boot volume:** Choose its size and disk type. The size cannot be smaller than the minimum required by the selected image.
@@ -74,9 +79,52 @@ A flavor is a template that defines the number of vCPUs and the amount of RAM. C
 
 On Linux images, select the SSH key used for login. The key is added to the server only **at creation time** and cannot be changed later from the panel.
 
-### User Data (cloud-init)
+### Customization Script (cloud-init)
 
-You can configure the server automatically on first boot by entering a cloud-init script in the **User data** field. Example:
+Because the Linux images support cloud-init, you can enter a **Customization Script** when creating a virtual machine to define user accounts, passwords and other settings automatically. The script runs automatically the first time the virtual machine boots. Cloud-init supports **cloud-config** scripts in YAML format as well as shell scripts.
+
+**1. Open the customization script field**
+
+On the **Create virtual machine** summary screen, click the pencil icon next to **Customization script (optional)**.
+
+![Customization script (optional) field on the Create virtual machine summary screen](/img/flexostack/vm-customization-script.png)
+
+**2. Enter the script**
+
+In the **Provide a customization script** window, enter your cloud-config script (or load it from a file with **Load from file**) and click **Save**. Then click **Deploy** to create the virtual machine.
+
+![Provide a customization script window](/img/flexostack/vm-customization-script-editor.png)
+
+#### Example: Setting the Root Password
+
+The following script sets the password of the `root` user, allows root login over SSH and reboots the server when it finishes:
+
+```yaml
+#cloud-config
+user: root
+password: password
+chpasswd: {expire: False}
+ssh_pwauth: True
+runcmd:
+  - sed -i -r 's/(#+?)PermitRootLogin(.*)/PermitRootLogin yes/g' /etc/ssh/sshd_config
+power_state:
+  mode: reboot
+```
+
+| Line | Description |
+| --- | --- |
+| `user` | The user whose password is set (`root` in the example). |
+| `password` | The user's password. Replace `password` with your own strong password. |
+| `chpasswd: {expire: False}` | Does not force a password change at first login. |
+| `ssh_pwauth` | Enables password authentication over SSH. |
+| `runcmd` | Allows root login in `sshd_config` (`PermitRootLogin yes`). |
+| `power_state` | Reboots the server after the script runs (`reboot`). |
+
+:::warning Important
+In production, do not put a weak value in the `password` field; use a strong, unique password. Where possible, prefer [SSH key](./ssh-anahtarlari.md) authentication instead of passwords.
+:::
+
+#### Example: Installing Packages
 
 ```yaml
 #cloud-config
@@ -89,7 +137,7 @@ runcmd:
   - systemctl enable --now nginx
 ```
 
-Windows images use cloudbase-init, and PowerShell scripts start with the line `#ps1_sysnative`.
+Customization scripts are used with Linux images only. On Windows servers, the initial password is set from the console after installation.
 
 ### Tags and Description
 

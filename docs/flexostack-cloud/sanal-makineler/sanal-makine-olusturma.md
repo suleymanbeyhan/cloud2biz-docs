@@ -44,6 +44,11 @@ Sanal makinenin neyden başlatılacağını seçin:
 - **Disk (volume):** Daha önce hazırladığınız önyüklenebilir bir diskten başlatın.
 - **ISO:** İşletim sistemini kendiniz kurmak için bir ISO imajı seçin. Bu durumda kurulumu panel konsolu üzerinden yaparsınız.
 
+#### Hazır İmajlar Nasıl Hazırlanır?
+
+- **Linux:** FlexoStack'teki tüm Linux işletim sistemi imajları **cloud-init** teknolojisiyle hazırlanmıştır. Sanal makine birkaç dakika içinde kurulur; kullanıcı, parola, SSH anahtarı ve paket gibi ayarları oluşturma sırasında [Customization Script](#customization-script-cloud-init) ile otomatik olarak yapabilirsiniz.
+- **Windows:** Windows Server imajları hazır kurulum yapılıp ardından **Sysprep** alınarak hazırlanmıştır. Sysprep alınmış bir imajla kurulum yapıldığında, kurulum tamamlandıktan sonra **panel konsolu üzerinden yönetici (Administrator) parolası belirlemeniz** gerekir. Bkz. [Windows Sunucularda İlk Parola](./sanal-makineye-baglanma.md#windows-sunucularda-ilk-parola).
+
 ### Diskler (Volumes)
 
 - **Sistem diski:** Boyutunu ve disk tipini seçin. Boyut, seçtiğiniz imajın gerektirdiği minimum boyuttan küçük olamaz.
@@ -74,9 +79,52 @@ Flavor, sanal makinenin vCPU ve RAM miktarını belirleyen şablondur. İhtiyac�
 
 Linux imajlarında, giriş için kullanılacak SSH anahtarını seçin. Anahtar yalnızca **oluşturma sırasında** sunucuya eklenir; sonradan panelden değiştirilemez.
 
-### Kullanıcı Verisi (cloud-init)
+### Customization Script (cloud-init)
 
-**User data** alanına bir cloud-init betiği yazarak sunucuyu ilk açılışta otomatik yapılandırabilirsiniz. Örnek:
+Linux imajları cloud-init ile uyumlu olduğundan, sanal makineyi oluştururken bir **Customization Script** girerek kullanıcı hesaplarını, parolaları ve diğer ayarları otomatik olarak tanımlayabilirsiniz. Script, sanal makine ilk kez açılırken otomatik olarak çalıştırılır. Cloud-init, YAML formatındaki **cloud-config** betiklerini ve shell script'leri destekler.
+
+**1. Customization script alanını açın**
+
+**Create virtual machine** özet ekranında **Customization script (optional)** satırının yanındaki kalem simgesine tıklayın.
+
+![Create virtual machine özet ekranında Customization script (optional) alanı](/img/flexostack/vm-customization-script.png)
+
+**2. Script'i girin**
+
+Açılan **Provide a customization script** penceresine cloud-config formatındaki betiğinizi yazın (veya **Load from file** ile bir dosyadan yükleyin) ve **Save** butonuna tıklayın. Ardından **Deploy** ile sanal makineyi oluşturun.
+
+![Provide a customization script penceresi](/img/flexostack/vm-customization-script-editor.png)
+
+#### Örnek: Root Parolası Belirleme
+
+Aşağıdaki script, `root` kullanıcısının parolasını belirler, SSH ile root girişine izin verir ve işlem sonunda sunucuyu yeniden başlatır:
+
+```yaml
+#cloud-config
+user: root
+password: password
+chpasswd: {expire: False}
+ssh_pwauth: True
+runcmd:
+  - sed -i -r 's/(#+?)PermitRootLogin(.*)/PermitRootLogin yes/g' /etc/ssh/sshd_config
+power_state:
+  mode: reboot
+```
+
+| Satır | Açıklama |
+| --- | --- |
+| `user` | Parolası belirlenecek kullanıcı (örnekte `root`). |
+| `password` | Kullanıcının parolası. `password` ifadesini kendi güçlü parolanızla değiştirin. |
+| `chpasswd: {expire: False}` | Parolanın ilk girişte değiştirilmeye zorlanmamasını sağlar. |
+| `ssh_pwauth` | SSH üzerinden parola ile kimlik doğrulamayı etkinleştirir. |
+| `runcmd` | `sshd_config` dosyasında root girişine izin verir (`PermitRootLogin yes`). |
+| `power_state` | Script çalıştıktan sonra sunucuyu yeniden başlatır (`reboot`). |
+
+:::warning Önemli
+Canlı (production) ortamlarda `password` alanına zayıf bir değer yazmayın; güçlü ve benzersiz bir parola kullanın. Mümkünse parola yerine [SSH anahtarı](./ssh-anahtarlari.md) ile kimlik doğrulamayı tercih edin.
+:::
+
+#### Örnek: Paket Kurulumu
 
 ```yaml
 #cloud-config
@@ -89,7 +137,7 @@ runcmd:
   - systemctl enable --now nginx
 ```
 
-Windows imajlarında cloudbase-init kullanılır ve PowerShell betikleri `#ps1_sysnative` satırıyla başlar.
+Customization script yalnızca Linux imajlarında kullanılır. Windows sunucularda ilk parola kurulumdan sonra konsoldan belirlenir.
 
 ### Etiketler ve Açıklama
 

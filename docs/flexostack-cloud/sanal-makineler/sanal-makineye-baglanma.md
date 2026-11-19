@@ -48,7 +48,7 @@ Windows 10 ve sonrasında PowerShell içinde `ssh` komutu hazır gelir. Alternat
 1. Güvenlik grubunda **TCP 3389** portunu yalnızca kendi IP adresinize açın.
 2. Windows sanal makinenize bir floating IP atayın.
 3. Bilgisayarınızda **Uzak Masaüstü Bağlantısı** uygulamasını açın ve floating IP adresini girin.
-4. `Administrator` kullanıcısı ve belirlediğiniz parola ile giriş yapın.
+4. `Administrator` kullanıcısı ve kurulum sonrasında konsoldan belirlediğiniz parola ile giriş yapın. Bkz. [Windows Sunucularda İlk Parola](#windows-sunucularda-ilk-parola).
 
 :::warning RDP portunu herkese açmayın
 3389 portunu `0.0.0.0/0` adresine açmak, sunucunuzu sürekli parola deneme saldırılarına maruz bırakır. Erişimi kendi IP adreslerinizle sınırlayın veya [Site-to-Site VPN](../ag/vpn.md) kullanın.
@@ -58,7 +58,7 @@ Windows 10 ve sonrasında PowerShell içinde `ssh` komutu hazır gelir. Alternat
 
 ### Oluşturma Sırasında (cloud-init)
 
-Sanal makineyi oluştururken **User data** alanına aşağıdaki gibi bir yapılandırma ekleyerek parola belirleyebilirsiniz:
+Linux sanal makineyi oluştururken **Customization script** alanına aşağıdaki gibi bir yapılandırma ekleyerek parola belirleyebilirsiniz. Ayrıntılar ve root parolası örneği için [Customization Script](./sanal-makine-olusturma.md#customization-script-cloud-init) bölümüne bakın:
 
 ```yaml
 #cloud-config
@@ -69,6 +69,19 @@ ssh_pwauth: false
 ```
 
 `ssh_pwauth: false` ayarı SSH'ta parola ile girişi kapalı tutar; parola yalnızca konsol girişi için kullanılır. Bu, önerilen güvenli yapılandırmadır.
+
+### Windows Sunucularda İlk Parola {#windows-sunucularda-ilk-parola}
+
+Windows Server imajları Sysprep alınarak hazırlandığı için, sanal makine ilk açıldığında Windows kurulumunun son adımı olarak yönetici parolası belirlenmesini bekler:
+
+1. Sanal makine **Active** durumuna geçtikten sonra panelde sanal makineyi açın ve **Console** ile konsola bağlanın.
+2. Kurulum ekranında bölge, dil ve klavye ayarlarını onaylayın.
+3. `Administrator` kullanıcısı için güçlü bir parola belirleyin ve tekrar girin.
+4. Kurulum tamamlandıktan sonra bu parolayla konsoldan veya [RDP](#rdp-ile-bağlanma-windows) ile giriş yapabilirsiniz.
+
+:::tip
+Parola belirlenene kadar sanal makineye RDP ile bağlanamazsınız. Parolanızı güvenli bir yerde saklayın.
+:::
 
 ### Çalışan Sunucuda
 
