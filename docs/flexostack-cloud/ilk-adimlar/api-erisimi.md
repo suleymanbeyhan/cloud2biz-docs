@@ -34,8 +34,11 @@ API erişim bilgisi, uygulamaların ve betiklerin kullanıcı adı ve parola kul
 
 ### Oluşturma Adımları
 
-1. Panelde ilgili projeyi açın ve **Settings** > **API credentials** ekranına gidin.
+1. Panelde ilgili projeyi açın ve sol menüdeki dişli çark simgesine (**Settings**) tıklayın. **API credentials** ekranı açılır.
 2. **Create** butonuna tıklayın.
+
+   ![FlexoStack panelinde Settings > API credentials ekranı ve Create butonu](/img/flexostack/api-credentials.png)
+
 3. Benzersiz bir ad girin, erişilecek projeyi seçin ve bir **son kullanma tarihi** belirleyin. Son kullanma tarihi en fazla oluşturma tarihinden **bir yıl** sonrası olabilir.
 4. **Create** butonuna tıklayın.
 5. Açılan pencerede **Credential ID**, **API secret key** ve **kimlik doğrulama adresini (auth URL)** kopyalayıp güvenli bir yere kaydedin. Hepsini birlikte kopyalamak için **Copy token information** seçeneğini kullanabilirsiniz.

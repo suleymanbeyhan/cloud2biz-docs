@@ -34,8 +34,11 @@ API credentials let applications and scripts authenticate to the API without a u
 
 ### Steps
 
-1. Open the project in the panel and go to **Settings** > **API credentials**.
+1. Open the project in the panel and click the gear icon (**Settings**) in the left menu. The **API credentials** screen opens.
 2. Click **Create**.
+
+   ![Settings > API credentials screen and the Create button in the FlexoStack panel](/img/flexostack/api-credentials.png)
+
 3. Enter a unique name, select the project and set an **expiration date**. The expiration date can be at most **one year** after creation.
 4. Click **Create**.
 5. In the window that opens, copy the **Credential ID**, **API secret key** and **authentication URL** and store them securely. Use **Copy token information** to copy everything at once.
