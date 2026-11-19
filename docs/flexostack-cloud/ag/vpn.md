@@ -4,7 +4,7 @@ title: Site-to-Site VPN
 description: FlexoStack sanal ağlarınızı ofisinize veya diğer veri merkezlerine IPsec Site-to-Site VPN ile şifreli olarak bağlama.
 ---
 
-**Site-to-Site VPN**, FlexoStack'teki sanal ağlarınızı ofis ağınıza, başka bir bulut ortamına veya farklı bir Cloud2Biz lokasyonuna **IPsec** protokolüyle şifreli olarak bağlar. Bağlantı kurulduktan sonra iki taraftaki sunucular, sanki aynı ağdaymış gibi özel IP adresleriyle haberleşir.
+**Site-to-Site VPN**, FlexoStack'teki sanal ağlarınızı ofis ağınıza, başka bir bulut ortamına veya farklı bir Cloud2Biz lokasyonuna **IPsec** protokolüyle şifreli olarak bağlar. Bağlantı kurulduktan sonra iki taraftaki sunucular, internete açılmadan, özel IP adresleri üzerinden tek bir ağın parçası olarak birbirleriyle güvenli şekilde iletişim kurar.
 
 ## Kullanım Senaryoları
 

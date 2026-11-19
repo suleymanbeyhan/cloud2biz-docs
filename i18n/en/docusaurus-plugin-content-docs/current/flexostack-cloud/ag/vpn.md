@@ -4,7 +4,7 @@ title: Site-to-Site VPN
 description: Connecting FlexoStack virtual networks to your office or other data centers securely with an IPsec Site-to-Site VPN.
 ---
 
-A **Site-to-Site VPN** connects your FlexoStack virtual networks to your office network, another cloud environment or a different Cloud2Biz location using encrypted **IPsec** tunnels. Once connected, servers on both sides communicate with private IP addresses as if they were on the same network.
+A **Site-to-Site VPN** connects your FlexoStack virtual networks to your office network, another cloud environment or a different Cloud2Biz location using encrypted **IPsec** tunnels. Once connected, servers on both sides communicate securely over their private IP addresses as part of a single network, without being exposed to the internet.
 
 ## Use Cases
 
