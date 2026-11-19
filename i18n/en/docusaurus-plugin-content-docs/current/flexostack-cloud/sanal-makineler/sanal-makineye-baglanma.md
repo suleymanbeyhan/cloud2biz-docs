@@ -51,7 +51,7 @@ On Windows 10 and later, the `ssh` command is available in PowerShell. Alternati
 4. Log in as `Administrator` with the password you set from the console after installation. See [Initial Password on Windows Servers](#initial-password-on-windows-servers).
 
 :::warning Do not open RDP to everyone
-Opening port 3389 to `0.0.0.0/0` exposes your server to constant password-guessing attacks. Restrict access to your own IP addresses or use a [Site-to-Site VPN](../ag/vpn.md).
+Opening port 3389 to `0.0.0.0/0` exposes your server to constant password-guessing attacks. Restrict access to your own IP addresses only.
 :::
 
 ## Setting a Password

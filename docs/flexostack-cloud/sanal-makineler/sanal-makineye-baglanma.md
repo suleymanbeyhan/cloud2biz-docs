@@ -51,7 +51,7 @@ Windows 10 ve sonrasında PowerShell içinde `ssh` komutu hazır gelir. Alternat
 4. `Administrator` kullanıcısı ve kurulum sonrasında konsoldan belirlediğiniz parola ile giriş yapın. Bkz. [Windows Sunucularda İlk Parola](#windows-sunucularda-ilk-parola).
 
 :::warning RDP portunu herkese açmayın
-3389 portunu `0.0.0.0/0` adresine açmak, sunucunuzu sürekli parola deneme saldırılarına maruz bırakır. Erişimi kendi IP adreslerinizle sınırlayın veya [Site-to-Site VPN](../ag/vpn.md) kullanın.
+3389 portunu `0.0.0.0/0` adresine açmak, sunucunuzu sürekli parola deneme saldırılarına maruz bırakır. Erişimi yalnızca kendi IP adreslerinizle sınırlayın.
 :::
 
 ## Parola Belirleme
