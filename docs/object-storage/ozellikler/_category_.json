@@ -1,0 +1,9 @@
+{
+  "label": "Özellikler",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "slug": "/object-storage/ozellikler",
+    "description": "Desteklenen Amazon S3 özellikleri ve Amazon S3 ile karşılaştırma."
+  }
+}

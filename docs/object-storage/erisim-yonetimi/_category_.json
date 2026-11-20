@@ -1,0 +1,9 @@
+{
+  "label": "Erişim Yönetimi",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/object-storage/erisim-yonetimi",
+    "description": "Bucket politikalarıyla kullanıcı, klasör, IP adresi ve TLS sürümü bazlı erişim kontrolü."
+  }
+}

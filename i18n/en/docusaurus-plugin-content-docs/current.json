@@ -86,5 +86,53 @@
   "sidebar.objectStorageSidebar.category.SSS.link.generated-index.title": {
     "message": "FAQ",
     "description": "The generated-index page title for category 'SSS' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Başlangıç": {
+    "message": "Getting Started",
+    "description": "The label for category 'Başlangıç' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Başlangıç.link.generated-index.title": {
+    "message": "Getting Started",
+    "description": "The generated-index page title for category 'Başlangıç' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Başlangıç.link.generated-index.description": {
+    "message": "S3 access, access keys and connecting with S3 tools.",
+    "description": "The generated-index page description for category 'Başlangıç' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Bucket ve Dosyalar": {
+    "message": "Buckets and Files",
+    "description": "The label for category 'Bucket ve Dosyalar' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Bucket ve Dosyalar.link.generated-index.title": {
+    "message": "Buckets and Files",
+    "description": "The generated-index page title for category 'Bucket ve Dosyalar' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Bucket ve Dosyalar.link.generated-index.description": {
+    "message": "Creating and deleting buckets, managing files and folders.",
+    "description": "The generated-index page description for category 'Bucket ve Dosyalar' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Erişim Yönetimi": {
+    "message": "Access Management",
+    "description": "The label for category 'Erişim Yönetimi' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Erişim Yönetimi.link.generated-index.title": {
+    "message": "Access Management",
+    "description": "The generated-index page title for category 'Erişim Yönetimi' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Erişim Yönetimi.link.generated-index.description": {
+    "message": "Access control by user, folder, IP address and TLS version with bucket policies.",
+    "description": "The generated-index page description for category 'Erişim Yönetimi' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Özellikler": {
+    "message": "Features",
+    "description": "The label for category 'Özellikler' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Özellikler.link.generated-index.title": {
+    "message": "Features",
+    "description": "The generated-index page title for category 'Özellikler' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.objectStorageSidebar.category.Özellikler.link.generated-index.description": {
+    "message": "Supported Amazon S3 features and comparison with Amazon S3.",
+    "description": "The generated-index page description for category 'Özellikler' in sidebar 'objectStorageSidebar'"
   }
 }

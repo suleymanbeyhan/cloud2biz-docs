@@ -1,0 +1,9 @@
+{
+  "label": "Başlangıç",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "/object-storage/baslangic",
+    "description": "S3 erişimi, erişim anahtarları ve S3 araçlarıyla bağlanma."
+  }
+}
