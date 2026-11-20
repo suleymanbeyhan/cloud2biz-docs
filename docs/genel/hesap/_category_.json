@@ -1,0 +1,9 @@
+{
+  "label": "Hesap ve Müşteri Paneli",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "slug": "/genel/hesap",
+    "description": "Cloud2Biz hesabı oluşturma ve müşteri paneli."
+  }
+}

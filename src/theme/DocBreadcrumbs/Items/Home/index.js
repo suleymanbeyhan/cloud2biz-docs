@@ -8,7 +8,7 @@ import HomeBreadcrumbItem from '@theme-original/DocBreadcrumbs/Items/Home';
 const PLATFORMS = [
   {path: '/docs/flexostack-cloud', to: '/docs/flexostack-cloud', label: {tr: 'FlexoStack Cloud', en: 'FlexoStack Cloud'}},
   {path: '/docs/object-storage', to: '/docs/object-storage', label: {tr: 'Object Storage', en: 'Object Storage'}},
-  {path: '/docs/intro', to: '/docs/intro', label: {tr: 'Genel', en: 'General'}},
+  {path: '/docs/genel', to: '/docs/genel', label: {tr: 'Genel', en: 'General'}},
 ];
 
 export default function HomeBreadcrumbItemWrapper(props) {

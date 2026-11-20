@@ -134,5 +134,53 @@
   "sidebar.objectStorageSidebar.category.Özellikler.link.generated-index.description": {
     "message": "Supported Amazon S3 features and comparison with Amazon S3.",
     "description": "The generated-index page description for category 'Özellikler' in sidebar 'objectStorageSidebar'"
+  },
+  "sidebar.genelSidebar.category.Hesap ve Müşteri Paneli": {
+    "message": "Account and Client Area",
+    "description": "The label for category 'Hesap ve Müşteri Paneli' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Hesap ve Müşteri Paneli.link.generated-index.title": {
+    "message": "Account and Client Area",
+    "description": "The generated-index page title for category 'Hesap ve Müşteri Paneli' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Hesap ve Müşteri Paneli.link.generated-index.description": {
+    "message": "Creating a Cloud2Biz account and using the client area.",
+    "description": "The generated-index page description for category 'Hesap ve Müşteri Paneli' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Ödeme ve Faturalar": {
+    "message": "Payments and Invoices",
+    "description": "The label for category 'Ödeme ve Faturalar' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Ödeme ve Faturalar.link.generated-index.title": {
+    "message": "Payments and Invoices",
+    "description": "The generated-index page title for category 'Ödeme ve Faturalar' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Ödeme ve Faturalar.link.generated-index.description": {
+    "message": "Payment methods, invoices and package changes.",
+    "description": "The generated-index page description for category 'Ödeme ve Faturalar' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Destek": {
+    "message": "Support",
+    "description": "The label for category 'Destek' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Destek.link.generated-index.title": {
+    "message": "Support",
+    "description": "The generated-index page title for category 'Destek' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Destek.link.generated-index.description": {
+    "message": "24/7 support and contact channels.",
+    "description": "The generated-index page description for category 'Destek' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Kurumsal": {
+    "message": "Company",
+    "description": "The label for category 'Kurumsal' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Kurumsal.link.generated-index.title": {
+    "message": "Company",
+    "description": "The generated-index page title for category 'Kurumsal' in sidebar 'genelSidebar'"
+  },
+  "sidebar.genelSidebar.category.Kurumsal.link.generated-index.description": {
+    "message": "Data center infrastructure, certifications, agreements and policies.",
+    "description": "The generated-index page description for category 'Kurumsal' in sidebar 'genelSidebar'"
   }
 }

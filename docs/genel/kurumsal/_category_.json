@@ -1,0 +1,9 @@
+{
+  "label": "Kurumsal",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "slug": "/genel/kurumsal",
+    "description": "Veri merkezi altyapısı, sertifikalar, sözleşmeler ve politikalar."
+  }
+}

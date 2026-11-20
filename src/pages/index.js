@@ -11,7 +11,7 @@ const TEXT = {
     subtitle: 'İhtiyacınız olan yardımı rehberlerimiz ve dokümantasyonumuzda bulun.',
     section: 'Platform Seçin ve Cevabınızı Bulun',
     cards: [
-      {title: 'Genel', desc: 'Cloud2Biz hesabı, müşteri paneli ve genel konular hakkında bilgiler', to: '/docs/intro'},
+      {title: 'Genel', desc: 'Cloud2Biz hesabı, müşteri paneli ve genel konular hakkında bilgiler', to: '/docs/genel'},
       {title: 'FlexoStack Cloud', desc: 'Esnek bulut: sanal sunucular, ağ, depolama, Kubernetes, faturalandırma ve API', to: '/docs/flexostack-cloud'},
       {title: 'Object Storage', desc: 'S3 uyumlu nesne depolama: kullanım, SSS ve en iyi uygulamalar', to: '/docs/object-storage'},
     ],
@@ -21,7 +21,7 @@ const TEXT = {
     subtitle: 'Find the help you need in our guides and documentation.',
     section: 'Select a Platform and Find Your Answer',
     cards: [
-      {title: 'General', desc: 'Information on your Cloud2Biz account, client area and general topics', to: '/docs/intro'},
+      {title: 'General', desc: 'Information on your Cloud2Biz account, client area and general topics', to: '/docs/genel'},
       {title: 'FlexoStack Cloud', desc: 'Flexible cloud: virtual servers, networking, storage, Kubernetes, billing and API', to: '/docs/flexostack-cloud'},
       {title: 'Object Storage', desc: 'S3-compatible object storage: usage, FAQ and best practices', to: '/docs/object-storage'},
     ],

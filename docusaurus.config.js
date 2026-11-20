@@ -52,7 +52,7 @@ const config = {
         // Platform bazlı arama: doküman sayfalarında yalnızca o platformda arar,
         // ana sayfada ve arama sayfasında kategori seçilebilir.
         searchContextByPaths: [
-          {label: {tr: 'Genel', en: 'General'}, path: 'docs/intro'},
+          {label: {tr: 'Genel', en: 'General'}, path: 'docs/genel'},
           {label: 'FlexoStack Cloud', path: 'docs/flexostack-cloud'},
           {label: 'Object Storage', path: 'docs/object-storage'},
         ],
@@ -80,7 +80,7 @@ const config = {
             label: 'Platform Seçin',
             position: 'left',
             items: [
-              {label: 'Genel', to: '/docs/intro'},
+              {label: 'Genel', to: '/docs/genel'},
               {label: 'FlexoStack Cloud', to: '/docs/flexostack-cloud'},
               {label: 'Object Storage', to: '/docs/object-storage'},
             ],

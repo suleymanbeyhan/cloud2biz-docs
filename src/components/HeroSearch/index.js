@@ -14,7 +14,7 @@ import styles from './styles.module.css';
  */
 const CATEGORIES = [
   {id: '', label: {tr: 'Tümü', en: 'All'}},
-  {id: 'docs/intro', label: {tr: 'Genel', en: 'General'}},
+  {id: 'docs/genel', label: {tr: 'Genel', en: 'General'}},
   {id: 'docs/flexostack-cloud', label: {tr: 'FlexoStack Cloud', en: 'FlexoStack Cloud'}},
   {id: 'docs/object-storage', label: {tr: 'Object Storage', en: 'Object Storage'}},
 ];
