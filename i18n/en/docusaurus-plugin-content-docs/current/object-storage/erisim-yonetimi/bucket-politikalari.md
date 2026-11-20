@@ -52,8 +52,17 @@ Policies can apply to the whole bucket, a specific folder (prefix) or individual
    3. Choose the statement type: **Allow** or **Deny**.
    4. Select the **S3 actions** to apply from the drop-down menu.
    5. Specify the resources: **All objects in the bucket** for the whole bucket, or **Select prefix or object** for specific folders or objects. Example: `arn:aws:s3:::my-bucket/my-folder1/*`
+
+      ![Folder and object resources in the Resources field](/img/flexostack/s3-policy-resources.webp)
+
    6. Specify the **Principal**: **All S3 users** for all users, or **Specify S3 users or domains** for specific users, using the format `arn:aws:iam::<domain_id>:<user_id>`.
+
+      ![S3 user ARNs in the Principals field](/img/flexostack/s3-policy-principals.webp)
+
    7. Optionally, define a condition key, operator and value in **Conditions**. Example: `aws:SourceIp` + `IpAddress` + `192.168.1.0/24`
+
+      ![Condition key, operator and value in the Conditions field](/img/flexostack/s3-policy-conditions.webp)
+
    8. Click **Add** to create the statement.
 4. Add as many statements as you need.
 5. Review the policy on the **JSON view** tab; if needed, download it as JSON with **Download file**.

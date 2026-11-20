@@ -52,8 +52,17 @@ Politikalar bucket'ın tamamına, belirli bir klasöre (prefix) veya tek tek nes
    3. İfade tipini seçin: **Allow** (izin ver) veya **Deny** (engelle).
    4. Açılır menüden uygulanacak **S3 eylemlerini** seçin.
    5. Kaynakları belirleyin: bucket'ın tamamı için **All objects in the bucket**, belirli klasör veya nesneler için **Select prefix or object** seçin. Örnek: `arn:aws:s3:::my-bucket/my-folder1/*`
+
+      ![Resources alanında klasör ve nesne kaynakları](/img/flexostack/s3-policy-resources.webp)
+
    6. **Principal** belirleyin: tüm kullanıcılar için **All S3 users**, belirli kullanıcılar için **Specify S3 users or domains** seçin ve `arn:aws:iam::<domain_id>:<user_id>` biçimini kullanın.
+
+      ![Principals alanında S3 kullanıcılarının ARN'leri](/img/flexostack/s3-policy-principals.webp)
+
    7. İsteğe bağlı olarak **Conditions** alanında koşul anahtarı, operatör ve değer tanımlayın. Örnek: `aws:SourceIp` + `IpAddress` + `192.168.1.0/24`
+
+      ![Conditions alanında koşul anahtarı, operatör ve değer](/img/flexostack/s3-policy-conditions.webp)
+
    8. **Add** ile ifadeyi oluşturun.
 4. İhtiyaç duyduğunuz kadar ifade ekleyin.
 5. **JSON view** sekmesinde politikayı kontrol edin; gerekirse **Download file** ile JSON olarak indirin.
