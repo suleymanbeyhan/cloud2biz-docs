@@ -76,7 +76,10 @@ Windows Server images are generalized with Sysprep, so when the virtual machine 
 
 1. After the virtual machine becomes **Active**, open it in the panel and connect with **Console**.
 2. Confirm the region, language and keyboard settings on the setup screen.
-3. Set a strong password for the `Administrator` user and enter it again.
+3. On the **Customize settings** screen, type a strong password for the `Administrator` user in **Password**, enter it again in **Reenter password** and click **Finish**.
+
+   ![Customize settings in the Windows Server console: setting the Administrator password](/img/flexostack/windows-set-password.png)
+
 4. When setup finishes, log in with this password from the console or via [RDP](#connecting-via-rdp-windows).
 
 :::tip

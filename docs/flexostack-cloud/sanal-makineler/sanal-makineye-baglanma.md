@@ -76,7 +76,10 @@ Windows Server imajları Sysprep alınarak hazırlandığı için, sanal makine 
 
 1. Sanal makine **Active** durumuna geçtikten sonra panelde sanal makineyi açın ve **Console** ile konsola bağlanın.
 2. Kurulum ekranında bölge, dil ve klavye ayarlarını onaylayın.
-3. `Administrator` kullanıcısı için güçlü bir parola belirleyin ve tekrar girin.
+3. **Customize settings** ekranında `Administrator` kullanıcısı için **Password** alanına güçlü bir parola yazın, **Reenter password** alanına tekrar girin ve **Finish** butonuna tıklayın.
+
+   ![Windows Server konsolunda Customize settings: Administrator parolası belirleme](/img/flexostack/windows-set-password.png)
+
 4. Kurulum tamamlandıktan sonra bu parolayla konsoldan veya [RDP](#rdp-ile-bağlanma-windows) ile giriş yapabilirsiniz.
 
 :::tip
