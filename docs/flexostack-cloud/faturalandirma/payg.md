@@ -104,6 +104,28 @@ FlexoStack'teki **Windows Server imajları hazır olarak lisanslanmıştır**; a
 - Lisans bedeli **çekirdek (core) başına değildir**; sanal makine başına **aylık 25 USD** üzerinden hesaplanır. Sanal makinenize kaç vCPU verirseniz verin lisans bedeli değişmez.
 - Lisans kullanımı **saatlik** ölçülür (0,0342 USD / saat). Windows sanal makineniz bir ay boyunca kesintisiz çalışırsa lisans bedeli **25 USD** olur; daha kısa süre kullanırsanız yalnızca kullandığınız süre kadar ödersiniz.
 
+### Kademeli Hesaplama Nasıl Yapılır? {#kademeli-hesaplama}
+
+PAYG'de miktar indirimi **kademe kademe** uygulanır:
+
+1. **1. kademedeki** kaynaklar 1. kademe fiyatıyla hesaplanır.
+2. **2. kademeye** düşen kaynaklar 2. kademe fiyatıyla hesaplanır.
+3. **3. kademeye** düşen kaynaklar 3. kademe fiyatıyla hesaplanır.
+4. Üç kademenin tutarları **toplanarak** faturalandırılır.
+
+**Örnek: 40 vCPU (saatlik)**
+
+| Kademe | Miktar | Birim fiyat | Tutar |
+| --- | --- | --- | --- |
+| 1. kademe (1–8) | 8 vCore | 0,0033 | 0,02640 |
+| 2. kademe (9–32) | 24 vCore | 0,00297 | 0,07128 |
+| 3. kademe (33 ve üzeri) | 8 vCore | 0,002805 | 0,02244 |
+| **Toplam** | **40 vCore** | | **0,12012 USD/saat** (730 saatte ≈ 87,69 USD) |
+
+:::note Sabit kaynaktan farkı
+[Sabit kaynak](./sabit-kaynak.md#miktar-indirimleri) modelinde ise ulaşılan kademenin indirimi satın alınan miktarın **tamamına** uygulanır. Örneğin 40 vCPU'nun tamamı %15 indirimli fiyattan hesaplanır.
+:::
+
 ## Kullanımın Hesaba Yazılması
 
 - Kullanımınız **saatlik** olarak ölçülür.

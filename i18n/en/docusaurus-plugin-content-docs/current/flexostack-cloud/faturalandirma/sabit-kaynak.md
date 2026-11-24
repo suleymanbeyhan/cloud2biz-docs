@@ -87,7 +87,7 @@ FlexoStack offers a single load balancer type. A fixed monthly fee applies per l
 - vLAN, switch and port-based firewall ([Security Groups](../ag/security-groups.md))
 - Snapshots
 
-## Quantity Discounts
+## Quantity Discounts {#quantity-discounts}
 
 The unit price is discounted as the amount you buy increases:
 
@@ -97,6 +97,8 @@ The unit price is discounted as the amount you buy increases:
 | RAM | 1–32 GB | 33–64 GB | 65 GB and above |
 | Disk | 0–4 TB | 4–20 TB | 20 TB and above |
 | Backup storage | 100–4,095 GB | 4,096–20,479 GB | 20,480–51,200 GB |
+
+The discount of the tier reached applies to the **entire** purchased quantity. For example, if you buy 10 vCPUs, all 10 are billed at the 10% discounted price. (In [PAYG](./payg.md#tiered-calculation), each tier is calculated separately at its own price.)
 
 Quantity discounts apply in addition to the 6- and 12-month prepaid prices.
 

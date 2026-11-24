@@ -6,12 +6,12 @@ import styles from '../FixedPriceCalculator/styles.module.css';
 /*
  * FlexoStack PAYG (kullandığın kadar öde) saatlik birim fiyatları (USD).
  * Kademeli fiyat: her kademedeki miktar o kademenin fiyatıyla ücretlendirilir.
- * [kademe üst sınırı (dahil değil), saatlik fiyat]; son kademenin sınırı Infinity.
+ * [kademe üst sınırı (dahil), saatlik fiyat]; son kademenin sınırı Infinity.
  * Fiyatlar değiştiğinde yalnızca bu tabloyu güncelleyin (payg.md ile aynı tutun).
  */
 const HOURLY = {
-  vcpu: [[9, 0.0033], [33, 0.00297], [Infinity, 0.002805]],
-  ram: [[33, 0.0033], [65, 0.00297], [Infinity, 0.002805]],
+  vcpu: [[8, 0.0033], [32, 0.00297], [Infinity, 0.002805]],
+  ram: [[32, 0.0033], [64, 0.00297], [Infinity, 0.002805]],
   diskHigh: [[4096, 0.000086], [20480, 0.000077], [Infinity, 0.000073]],
   diskEco: [[4096, 0.00005], [20480, 0.000045], [Infinity, 0.000043]],
   ip: [[Infinity, 0.0036]],

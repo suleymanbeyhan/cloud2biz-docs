@@ -104,6 +104,28 @@ For example, with 1,500 GB of outbound traffic in a month, the first 1,024 GB is
 - The license fee is **not per core**; it is **25 USD per month** per virtual machine. The fee does not change regardless of how many vCPUs you assign.
 - License usage is metered **hourly** (0.0342 USD per hour). If your Windows virtual machine runs for a full month, the license fee is **25 USD**; for shorter use, you pay only for the time used.
 
+### How Is the Tiered Calculation Done? {#tiered-calculation}
+
+In PAYG, quantity discounts are applied **tier by tier**:
+
+1. Resources in **tier 1** are calculated at the tier 1 price.
+2. Resources falling into **tier 2** are calculated at the tier 2 price.
+3. Resources falling into **tier 3** are calculated at the tier 3 price.
+4. The amounts of the three tiers are **added up** and invoiced.
+
+**Example: 40 vCPUs (hourly)**
+
+| Tier | Quantity | Unit price | Amount |
+| --- | --- | --- | --- |
+| Tier 1 (1–8) | 8 vCores | 0.0033 | 0.02640 |
+| Tier 2 (9–32) | 24 vCores | 0.00297 | 0.07128 |
+| Tier 3 (33 and above) | 8 vCores | 0.002805 | 0.02244 |
+| **Total** | **40 vCores** | | **0.12012 USD/hour** (≈ 87.69 USD for 730 hours) |
+
+:::note Difference from fixed resources
+With [fixed resources](./sabit-kaynak.md#quantity-discounts), the discount of the tier reached applies to the **entire** purchased quantity. For example, all 40 vCPUs are billed at the 15% discounted price.
+:::
+
 ## How Usage Is Recorded
 
 - Your usage is metered **hourly**.

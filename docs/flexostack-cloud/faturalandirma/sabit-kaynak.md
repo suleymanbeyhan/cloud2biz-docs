@@ -98,6 +98,8 @@ Satın aldığınız kaynak miktarı arttıkça birim fiyata indirim uygulanır:
 | Disk | 0–4 TB | 4–20 TB | 20 TB ve üzeri |
 | Yedekleme alanı | 100–4.095 GB | 4.096–20.479 GB | 20.480–51.200 GB |
 
+Ulaşılan kademenin indirimi, satın alınan miktarın **tamamına** uygulanır. Örneğin 10 vCPU satın aldığınızda 10 vCPU'nun tamamı %10 indirimli fiyattan hesaplanır. ([PAYG](./payg.md#kademeli-hesaplama)'de ise her kademe kendi fiyatıyla ayrı hesaplanır.)
+
 Miktar indirimleri, 6 ve 12 aylık peşin ödeme fiyatlarına ek olarak uygulanır.
 
 ## Ödeme Dönemleri ve Faturalar
