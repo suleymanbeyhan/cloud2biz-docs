@@ -58,7 +58,7 @@ You can extend a volume later, but you cannot shrink it. We recommend starting w
 
 ### Flavor (CPU and RAM)
 
-A flavor is a template that defines the number of vCPUs and the amount of RAM. Choose one that fits your needs; you can change it later by [resizing](./sanal-makine-yonetimi.md#changing-cpu-and-ram).
+A flavor is a template that defines the number of vCPUs and the amount of RAM. Choose one that fits your needs; you can later increase or decrease resources by [changing the flavor](./sanal-makine-yonetimi.md#changing-cpu-and-ram). We recommend enabling the [CPU and RAM Hot Plug](#cpu-and-ram-hot-plug) option below for this.
 
 ### Networks
 
@@ -129,6 +129,16 @@ runcmd:
 ```
 
 Customization scripts are used with Linux images only. On Windows servers, the initial password is set from the console after installation.
+
+### CPU and RAM Hot Plug {#cpu-and-ram-hot-plug}
+
+On the summary screen, open **Advanced options** and select **Enable CPU and RAM hot plug**. With this feature enabled, you can increase vCPU and RAM by switching to a larger flavor **while the virtual machine is running**.
+
+![Enable CPU and RAM hot plug option on the Create virtual machine summary screen](/img/flexostack/vm-hotplug-create.png)
+
+:::tip
+If you do not enable hot plug during creation, you must stop the virtual machine (Power off) to enable it later. We recommend selecting this option at creation for servers whose resources may need to grow. For details, see [Changing CPU and RAM](./sanal-makine-yonetimi.md#changing-cpu-and-ram).
+:::
 
 ### Tags and Description
 

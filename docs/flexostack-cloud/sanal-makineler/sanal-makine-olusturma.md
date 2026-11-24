@@ -58,7 +58,7 @@ Disk boyutunu sonradan artırabilirsiniz ancak küçültemezsiniz. Başlangıçt
 
 ### Flavor (CPU ve RAM)
 
-Flavor, sanal makinenin vCPU ve RAM miktarını belirleyen şablondur. İhtiyacınıza uygun olanı seçin; daha sonra [yeniden boyutlandırarak](./sanal-makine-yonetimi.md#cpu-ve-ram-değiştirme) değiştirebilirsiniz.
+Flavor, sanal makinenin vCPU ve RAM miktarını belirleyen şablondur. İhtiyacınıza uygun olanı seçin; daha sonra [flavor'ı değiştirerek](./sanal-makine-yonetimi.md#cpu-ve-ram-değiştirme) kaynakları artırabilir veya azaltabilirsiniz. Bunun için aşağıdaki [CPU ve RAM Hot Plug](#cpu-ve-ram-hot-plug) seçeneğini etkinleştirmenizi öneririz.
 
 ### Ağlar
 
@@ -129,6 +129,16 @@ runcmd:
 ```
 
 Customization script yalnızca Linux imajlarında kullanılır. Windows sunucularda ilk parola kurulumdan sonra konsoldan belirlenir.
+
+### CPU ve RAM Hot Plug {#cpu-ve-ram-hot-plug}
+
+Özet ekranında **Advanced options** bölümünü açın ve **Enable CPU and RAM hot plug** seçeneğini işaretleyin. Bu özellik etkin olduğunda, sanal makine **çalışırken** flavor'ı daha yüksek bir flavor ile değiştirerek vCPU ve RAM artırabilirsiniz.
+
+![Create virtual machine özet ekranında Enable CPU and RAM hot plug seçeneği](/img/flexostack/vm-hotplug-create.png)
+
+:::tip
+Hot plug'ı kurulum sırasında etkinleştirmezseniz, daha sonra etkinleştirmek için sanal makineyi kapatmanız (Power off) gerekir. Kaynak artırma ihtimali olan sunucularda bu seçeneği kurulumda işaretlemenizi öneririz. Ayrıntılar için [CPU ve RAM Değiştirme](./sanal-makine-yonetimi.md#cpu-ve-ram-değiştirme) bölümüne bakın.
+:::
 
 ### Etiketler ve Açıklama
 

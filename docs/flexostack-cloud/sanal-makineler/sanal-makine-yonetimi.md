@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Sanal Makine Yönetimi
-description: FlexoStack sanal makinelerini başlatma, durdurma, yeniden boyutlandırma, rafa kaldırma, kurtarma modu, ISO bağlama, silme ve sorun giderme.
+description: FlexoStack sanal makinelerini başlatma, durdurma, CPU ve RAM değiştirme (hot plug), rafa kaldırma, kurtarma modu, ISO bağlama, silme ve sorun giderme.
 ---
 
 Bu sayfada sanal makinelerinizin günlük yönetimiyle ilgili tüm işlemleri bulabilirsiniz. İşlemlerin çoğu **Virtual machines** ekranında sanal makineyi seçtikten sonra sağ üstteki işlem menüsünden yapılır.
@@ -24,17 +24,44 @@ Bu işlemler işletim sistemine kapanma fırsatı vermez; yazılmakta olan veril
 
 ## CPU ve RAM Değiştirme
 
-Sanal makinenin CPU ve RAM miktarını farklı bir flavor seçerek değiştirebilirsiniz:
+Sanal makinenin vCPU ve RAM miktarını farklı bir **flavor** seçerek değiştirirsiniz. Bunun için sanal makinede **CPU and RAM hot plug** özelliğinin **etkin** olması gerekir.
 
-1. Sanal makineyi seçin ve **Edit** veya **Resize** seçeneğine tıklayın.
-2. Yeni flavor'ı seçin ve kaydedin.
+### 1. CPU ve RAM Hot Plug'ı Etkinleştirin {#hot-plug-etkinlestirme}
 
-Kaynak değişikliği için sanal makinenin yeniden başlatılması gerekebilir. Canlı sistemlerde bu işlemi bakım penceresinde yapmanızı öneririz.
+Hot plug özelliğini iki şekilde etkinleştirebilirsiniz:
 
-Faturalandırma etkisi:
+- **Kurulum sırasında:** Sanal makine oluşturma özet ekranında **Advanced options** altındaki **Enable CPU and RAM hot plug** seçeneğini işaretleyin. Bkz. [Sanal Makine Oluşturma](./sanal-makine-olusturma.md#cpu-ve-ram-hot-plug).
+- **Kurulumdan sonra:** Sanal makineyi **Power off** ile kapatın, ardından **Overview** sekmesindeki **Properties** bölümünde **CPU and RAM hot plug** satırının yanındaki kalem simgesine tıklayarak özelliği etkinleştirin.
+
+Özellik etkin olduğunda **Properties** bölümünde **CPU and RAM hot plug: Enabled** görünür.
+
+![Sanal makinenin Properties bölümünde Flavor ve CPU and RAM hot plug: Enabled](/img/flexostack/vm-hotplug-properties.png)
+
+### 2. Flavor'ı Değiştirin
+
+1. **Virtual machines** ekranında sanal makinenin üzerine tıklayın.
+2. **Overview** sekmesindeki **Properties** bölümünde **Flavor** satırının yanındaki kalem simgesine tıklayın.
+3. **Flavor** penceresinde **Available flavors** listesinden yeni flavor'ı seçin.
+4. **Done** butonuna tıklayın.
+
+![Flavor penceresi ve Available flavors listesi](/img/flexostack/vm-flavor-dialog.png)
+
+### Ne Zaman Kapatmak Gerekir?
+
+| Değişiklik | Sanal makine durumu |
+| --- | --- |
+| **Daha yüksek** flavor'a geçiş (vCPU/RAM artırma) | Sanal makine **çalışırken**, kapatmadan yapılabilir. |
+| **Daha düşük** flavor'a geçiş (vCPU/RAM azaltma) | Sanal makine önce **Power off** ile kapatılmalıdır. |
+| Hot plug'ı sonradan etkinleştirme | Sanal makine önce **Power off** ile kapatılmalıdır. |
+
+:::warning
+Hot plug etkin değilse veya misafir işletim sistemi CPU/RAM hot plug'ı desteklemiyorsa, flavor değişikliğinden sonra işletim sistemi kararsız çalışabilir. Bu durumda değişikliği sanal makine kapalıyken yapın.
+:::
+
+### Faturalandırma Etkisi
 
 - **PAYG** kaynaklarında yeni CPU/RAM miktarı ücretlendirmeye anında yansır.
-- **Sabit kaynaklarda** azaltma bir sonraki dönemden itibaren geçerli olur.
+- **Sabit kaynaklarda** kaynak artırma müşteri panelinden [paket yükseltme](../faturalandirma/sabit-kaynak.md#kaynak-değişiklikleri) ile yapılır. Azaltmada ücret iadesi yapılmaz; bir sonraki ayın faturası azaltılan kaynaklar kadar düşer.
 
 Disk boyutunu büyütmek için [Diskler](../depolama/diskler.md#disk-boyutunu-büyütme) sayfasına bakın.
 

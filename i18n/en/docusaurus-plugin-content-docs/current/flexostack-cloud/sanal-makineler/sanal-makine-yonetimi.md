@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Managing Virtual Machines
-description: Starting, stopping, resizing, shelving, rescuing, attaching ISO images to, deleting and troubleshooting FlexoStack virtual machines.
+description: Starting, stopping, changing CPU and RAM (hot plug), shelving, rescuing, attaching ISO images to, deleting and troubleshooting FlexoStack virtual machines.
 ---
 
 This page covers everyday management of your virtual machines. Most actions are available from the action menu in the top-right corner after selecting a virtual machine on the **Virtual machines** screen.
@@ -24,17 +24,44 @@ These actions give the operating system no chance to shut down; data being writt
 
 ## Changing CPU and RAM
 
-You can change the CPU and RAM of a virtual machine by selecting a different flavor:
+You change the vCPU and RAM of a virtual machine by selecting a different **flavor**. This requires **CPU and RAM hot plug** to be **enabled** on the virtual machine.
 
-1. Select the virtual machine and click **Edit** or **Resize**.
-2. Choose the new flavor and save.
+### 1. Enable CPU and RAM Hot Plug {#enabling-hot-plug}
 
-The change may require the virtual machine to restart. On production systems, we recommend doing this during a maintenance window.
+You can enable hot plug in two ways:
 
-Billing effect:
+- **During creation:** On the virtual machine creation summary screen, select **Enable CPU and RAM hot plug** under **Advanced options**. See [Creating a Virtual Machine](./sanal-makine-olusturma.md#cpu-and-ram-hot-plug).
+- **After creation:** Stop the virtual machine with **Power off**, then enable the feature by clicking the pencil icon next to **CPU and RAM hot plug** in the **Properties** section of the **Overview** tab.
+
+When the feature is enabled, **Properties** shows **CPU and RAM hot plug: Enabled**.
+
+![Flavor and CPU and RAM hot plug: Enabled in the virtual machine's Properties section](/img/flexostack/vm-hotplug-properties.png)
+
+### 2. Change the Flavor
+
+1. On the **Virtual machines** screen, click the virtual machine.
+2. In the **Properties** section of the **Overview** tab, click the pencil icon next to **Flavor**.
+3. In the **Flavor** window, select the new flavor from **Available flavors**.
+4. Click **Done**.
+
+![Flavor window and the Available flavors list](/img/flexostack/vm-flavor-dialog.png)
+
+### When Do You Need to Power Off?
+
+| Change | Virtual machine state |
+| --- | --- |
+| Moving to a **larger** flavor (more vCPU/RAM) | Can be done **while running**, without powering off. |
+| Moving to a **smaller** flavor (less vCPU/RAM) | The virtual machine must be stopped with **Power off** first. |
+| Enabling hot plug after creation | The virtual machine must be stopped with **Power off** first. |
+
+:::warning
+If hot plug is not enabled, or the guest operating system does not support CPU/RAM hot plug, the operating system may become unstable after a flavor change. In that case, make the change while the virtual machine is powered off.
+:::
+
+### Billing Effect
 
 - For **PAYG** resources, the new CPU/RAM amount affects billing immediately.
-- For **fixed resources**, reductions take effect from the next period.
+- For **fixed resources**, increases are made with a [package upgrade](../faturalandirma/sabit-kaynak.md#resource-changes) in the client area. Decreases are not refunded; next month's invoice is reduced accordingly.
 
 To grow a volume, see [Volumes](../depolama/diskler.md#extending-a-volume).
 
