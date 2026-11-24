@@ -65,15 +65,47 @@ If hot plug is not enabled, or the guest operating system does not support CPU/R
 
 To grow a volume, see [Volumes](../depolama/diskler.md#extending-a-volume).
 
-## Adding and Removing Network Interfaces
+## Adding Network Interfaces and IP Addresses
 
-You can add up to 15 network interfaces to a virtual machine:
+You can add a **new network interface** to a virtual machine, or assign a **secondary IP address to an existing interface** to use a different IP address on the same interface. A virtual machine can have up to 15 network interfaces.
 
-1. Open the virtual machine's **Networks** tab.
-2. Click **Add**, then select the network and security groups.
-3. To remove an interface, use **Detach** from the interface menu.
+### Opening the Network Interfaces Window
 
-You can also change the security groups of an existing interface from the same tab; changes apply immediately.
+1. On the **Virtual machines** screen, click the virtual machine.
+2. In the **Network interfaces** section of the **Overview** tab, click **Edit**.
+
+![Network interfaces - Edit button on the virtual machine's Overview tab](/img/flexostack/vm-nic-overview.png)
+
+### Adding a New Network Interface
+
+1. In the **Network interfaces** window, click **Add** at the top right.
+2. In the **Add network interface** window, select the network the interface connects to, and set the IP address and [security groups](../ag/security-groups.md#assigning-security-groups-to-a-virtual-machine).
+3. Add the interface and click **Done** in the **Network interfaces** window.
+
+![Network interfaces window and the Add button](/img/flexostack/vm-nic-list.png)
+
+### Adding a Secondary IP to an Existing Interface
+
+To use an additional IP address on an existing interface without adding a new one:
+
+1. In the **Network interfaces** window, click the ellipsis icon on the interface's row and select **Edit**.
+
+   ![Edit and Remove options in the network interface menu](/img/flexostack/vm-nic-menu.png)
+
+2. In the **Edit network interface** window, click **Add** on the **IPv4 addresses** row in **Secondary IP addresses** and enter the IP address to add.
+3. Click **Save**, then **Done** in the **Network interfaces** window.
+
+![Secondary IP addresses - Add in the Edit network interface window](/img/flexostack/vm-nic-edit.png)
+
+:::note
+The secondary IP address comes from the same network (subnet) the interface is connected to. If needed, also configure the IP address on the network interface inside the virtual machine's operating system.
+:::
+
+### Removing a Network Interface
+
+In the **Network interfaces** window, click the ellipsis icon on the interface's row, select **Remove** and save with **Done**.
+
+You can also change the interface's security groups in the same **Edit network interface** window; changes apply immediately.
 
 ## Shelving
 

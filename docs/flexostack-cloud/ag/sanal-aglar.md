@@ -79,7 +79,7 @@ Bu yapıda veritabanı sunucularının floating IP'si yoktur; internetten doğru
 ## Sanal Makineyi Ağa Bağlama
 
 - Yeni bir sanal makineyi oluştururken **Networks** bölümünde ağı seçin.
-- Çalışan bir sanal makineye yeni bir ağ arayüzü eklemek için sanal makinenin **Networks** sekmesini kullanın. Bkz. [Sanal makine yönetimi](../sanal-makineler/sanal-makine-yonetimi.md#ağ-arayüzü-ekleme-ve-çıkarma).
+- Çalışan bir sanal makineye yeni bir ağ arayüzü eklemek için sanal makinenin **Overview** sekmesindeki **Network interfaces** > **Edit** bölümünü kullanın. Bkz. [Ağ Arayüzü ve IP Adresi Ekleme](../sanal-makineler/sanal-makine-yonetimi.md#ağ-arayüzü-ve-ip-adresi-ekleme).
 
 ## Sanal Ağı Silme
 

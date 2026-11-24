@@ -79,7 +79,7 @@ Select the network on the **Networks** screen and click **Edit** to change its n
 ## Connecting a Virtual Machine to a Network
 
 - When creating a virtual machine, select the network in the **Networks** section.
-- To add a new interface to a running virtual machine, use its **Networks** tab. See [Managing virtual machines](../sanal-makineler/sanal-makine-yonetimi.md#adding-and-removing-network-interfaces).
+- To add a new interface to a running virtual machine, use **Network interfaces** > **Edit** on its **Overview** tab. See [Adding Network Interfaces and IP Addresses](../sanal-makineler/sanal-makine-yonetimi.md#adding-network-interfaces-and-ip-addresses).
 
 ## Deleting a Virtual Network
 

@@ -65,15 +65,47 @@ Hot plug etkin değilse veya misafir işletim sistemi CPU/RAM hot plug'ı destek
 
 Disk boyutunu büyütmek için [Diskler](../depolama/diskler.md#disk-boyutunu-büyütme) sayfasına bakın.
 
-## Ağ Arayüzü Ekleme ve Çıkarma
+## Ağ Arayüzü ve IP Adresi Ekleme
 
-Bir sanal makineye en fazla 15 ağ arayüzü ekleyebilirsiniz:
+Bir sanal makineye **yeni bir ağ arayüzü** ekleyebilir veya **mevcut bir arayüze ikincil (secondary) IP adresi** tanımlayarak aynı arayüz üzerinden farklı bir IP adresi kullanabilirsiniz. Bir sanal makineye en fazla 15 ağ arayüzü eklenebilir.
 
-1. Sanal makinenin **Networks** sekmesini açın.
-2. **Add** ile yeni bir ağ arayüzü ekleyin, ağı ve güvenlik gruplarını seçin.
-3. Bir arayüzü kaldırmak için ilgili arayüzün yanındaki menüden **Detach** seçeneğini kullanın.
+### Network Interfaces Penceresini Açma
 
-Mevcut bir arayüzün güvenlik gruplarını da aynı sekmeden değiştirebilirsiniz; değişiklikler anında uygulanır.
+1. **Virtual machines** ekranında sanal makinenin üzerine tıklayın.
+2. **Overview** sekmesindeki **Network interfaces** bölümünde **Edit** butonuna tıklayın.
+
+![Sanal makinenin Overview sekmesinde Network interfaces - Edit butonu](/img/flexostack/vm-nic-overview.png)
+
+### Yeni Ağ Arayüzü Ekleme
+
+1. **Network interfaces** penceresinde sağ üstteki **Add** butonuna tıklayın.
+2. **Add network interface** penceresinde arayüzün bağlanacağı ağı seçin; IP adresini ve [güvenlik gruplarını](../ag/security-groups.md#sanal-makineye-güvenlik-grubu-atama) belirleyin.
+3. Arayüzü ekleyin ve **Network interfaces** penceresinde **Done** butonuna tıklayın.
+
+![Network interfaces penceresi ve Add butonu](/img/flexostack/vm-nic-list.png)
+
+### Mevcut Arayüze İkincil IP Ekleme (Secondary IP)
+
+Yeni bir arayüz eklemeden, mevcut arayüz üzerinden ek bir IP adresi kullanmak için:
+
+1. **Network interfaces** penceresinde arayüzün satırındaki üç nokta simgesine tıklayın ve **Edit** seçeneğini seçin.
+
+   ![Ağ arayüzü menüsünde Edit ve Remove seçenekleri](/img/flexostack/vm-nic-menu.png)
+
+2. **Edit network interface** penceresinde **Secondary IP addresses** bölümündeki **IPv4 addresses** satırında **Add** butonuna tıklayın ve eklemek istediğiniz IP adresini girin.
+3. **Save** ile kaydedin, ardından **Network interfaces** penceresinde **Done** butonuna tıklayın.
+
+![Edit network interface penceresinde Secondary IP addresses - Add](/img/flexostack/vm-nic-edit.png)
+
+:::note
+İkincil IP adresi aynı arayüzün bağlı olduğu ağdan (subnet) alınır. Gerekirse IP adresini sanal makinenin işletim sisteminde de ağ arayüzüne tanımlayın.
+:::
+
+### Ağ Arayüzünü Kaldırma
+
+**Network interfaces** penceresinde arayüzün satırındaki üç nokta simgesine tıklayın, **Remove** seçeneğini seçin ve **Done** ile kaydedin.
+
+Aynı **Edit network interface** penceresinden arayüzün güvenlik gruplarını da değiştirebilirsiniz; değişiklikler anında uygulanır.
 
 ## Rafa Kaldırma (Shelve)
 
